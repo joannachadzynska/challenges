@@ -14,14 +14,13 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Post } from "../../redux/types/postTypes";
-import { findByLabelText } from "@testing-library/react";
 
 export interface ArticleProps {
 	post: Post;
 	key: number;
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 	root: {
 		display: "flex",
 		flexDirection: "column",
@@ -60,6 +59,7 @@ const Article: React.SFC<ArticleProps> = ({
 					subheader={new Date(date).toDateString()}
 					title={title}
 				/>
+
 				<CardMedia
 					className={classes.media}
 					component='img'
