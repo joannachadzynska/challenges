@@ -1,4 +1,4 @@
-import { PostRequest, Post } from "../types/postTypes";
+import { PostRequest } from "../types/postTypes";
 import { fetchPosts } from "providers/postProvider";
 
 // Define all your actions here
@@ -39,8 +39,6 @@ const fetchPostsFailure = () => ({
 	type: PostsActions.POSTS_ACTION_GET_FAILURE,
 });
 
-let posts: Post[] = [];
-
 export const getPosts = (number: number, page: number) => async (
 	dispatch: any
 ) => {
@@ -54,15 +52,4 @@ export const getPosts = (number: number, page: number) => async (
 	} catch (error) {
 		dispatch(fetchPostsFailure);
 	}
-};
-
-export const loadMorePosts = (number: number, page: number) => async (
-	dispatch: any
-) => {
-	let morePosts = [];
-	// const response: any = await fetchPosts(number, page);
-
-	// dispatch(fetchPostsSuccess(response));
-	const resp = dispatch(getPosts(number, page));
-	console.log(resp);
 };

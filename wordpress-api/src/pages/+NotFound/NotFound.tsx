@@ -1,8 +1,6 @@
 import React from "react";
 
-export interface NotFoundProps {}
-
-const NotFound: React.SFC<NotFoundProps> = () => {
+const NotFound = () => {
 	return (
 		<div>
 			<h1>Page not found</h1>
