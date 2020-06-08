@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import store from "stores/store";
 import { Header, Content, Footer } from "components/+Layout";
 
-import "./App.css";
 import { Toolbar } from "@material-ui/core";
 
 function App() {

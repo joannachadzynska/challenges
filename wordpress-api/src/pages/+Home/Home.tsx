@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../redux/actions/postsActions";
 import { State } from "../../redux/reducers/postReducer";
@@ -30,21 +30,34 @@ const Home: React.SFC<HomeProps> = () => {
 	const classes = useStyles();
 	const postsStore = useSelector((state: State) => state.posts);
 	const [page, setPage] = useState(1);
+
 	const offset = 15;
+
 	const { loading, posts } = postsStore;
-	const totalPages = Math.ceil(posts?.found / offset);
+
+	const totalPages = useMemo(() => Math.ceil(posts?.found / offset), [
+		posts,
+		offset,
+	]);
+
+	const fetchPosts = useCallback(() => {
+		dispatch(getPosts(offset, page));
+	}, [dispatch, page, offset]);
 
 	useEffect(() => {
-		dispatch(getPosts(offset, page));
-	}, [dispatch, page]);
+		fetchPosts();
+	}, [fetchPosts]);
 
 	const handleChange = (e: any, value: any) => setPage(value);
 
 	return (
 		<div className={classes.root}>
 			<Container maxWidth='lg'>
-				{loading && <CircularProgress color='secondary' size='3rem' />}
-				{posts !== null && <ArticlesList posts={posts.posts} />}
+				{loading ? (
+					<CircularProgress color='secondary' size='3rem' />
+				) : (
+					<ArticlesList />
+				)}
 
 				<Container className={classes.paging}>
 					<Pagination

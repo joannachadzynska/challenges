@@ -1,19 +1,21 @@
 import * as React from "react";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { Post } from "../../redux/types/postTypes";
+import { useSelector } from "react-redux";
 import Article from "../+Article";
 
-export interface ArticlesListProps {
-	posts: Post[];
-}
+const ArticlesList = () => {
+	const postsStore = useSelector((state: any) => state.posts);
+	const { posts } = postsStore;
 
-const ArticlesList: React.SFC<ArticlesListProps> = ({ posts }) => {
+	const loading = posts === null ? true : false;
+
 	return (
 		<Grid container spacing={3}>
-			{!posts ? (
+			{loading ? (
 				<CircularProgress />
 			) : (
-				posts.map((post) => <Article key={post.ID} post={post} />)
+				posts?.posts.map((post: Post) => <Article key={post.ID} post={post} />)
 			)}
 		</Grid>
 	);

@@ -12,6 +12,7 @@ import {
 	Typography,
 	Link,
 } from "@material-ui/core";
+import Skeleton from "@material-ui/lab/Skeleton";
 import { makeStyles } from "@material-ui/core/styles";
 import { Post } from "../../redux/types/postTypes";
 
@@ -51,50 +52,95 @@ const Article: React.SFC<ArticleProps> = ({
 	post: { featured_image, excerpt, title, author, date, URL },
 }) => {
 	const classes = useStyles();
-
+	const loading =
+		!featured_image || !excerpt || !title || !author || !date || !URL;
 	return (
 		<Grid item xs={12} sm={6} md={4}>
 			<Card className={classes.root}>
 				<CardHeader
 					avatar={
-						<Avatar
-							aria-label='recipe'
-							alt={author.first_name}
-							src={author.avatar_URL}
-						/>
+						!author.avatar_URL ? (
+							<Skeleton
+								animation='wave'
+								variant='circle'
+								width={40}
+								height={40}
+							/>
+						) : (
+							<Avatar
+								aria-label='recipe'
+								alt={author.first_name}
+								src={author.avatar_URL}
+							/>
+						)
 					}
-					subheader={new Date(date).toDateString()}
-					title={title}
+					subheader={
+						loading ? (
+							<Skeleton animation='wave' height={10} width='40%' />
+						) : (
+							new Date(date).toDateString()
+						)
+					}
+					title={
+						loading ? (
+							<Skeleton animation='wave' height={10} width='100%' />
+						) : (
+							title
+						)
+					}
 				/>
 
-				<CardMedia
-					className={classes.media}
-					component='img'
-					title={title}
-					alt='title'
-					image={featured_image}
-				/>
+				{!featured_image ? (
+					<Skeleton animation='wave' variant='rect' className={classes.media} />
+				) : (
+					<CardMedia
+						className={classes.media}
+						component='img'
+						title={title}
+						alt='title'
+						loading='lazy'
+						image={featured_image}
+					/>
+				)}
 
 				<CardContent className={classes.content}>
-					<Typography
-						variant='body2'
-						color='textSecondary'
-						component='p'
-						dangerouslySetInnerHTML={{ __html: excerpt }}
-					/>
+					{loading ? (
+						<React.Fragment>
+							<Skeleton
+								animation='wave'
+								height={10}
+								style={{ marginBottom: 6 }}
+							/>
+							<Skeleton animation='wave' height={10} width='80%' />
+						</React.Fragment>
+					) : (
+						<Typography
+							variant='body2'
+							color='textSecondary'
+							component='p'
+							dangerouslySetInnerHTML={{ __html: excerpt }}
+						/>
+					)}
 				</CardContent>
 
 				<CardActions className={classes.actions}>
-					<Button size='small' variant='contained' color='primary'>
-						<Link color='inherit' href={URL}>
-							Go To Article
-						</Link>
-					</Button>
-					<Button size='small' variant='contained' className={classes.button}>
-						<Link href={author.profile_URL} className={classes.link}>
-							About Author
-						</Link>
-					</Button>
+					{loading ? null : (
+						<>
+							<Button size='small' variant='contained' color='primary'>
+								<Link color='inherit' href={URL}>
+									Go To Article
+								</Link>
+							</Button>
+							<Button
+								size='small'
+								variant='contained'
+								className={classes.button}>
+								<Link href={author.profile_URL} className={classes.link}>
+									About Author
+								</Link>
+							</Button>
+						</>
+					)}
 				</CardActions>
 			</Card>
 		</Grid>
