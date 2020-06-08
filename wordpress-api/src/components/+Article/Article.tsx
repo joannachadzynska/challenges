@@ -38,6 +38,13 @@ const useStyles = makeStyles(() => ({
 		justifyContent: "center",
 		marginBottom: "1rem",
 	},
+	link: {
+		fontWeight: 700,
+		color: "#fff",
+	},
+	button: {
+		backgroundColor: "#e40101",
+	},
 }));
 
 const Article: React.SFC<ArticleProps> = ({
@@ -83,8 +90,8 @@ const Article: React.SFC<ArticleProps> = ({
 							Go To Article
 						</Link>
 					</Button>
-					<Button size='small' variant='contained' color='secondary'>
-						<Link color='inherit' href={author.profile_URL}>
+					<Button size='small' variant='contained' className={classes.button}>
+						<Link href={author.profile_URL} className={classes.link}>
 							About Author
 						</Link>
 					</Button>
