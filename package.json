@@ -1,0 +1,19 @@
+{
+	"name": "challenges",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build:wordpress": "npm --prefix wordpress-api run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Joanna-Chadzynska/challenges.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Joanna-Chadzynska/challenges/issues"
+	},
+	"homepage": "https://github.com/Joanna-Chadzynska/challenges#readme"
+}
