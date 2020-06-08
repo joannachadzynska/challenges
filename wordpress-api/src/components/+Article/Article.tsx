@@ -98,7 +98,6 @@ const Article: React.SFC<ArticleProps> = ({
 						component='img'
 						title={title}
 						alt='title'
-						loading='lazy'
 						image={featured_image}
 					/>
 				)}
