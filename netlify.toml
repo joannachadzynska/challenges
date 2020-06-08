@@ -1,0 +1,4 @@
+[build]
+base = "/wordpress-api"
+publish = "/build"
+command = "npm run build"
