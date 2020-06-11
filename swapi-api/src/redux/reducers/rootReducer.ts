@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
-import exampleReducer from "./toolsReducer";
+import { combineReducers } from 'redux';
+import charactersReducer from './charactersReducer';
 
 export const rootReducer = combineReducers({
-	example: exampleReducer,
+  characters: charactersReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
