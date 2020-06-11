@@ -1,21 +1,22 @@
+/* eslint-disable no-console */
 /* eslint-disable import/no-cycle */
 import {
   CharactersActionTypes,
   CharactersActions,
 } from '../actions/charactersAction';
-import { Character, Response } from '../../providers/characterProviders';
+import { Character } from '../../providers/characterProviders';
 
-const tools: Character[] = [];
+const characters: Map<string, Character[]> = new Map();
 
 const charactersReducer = (
-  state = tools,
+  state = characters,
   action: CharactersActionTypes
-): Character[] => {
+): Map<string, Character[]> => {
   switch (action.type) {
     case CharactersActions.GET_CHARACTERS_SUCCESS:
-      return {
-        ...state,
-      };
+      console.log(action.payload);
+
+      return action.payload;
     default:
       return state;
   }
