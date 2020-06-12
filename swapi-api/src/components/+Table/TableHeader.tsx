@@ -1,29 +1,17 @@
 import React from 'react';
-import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { TableCell, TableRow, TableHead } from '@material-ui/core';
+import { TableRow, TableHead } from '@material-ui/core';
+import { StyledTableCell } from './common';
 
-export interface TableHeaderProps {}
-const StyledTableCell = withStyles((theme: Theme) =>
-  createStyles({
-    head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    body: {
-      fontSize: 14,
-    },
-  })
-)(TableCell);
-
-const TableHeader: React.SFC<TableHeaderProps> = () => {
+const TableHeader: React.SFC = () => {
   return (
     <TableHead>
       <TableRow>
-        <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-        <StyledTableCell align="right">Calories</StyledTableCell>
-        <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-        <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-        <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+        <StyledTableCell>Name</StyledTableCell>
+        <StyledTableCell align="right">Eyes Color</StyledTableCell>
+        <StyledTableCell align="right">Gender</StyledTableCell>
+        <StyledTableCell align="right">Hair Color</StyledTableCell>
+        <StyledTableCell align="right">Height</StyledTableCell>
+        <StyledTableCell align="right">Mass</StyledTableCell>
       </TableRow>
     </TableHead>
   );

@@ -1,60 +1,13 @@
-import React from 'react';
-import {
-  withStyles,
-  Theme,
-  createStyles,
-  makeStyles,
-} from '@material-ui/core/styles';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  Paper,
-} from '@material-ui/core';
-
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-console */
+import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import { Table, TableBody, TableContainer, Paper } from '@material-ui/core';
+import { RootState } from 'redux/reducers/rootReducer';
+import { StyledTableRow, StyledTableCell } from './common';
 import TableHeader from './TableHeader';
-
-const StyledTableCell = withStyles((theme: Theme) =>
-  createStyles({
-    head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    body: {
-      fontSize: 14,
-    },
-  })
-)(TableCell);
-
-const StyledTableRow = withStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
-  })
-)(TableRow);
-
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number
-) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+import TableRow from './TableRow';
 
 const useStyles = makeStyles({
   table: {
@@ -64,24 +17,29 @@ const useStyles = makeStyles({
 
 export const CustomizedTable: React.FC = () => {
   const classes = useStyles();
+  const characters = useSelector((state: RootState) => state.characters);
+  const tableData: JSX.Element[] = [];
+
+  characters.forEach((keysCharacters, key) => {
+    tableData.push(
+      <Fragment key={key}>
+        <StyledTableRow>
+          <StyledTableCell component="td" scope="row" colSpan={6}>
+            {key}
+          </StyledTableCell>
+        </StyledTableRow>
+        {keysCharacters.map((character) => (
+          <TableRow key={character.name} {...character} />
+        ))}
+      </Fragment>
+    );
+  });
 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHeader />
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
+        <TableBody>{tableData}</TableBody>
       </Table>
     </TableContainer>
   );

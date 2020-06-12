@@ -14,8 +14,6 @@ const charactersReducer = (
 ): Map<string, Character[]> => {
   switch (action.type) {
     case CharactersActions.GET_CHARACTERS_SUCCESS:
-      console.log(action.payload);
-
       return action.payload;
     default:
       return state;

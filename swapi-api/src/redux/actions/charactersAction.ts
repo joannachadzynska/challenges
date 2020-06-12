@@ -3,21 +3,12 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/order */
 import { Character, getCharacters } from '../../providers/characterProviders';
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { ThunkDispatch } from 'redux-thunk';
 import { Action, CombinedState } from 'redux';
-import { ReactType } from 'react';
-import { RootState } from 'redux/reducers/rootReducer';
 
 export enum CharactersActions {
   GET_CHARACTERS_SUCCESS = '[characters] GET_CHARACTERS_SUCCESS',
-  GET_CHARACTERS_sTART = '[characters] GET_CHARACTERS_START',
-  GET_CHARACTERS_FAILURE = '[characters] GET_CHARACTERS_FAILURE',
 }
-
-// // Interface of your payload object
-// export interface Characters {
-// 	name: string;
-// }
 
 interface CharactersGetSuccess {
   type: CharactersActions.GET_CHARACTERS_SUCCESS;
