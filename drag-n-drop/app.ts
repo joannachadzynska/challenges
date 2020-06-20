@@ -1,63 +1,33 @@
-// const person: {
-// 	name: string;
-// 	age: number;
-// } = {
-// 	name: "Joanna",
-// 	age: 33,
-// };
+// Union Type
+function combine(
+	input1: number | string,
+	input2: number | string,
+	resultConversion: "as-number" | "as-text"
+) {
+	let result;
+	if (
+		(typeof input1 === "number" && typeof input2 === "number") ||
+		resultConversion === "as-number"
+	) {
+		result = +input1 + +input2;
+	} else {
+		result = input1.toString() + " " + input2.toString();
+	}
 
-// const person: {
-// 	name: string;
-// 	age: number;
-// 	hobbies: string[];
-// 	role: [number, string];
-// } = {
-// 	name: "Joanna",
-// 	age: 33,
-// 	hobbies: ["books", "puzzles"],
-// 	role: [2, "author"],
-// };
-// person.role.push("admin");
-// person.role[1] = 10;
+	// if (resultConversion === "as-number") {
+	// 	return +result;
+	// } else {
+	// 	return result.toString();
+	// }
 
-// person.role = [1, "admin", "user"]
-
-enum Roles {
-	ADMIN = 1,
-	READ_ONLY,
-	AUTHOR,
+	return result;
 }
 
-const person = {
-	name: "Joanna",
-	age: 33,
-	hobbies: ["books", "puzzles"],
-	role: Roles.ADMIN,
-};
+const combinedNumbers = combine(4, 44, "as-number");
+console.log({ combinedNumbers });
 
-let favoriteActivities: string[];
-favoriteActivities = ["books"];
+const combinedStrings = combine("22", "13", "as-number");
+console.log({ combinedStrings });
 
-for (const hobby of person.hobbies) {
-	console.log(hobby.toUpperCase());
-}
-
-type Product = {
-	id: string;
-	price: number;
-	tags: string[];
-	details: {
-		title: string;
-		description: string;
-	};
-};
-
-const product = {
-	id: "abc1",
-	price: 12.99,
-	tags: ["great-offer", "hot-and-new"],
-	details: {
-		title: "Red Carpet",
-		description: "A great carpet - almost brand-new!",
-	},
-};
+const combinedNames = combine("Jan", "Adam", "as-text");
+console.log({ combinedNames });
