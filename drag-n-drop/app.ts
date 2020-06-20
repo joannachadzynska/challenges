@@ -6,22 +6,34 @@
 // 	age: 33,
 // };
 
-const person: {
-	name: string;
-	age: number;
-	hobbies: string[];
-	role: [number, string];
-} = {
-	name: "Joanna",
-	age: 33,
-	hobbies: ["books", "puzzles"],
-	role: [2, "author"],
-};
-
+// const person: {
+// 	name: string;
+// 	age: number;
+// 	hobbies: string[];
+// 	role: [number, string];
+// } = {
+// 	name: "Joanna",
+// 	age: 33,
+// 	hobbies: ["books", "puzzles"],
+// 	role: [2, "author"],
+// };
 // person.role.push("admin");
 // person.role[1] = 10;
 
 // person.role = [1, "admin", "user"]
+
+enum Roles {
+	ADMIN = 1,
+	READ_ONLY,
+	AUTHOR,
+}
+
+const person = {
+	name: "Joanna",
+	age: 33,
+	hobbies: ["books", "puzzles"],
+	role: Roles.ADMIN,
+};
 
 let favoriteActivities: string[];
 favoriteActivities = ["books"];
