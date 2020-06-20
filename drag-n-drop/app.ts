@@ -1,15 +1,51 @@
-function add(num1: number, num2: number, showResult: boolean, phrase: string) {
-	const result = num2 + num2;
-	if (showResult) {
-		console.log(phrase + result);
-	} else {
-		return result;
-	}
+// const person: {
+// 	name: string;
+// 	age: number;
+// } = {
+// 	name: "Joanna",
+// 	age: 33,
+// };
+
+const person: {
+	name: string;
+	age: number;
+	hobbies: string[];
+	role: [number, string];
+} = {
+	name: "Joanna",
+	age: 33,
+	hobbies: ["books", "puzzles"],
+	role: [2, "author"],
+};
+
+// person.role.push("admin");
+// person.role[1] = 10;
+
+// person.role = [1, "admin", "user"]
+
+let favoriteActivities: string[];
+favoriteActivities = ["books"];
+
+for (const hobby of person.hobbies) {
+	console.log(hobby.toUpperCase());
 }
 
-const number1 = 5;
-const number2 = 3.4;
-const printResult = true;
-const resultPhrase = "Result is: ";
+type Product = {
+	id: string;
+	price: number;
+	tags: string[];
+	details: {
+		title: string;
+		description: string;
+	};
+};
 
-add(number1, number2, printResult, resultPhrase);
+const product = {
+	id: "abc1",
+	price: 12.99,
+	tags: ["great-offer", "hot-and-new"],
+	details: {
+		title: "Red Carpet",
+		description: "A great carpet - almost brand-new!",
+	},
+};
