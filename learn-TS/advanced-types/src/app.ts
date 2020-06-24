@@ -141,3 +141,16 @@ function add2(a: Combinable, b: Combinable) {
 
 const result = add2(3, 5);
 const stringResult = add2("Joanna", "Chądzyńska");
+
+// Optional chaining
+
+const fetchedUserData = {
+	id: "u2",
+	name: "Joanna",
+	job: {
+		title: "CEO",
+		description: "My own company",
+	},
+};
+
+console.log(fetchedUserData?.job?.title);
