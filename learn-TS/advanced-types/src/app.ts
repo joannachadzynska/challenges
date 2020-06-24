@@ -154,3 +154,12 @@ const fetchedUserData = {
 };
 
 console.log(fetchedUserData?.job?.title);
+
+// Nullish coalescing
+// for nullish data or undefined
+
+const userInput = "";
+
+const storedData = userInput ?? "DEFAULT";
+
+console.log(storedData);
