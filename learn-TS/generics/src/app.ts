@@ -1,165 +1,110 @@
-// intersection types
-// can use types or interfaces
-type Admin = {
-	name: string;
-	privileges: string[];
-};
+/* Built in generic types */
+// array
+// const names: Array<string> = ["Joanna", "James"]; // string[]
 
-type Employee = {
-	name: string;
-	startDate: Date;
-};
+// // promise type
+// const promise: Promise<string> = new Promise((resolve, reject) => {
+// 	setTimeout(() => {
+// 		resolve("This is done!");
+// 	}, 2000);
+// });
 
-type ElevatedEmployee = Admin & Employee;
+// promise.then((data) => {
+// 	// data.split("");
+// });
 
-const ee1: ElevatedEmployee = {
-	name: "Joanna",
-	privileges: ["create server"],
-	startDate: new Date(),
-};
-
-type Combinable = string | number;
-type Numeric = number | boolean;
-
-type Universal = Combinable & Numeric;
-
-// Type Guards
-function add(a: Combinable, b: Combinable) {
-	if (typeof a === "string" || typeof b === "string") {
-		return a.toString(+b.toString());
-	}
-	return a + b;
+// Creating generic type
+function merge<T extends object, U extends object>(objA: T, objB: U) {
+	return Object.assign(objA, objB);
 }
 
-type UnknownEmployee = Employee | Admin;
+const mergedObj = merge({ name: "Joanna", hobbies: ["books"] }, { age: 33 });
 
-function printEmployeeInformation(emp: UnknownEmployee) {
-	console.log(`Name: ${emp.name}`);
-	if ("privileges" in emp) {
-		console.log(`Privileges: ${emp.privileges}`);
-	}
-	if ("startDate" in emp) {
-		console.log(`Start date: ${emp.startDate}`);
-	}
+interface Lengthy {
+	length: number;
 }
 
-printEmployeeInformation(ee1);
-
-class Car {
-	drive() {
-		console.log("Driving...");
+function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
+	let descriptionText = "Got no value.";
+	if (element.length === 1) {
+		descriptionText = `Got 1 element.`;
+	} else if (element.length > 1) {
+		descriptionText = `Got ${element.length} elements.`;
 	}
+	return [element, descriptionText];
 }
 
-class Truck {
-	drive() {
-		console.log("Driving a truck...");
-	}
+const text = countAndDescribe("Hello");
 
-	loadCargo(amount: number) {
-		console.log(`Loading cargo: ${amount}`);
-	}
+// keyof constraint
+function extractAndConvert<T extends object, U extends keyof T>(
+	obj: T,
+	key: U
+) {
+	return obj[key];
 }
 
-type Vehicle = Car | Truck;
+extractAndConvert({ name: "Joanna" }, "name");
 
-const v1 = new Car();
-const v2 = new Truck();
+// generic classes
 
-function useVehicle(vehicle: Vehicle) {
-	vehicle.drive();
-	if (vehicle instanceof Truck) {
-		vehicle.loadCargo(1000);
+class DataStorage<T extends string | number | boolean> {
+	private data: T[] = [];
+
+	addItem(item: T) {
+		this.data.push(item);
+	}
+
+	removeItem(item: T) {
+		if (this.data.indexOf(item) === -1) {
+			return;
+		}
+		this.data.splice(this.data.indexOf(item), 1);
+	}
+
+	getItems() {
+		return [...this.data];
 	}
 }
 
-useVehicle(v1);
-useVehicle(v2);
+const textStorage = new DataStorage<string>();
+textStorage.addItem("Joanna");
+textStorage.addItem("Ted");
+textStorage.removeItem("Ted");
+console.log(textStorage.getItems());
 
-// Discriminated unions
-interface Bird {
-	type: "bird";
-	flyingSpeed: number;
+const numberStorage = new DataStorage<number>();
+
+// const objStorage = new DataStorage<object>();
+// const tedObj = { name: "Ted" };
+// const joObj = { name: "Joanna" };
+// objStorage.addItem(joObj);
+// objStorage.addItem(tedObj);
+
+// objStorage.removeItem(joObj);
+// console.log(objStorage.getItems());
+
+// Generic utility types
+
+interface CourseGoal {
+	title: string;
+	description: string;
+	completeUntil: Date;
 }
 
-interface Horse {
-	type: "horse";
-	runningSpeed: number;
+function createCourseGoal(
+	title: string,
+	description: string,
+	date: Date
+): CourseGoal {
+	let courseGoal: Partial<CourseGoal> = {};
+
+	courseGoal.title = title;
+	courseGoal.description = description;
+	courseGoal.completeUntil = date;
+
+	return courseGoal as CourseGoal;
 }
 
-type Animal = Bird | Horse;
-
-function moveAnimal(animal: Animal) {
-	let speed;
-	switch (animal.type) {
-		case "bird":
-			speed = animal.flyingSpeed;
-			break;
-
-		case "horse":
-			speed = animal.runningSpeed;
-	}
-	console.log(`Moving with speed: ${speed}`);
-}
-
-moveAnimal({ type: "bird", flyingSpeed: 25 });
-
-// Type Casting
-const paragraph = document.querySelector("p");
-const paragraphWithId = document.getElementById("message-output");
-// const userInputElement = <HTMLInputElement>(
-// 	document.getElementById("user-input")!
-// );
-const userInputElement = document.getElementById(
-	"user-input"
-)! as HTMLInputElement;
-
-userInputElement.value = "hi";
-
-// Index properties
-
-interface ErrorContainer {
-	[key: string]: string;
-}
-
-const errorBag: ErrorContainer = {
-	email: "Not a valid email!",
-	username: "Must start with a capital character!",
-};
-
-// Function overloads
-function add2(a: number, b: number): number;
-function add2(a: string, b: string): string;
-function add2(a: number, b: string): string;
-function add2(a: string, b: number): string;
-function add2(a: Combinable, b: Combinable) {
-	if (typeof a === "string" || typeof b === "string") {
-		return a.toString(+b.toString());
-	}
-	return a + b;
-}
-
-const result = add2(3, 5);
-const stringResult = add2("Joanna", "Chądzyńska");
-
-// Optional chaining
-
-const fetchedUserData = {
-	id: "u2",
-	name: "Joanna",
-	job: {
-		title: "CEO",
-		description: "My own company",
-	},
-};
-
-console.log(fetchedUserData?.job?.title);
-
-// Nullish coalescing
-// for nullish data or undefined
-
-const userInput = "";
-
-const storedData = userInput ?? "DEFAULT";
-
-console.log(storedData);
+const names: Readonly<string[]> = ["joanna", "joe"];
+// names.push("ed")
