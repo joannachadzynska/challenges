@@ -1,4 +1,4 @@
-// decorators
+// autobind decorator
 function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
 	const originalMethod = descriptor.value;
 
@@ -47,10 +47,37 @@ class ProjectInput {
 		this.attach();
 	}
 
+	private gatherUserInput(): [string, string, number] | void {
+		const enteredTitle = this.titleInputElement.value;
+		const enteredDescription = this.descriptionInputElement.value;
+		const enteredPeopleAmount = this.peopleInputElement.value;
+
+		if (
+			enteredTitle.trim().length === 0 ||
+			enteredDescription.trim().length === 0 ||
+			enteredPeopleAmount.trim().length === 0
+		) {
+			alert("Invalid input, please try again!");
+		} else {
+			return [enteredTitle, enteredDescription, +enteredPeopleAmount];
+		}
+	}
+
+	private clearInputs() {
+		this.titleInputElement.value = "";
+		this.descriptionInputElement.value = "";
+		this.peopleInputElement.value = "";
+	}
+
 	@Autobind
 	private submitHandler(event: Event) {
 		event.preventDefault();
-		console.log(this.titleInputElement.value);
+		const userInput = this.gatherUserInput();
+		if (Array.isArray(userInput)) {
+			const [title, desc, people] = userInput;
+			console.log(title, desc, people);
+			this.clearInputs();
+		}
 	}
 
 	private configure() {
