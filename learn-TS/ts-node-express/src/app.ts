@@ -1,7 +1,23 @@
-console.log("Something...");
+import * as express from "express";
+import { json } from "body-parser";
 
-let age: number;
+import todoRoutes from "./routes/todos";
 
-age = 30;
+const app = express();
 
-console.log(age);
+app.use(json());
+
+app.use("/todos", todoRoutes);
+
+app.use(
+	(
+		err: Error,
+		req: express.Request,
+		res: express.Response,
+		next: express.NextFunction
+	) => {
+		res.status(500).json({ message: err.message });
+	}
+);
+
+app.listen(3000);
