@@ -8,24 +8,22 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<h2>Tic Tac Toe</h2>
-			<br />
-
-			<div class="board">
-				<div class="board__item"></div>
-				<div class="board__item"></div>
-				<div class="board__item"></div>
-				<div class="board__item"></div>
-				<div class="board__item"></div>
-				<div class="board__item"></div>
-				<div class="board__item"></div>
-				<div class="board__item"></div>
-				<div class="board__item"></div>
+			<div class="board x" id="board">
+				<div class="cell x" data-cell></div>
+				<div class="cell circle" data-cell></div>
+				<div class="cell" data-cell></div>
+				<div class="cell" data-cell></div>
+				<div class="cell" data-cell></div>
+				<div class="cell" data-cell></div>
+				<div class="cell" data-cell></div>
+				<div class="cell" data-cell></div>
+				<div class="cell" data-cell></div>
 			</div>
 			<br />
-			<p class="result">Win/loose</p>
-			<br />
-			<button class="btn__reset btn">Reset game</button>
+			<div class="winning-message" id="winning-message">
+				<div data-winning-message-text>X Wins!</div>
+				<button class="btn btn__reset">Restart Game</button>
+			</div>
 		</div>
 
 		<script src="./index.js"></script>
