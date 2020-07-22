@@ -1,0 +1,19 @@
+{
+	"name": "vanillajs-clock",
+	"version": "1.0.0",
+	"description": "Simple clock",
+	"main": "index.js",
+	"scripts": {
+		"start": "lite-server"
+	},
+	"keywords": [
+		"JavaScript",
+		"CSS",
+		"HTML"
+	],
+	"author": "Joanna Chądzyńska",
+	"license": "ISC",
+	"dependencies": {
+		"lite-server": "^2.5.4"
+	}
+}

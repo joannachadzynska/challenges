@@ -1,0 +1,222 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	--scale-value: 1;
+	--seconds: 0;
+	--minutes: 0;
+	--hours: 2;
+	--color-pink: #e52e71;
+	--color-orange: #ff8a00;
+	--clock-color: -webkit-linear-gradient(
+		162deg,
+		var(--color-pink) 21%,
+		var(--color-orange) 86%
+	);
+}
+
+html {
+	background-color: #000;
+	font-family: Helvetica, sans-serif;
+	text-align: center;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+	font-size: 2rem;
+	min-height: 100vh;
+}
+
+span {
+	display: inline-block;
+	color: blue;
+}
+
+.clock__wrapper {
+	border: 1px solid orange;
+	padding: 2rem;
+}
+
+.clock {
+	width: 30rem;
+	height: 30rem;
+	border: 6px solid white;
+	border-radius: 50%;
+	margin: 50px auto;
+	position: relative;
+	padding: 2rem;
+}
+
+.clock__face {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.clock__number {
+	font-weight: bold;
+	background: var(--clock-color);
+	color: transparent;
+	-webkit-background-clip: text;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.clock__center {
+	background: var(--clock-color);
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 20px;
+	height: 20px;
+}
+
+.hand {
+	width: 50%;
+	height: 6px;
+	position: absolute;
+	top: 50%;
+	transform-origin: 100%;
+	transform: rotate(90deg);
+	transition: all 0.05s;
+	transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hand__second {
+	background: var(--color-pink);
+}
+
+.hand__min {
+	background: var(--color-orange);
+}
+
+.hand__hour {
+	background: var(--clock-color);
+}
+
+/* .clock__seconds-circle {
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	left: 0;
+	top: 0;
+	transform: rotate(-90deg);
+}
+
+svg {
+	overflow: visible;
+}
+
+svg circle {
+	fill: none;
+	stroke-linecap: round;
+	stroke-width: 4;
+	stroke-dasharray: 942;
+	stroke-dashoffset: calc(942 - (942 * var(--seconds)) / 59);
+	transition: 0.2s linear;
+} */
+
+[data-time="1"] {
+	transform: rotate(30deg);
+}
+
+[data-time="1"] > span {
+	transform: rotate(330deg);
+}
+
+[data-time="2"] {
+	transform: rotate(60deg);
+}
+
+[data-time="2"] > span {
+	transform: rotate(300deg);
+}
+
+[data-time="3"] {
+	transform: rotate(90deg);
+}
+
+[data-time="3"] > span {
+	transform: rotate(270deg);
+}
+
+[data-time="4"] {
+	transform: rotate(120deg);
+}
+
+[data-time="4"] > span {
+	transform: rotate(240deg);
+}
+
+[data-time="5"] {
+	transform: rotate(150deg);
+}
+
+[data-time="5"] > span {
+	transform: rotate(210deg);
+}
+
+[data-time="6"] {
+	transform: rotate(180deg);
+}
+
+[data-time="6"] > span {
+	transform: rotate(180deg);
+}
+
+[data-time="7"] {
+	transform: rotate(210deg);
+}
+
+[data-time="7"] > span {
+	transform: rotate(150deg);
+}
+
+[data-time="8"] {
+	transform: rotate(240deg);
+}
+
+[data-time="8"] > span {
+	transform: rotate(120deg);
+}
+
+[data-time="9"] {
+	transform: rotate(270deg);
+}
+
+[data-time="9"] > span {
+	transform: rotate(90deg);
+}
+
+[data-time="10"] {
+	transform: rotate(300deg);
+}
+
+[data-time="10"] > span {
+	transform: rotate(60deg);
+}
+
+[data-time="11"] {
+	transform: rotate(330deg);
+}
+
+[data-time="11"] > span {
+	transform: rotate(30deg);
+}
