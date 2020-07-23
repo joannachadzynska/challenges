@@ -1,7 +1,7 @@
 import { Character } from "../types/characterTypes";
-import { ThunkAction } from "redux-thunk";
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { RootState } from "../reducers/rootReducer";
-import { Action } from "redux";
+import { Action, CombinedState } from "redux";
 import { getCharacters } from "../providers/charactersProvider";
 
 // Define all your actions here
