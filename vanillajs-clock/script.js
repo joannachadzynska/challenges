@@ -14,6 +14,8 @@ const digitalClock = document.querySelector(".digital-clock");
 
 const toggleModeBtn = document.getElementById("js-toggle-mode");
 
+let isAnalogClock;
+
 function setDate() {
 	const now = new Date();
 	let seconds = now.getSeconds() * 6;
@@ -53,7 +55,14 @@ setInterval(setDigitalClock, 1000);
 setDate();
 
 function toggleMode(e) {
-	console.log(e.target);
+	isAnalogClock = !isAnalogClock;
+	if (isAnalogClock) {
+		analogClock.classList.add("show");
+		digitalClock.classList.remove("show");
+	} else {
+		analogClock.classList.remove("show");
+		digitalClock.classList.add("show");
+	}
 }
 
 toggleModeBtn.addEventListener("click", toggleMode);
