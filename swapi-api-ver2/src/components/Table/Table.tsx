@@ -1,22 +1,48 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { default as bemCssModules } from "bem-css-modules";
 import { RootState } from "../../reducers/rootReducer";
-import { default as HelloStyles } from "./Hello.module.scss";
 
-const style = bemCssModules(HelloStyles);
+import { makeStyles } from "@material-ui/core/styles";
+
+import {
+	Paper,
+	Table as MUITable,
+	TableBody,
+	TableContainer,
+} from "@material-ui/core";
+import TableHeader from "./TableHeader";
+import TableRowLetter from "./TableRowLetter";
+import TableRow from "./TableRow";
+
+const useStyles = makeStyles({
+	table: {
+		minWidth: 700,
+	},
+});
 
 export const Table: React.FC = () => {
+	const classes = useStyles();
 	const characters = useSelector((state: RootState) => state.characters);
-	console.log(characters);
+	const tableData: JSX.Element[] = [];
+
+	characters.forEach((keysCharacters, key) => {
+		tableData.push(
+			<Fragment key={key}>
+				<TableRowLetter letter={key} />
+				{keysCharacters.map((character) => (
+					<TableRow key={character.name} {...character} />
+				))}
+			</Fragment>
+		);
+	});
 
 	return (
-		<article>
-			<p>
-				This boilerplate is for developers who will create React App with basic
-				configuration. The boilerplate contain support for:
-			</p>
-			<ul></ul>
-		</article>
+		<TableContainer component={Paper}>
+			<MUITable aria-label='customized table' className={classes.table}>
+				<TableHeader />
+				<TableBody>{tableData}</TableBody>
+			</MUITable>
+		</TableContainer>
 	);
 };
