@@ -20,7 +20,7 @@
 }
 
 html {
-	background-color: #000;
+	background-color: #0d0d0d;
 	font-family: Helvetica, sans-serif;
 	text-align: center;
 }
@@ -44,18 +44,18 @@ span {
 }
 
 .clock__wrapper {
-	border: 0.5px solid orange;
-	padding: 2rem;
+	/* border: 0.5px solid orange;
+	padding: 2rem; */
 }
 
 .clock {
 	width: 30rem;
 	height: 30rem;
-	border: 6px solid white;
+	border: 3px solid rgb(233, 211, 179);
 	border-radius: 50%;
 	margin: 50px auto;
 	padding: 2rem;
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	position: relative;
@@ -66,7 +66,8 @@ span {
 	position: absolute;
 	width: 15px;
 	height: 15px;
-	background: #2196f3;
+	/* background: #2196f3; */
+	background: var(--color-pink);
 	border-radius: 50%;
 	z-index: 10000;
 }
@@ -232,18 +233,37 @@ span {
 
 /* Digital clock */
 .digital-clock {
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	color: #fff;
 	font-size: 2em;
-	margin-top: 20px;
+	font-family: Consolas;
+	margin: 50px auto;
 }
 
 .show {
 	display: flex;
 }
 
-.hide {
-	display: none;
+.clock__button {
+	border: none;
+	border-radius: 20px;
+	background-image: linear-gradient(to bottom, #e52e71, #ff8a00);
+	color: #fff;
+	cursor: pointer;
+	font-size: 1.25rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	padding: 0.875rem 1.5rem;
+	text-transform: uppercase;
+	transition: 0.3s linear;
+}
+
+.clock__button:hover {
+	transform: scale(0.98);
+	-webkit-transform: scale(0.98);
+	-moz-transform: scale(0.98);
+	-ms-transform: scale(0.98);
+	-o-transform: scale(0.98);
 }
