@@ -4,7 +4,7 @@
 	"description": "Boilerplate for frontend projects configured for React library and using more valuable tools for development",
 	"main": "index.ts",
 	"scripts": {
-		"start": "webpack-dev-server --mode=development",
+		"start": "webpack-dev-server --mode=development --open",
 		"build": "webpack --mode=production",
 		"check-ts": "tsc"
 	},
@@ -20,6 +20,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@namics/stylelint-bem": "^6.3.1",
+		"@types/material-ui": "^0.21.7",
 		"@types/react": "^16.9.35",
 		"@types/react-dom": "^16.9.8",
 		"@types/react-redux": "^7.1.9",
@@ -50,12 +51,16 @@
 		"webpack-merge": "^4.2.2"
 	},
 	"dependencies": {
+		"@material-ui/core": "^4.11.0",
+		"@material-ui/icons": "^4.9.1",
+		"axios": "^0.19.2",
 		"bem-css-modules": "^1.4.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-redux": "^7.2.0",
 		"react-router-dom": "^5.2.0",
 		"redux": "^4.0.5",
+		"redux-devtools-extension": "^2.13.8",
 		"redux-thunk": "^2.3.0"
 	}
 }
