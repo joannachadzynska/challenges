@@ -21,12 +21,13 @@ $secondaryColor: #bbdefb;
 
 	&__element {
 		display: flex;
-		width: 80px;
+		width: auto;
 		margin-left: 5px;
 		border: 1px solid #fff;
 		border-radius: 3px;
 		text-transform: uppercase;
 		cursor: pointer;
+		padding: 0 10px;
 
 		a {
 			display: flex;
@@ -43,8 +44,7 @@ $secondaryColor: #bbdefb;
 		}
 
 		&:hover a {
-			color: $secondaryColor
+			color: $secondaryColor;
 		}
-
 	}
 }
