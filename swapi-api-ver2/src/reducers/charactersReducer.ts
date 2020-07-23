@@ -1,10 +1,10 @@
 import {
-	ToolsPayload,
-	ToolsActionTypes,
-	ToolsActions,
+	CharactersPayload,
+	CharactersActionTypes,
+	CharactersActions,
 } from "../actions/charactersActions";
 
-const tools: ToolsPayload[] = [
+const tools: CharactersPayload[] = [
 	{ name: "TypeScript" },
 	{ name: "React" },
 	{ name: "React Router" },
@@ -15,10 +15,10 @@ const tools: ToolsPayload[] = [
 
 export const charactersReducer = (
 	state = tools,
-	action: ToolsActionTypes
-): ToolsPayload[] => {
+	action: CharactersActionTypes
+): CharactersPayload[] => {
 	switch (action.type) {
-		case ToolsActions.TOOLS_ACTION_ADD:
+		case CharactersActions.TOOLS_ACTION_ADD:
 			return [...state, action.payload];
 
 		default:
