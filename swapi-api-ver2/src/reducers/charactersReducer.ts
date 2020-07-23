@@ -1,25 +1,19 @@
 import {
-	CharactersPayload,
 	CharactersActionTypes,
 	CharactersActions,
 } from "../actions/charactersActions";
 
-const tools: CharactersPayload[] = [
-	{ name: "TypeScript" },
-	{ name: "React" },
-	{ name: "React Router" },
-	{ name: "Stylelint" },
-	{ name: "Eslint" },
-	{ name: "Redux" },
-];
+import { Character } from "../types/characterTypes";
+
+const characters: Map<string, Character[]> = new Map();
 
 export const charactersReducer = (
-	state = tools,
+	state = characters,
 	action: CharactersActionTypes
-): CharactersPayload[] => {
+): Map<string, Character[]> => {
 	switch (action.type) {
-		case CharactersActions.TOOLS_ACTION_ADD:
-			return [...state, action.payload];
+		case CharactersActions.IMPORT_DATA:
+			return action.payload;
 
 		default:
 			return state;
