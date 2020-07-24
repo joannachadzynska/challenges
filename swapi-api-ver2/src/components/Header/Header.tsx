@@ -9,6 +9,9 @@ export const Header: React.FC = () => (
 	<nav className={style()}>
 		<ul className={style("list")}>
 			<li className={style("element")}>
+				<Link to='/'>Home</Link>
+			</li>
+			<li className={style("element")}>
 				<Link to='/characters'>Characters</Link>
 			</li>
 			<li className={style("element")}>
