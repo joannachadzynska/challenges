@@ -2,7 +2,6 @@ import React, { useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { getCharactersFromServer } from "../../actions/charactersActions";
 import { default as bemCssModules } from "bem-css-modules";
-
 import { default as ContentStyles } from "./Content.module.scss";
 import Routing from "../Routes";
 
