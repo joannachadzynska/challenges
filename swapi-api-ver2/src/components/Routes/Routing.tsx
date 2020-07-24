@@ -23,26 +23,26 @@ import {
 const Routing: React.SFC = () => {
 	return (
 		<Switch>
-			<Route component={Characters} path='/characters' />
-			<Route component={CharacterPage} path='/characters/:name' />
+			<Route exact component={Characters} path='/characters' />
+			<Route exact component={CharacterPage} path='/characters/:name' />
 
-			<Route component={Films} path='/films' />
-			<Route component={FilmPage} path='/films/:title' />
+			<Route exact component={Films} path='/films' />
+			<Route exact component={FilmPage} path='/films/:title' />
 
-			<Route component={Planets} path='/planets' />
-			<Route component={PlanetPage} path='/planets/:name' />
+			<Route exact component={Planets} path='/planets' />
+			<Route exact component={PlanetPage} path='/planets/:name' />
 
-			<Route component={Species} path='/species' />
-			<Route component={SpeciesPage} path='/species/:name' />
+			<Route exact component={Species} path='/species' />
+			<Route exact component={SpeciesPage} path='/species/:name' />
 
-			<Route component={Starships} path='/starships' />
-			<Route component={StarshipPage} path='/starships/:name' />
+			<Route exact component={Starships} path='/starships' />
+			<Route exact component={StarshipPage} path='/starships/:name' />
 
-			<Route component={Vehicles} path='/vehicles' />
-			<Route component={VehiclePage} path='/vehicles/:name' />
+			<Route exact component={Vehicles} path='/vehicles' />
+			<Route exact component={VehiclePage} path='/vehicles/:name' />
 
-			<Route component={LandingPage} path='/' />
-			<Route component={NotFoundPage} path='*' />
+			<Route exact component={LandingPage} path='/' />
+			<Route exact component={NotFoundPage} path='*' />
 
 			{/* <Redirect to='/' /> */}
 		</Switch>

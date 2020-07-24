@@ -1,9 +1,8 @@
 import React, { useEffect, useCallback } from "react";
-import { Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getCharactersFromServer } from "../../actions/charactersActions";
 import { default as bemCssModules } from "bem-css-modules";
-import { Table } from "../Table/Table";
+
 import { default as ContentStyles } from "./Content.module.scss";
 import Routing from "../Routes";
 
@@ -23,10 +22,8 @@ export const Content: React.FC = () => {
 
 	return (
 		<section className={style()}>
-			<Switch>
-				{/* <Route component={Table} path='/' /> */}
-				<Routing />
-			</Switch>
+			{/* <Route component={Table} path='/' /> */}
+			<Routing />
 		</section>
 	);
 };
