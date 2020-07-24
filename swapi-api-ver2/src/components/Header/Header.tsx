@@ -9,7 +9,22 @@ export const Header: React.FC = () => (
 	<nav className={style()}>
 		<ul className={style("list")}>
 			<li className={style("element")}>
-				<Link to='/'>Characters</Link>
+				<Link to='/characters'>Characters</Link>
+			</li>
+			<li className={style("element")}>
+				<Link to='/films'>Films</Link>
+			</li>
+			<li className={style("element")}>
+				<Link to='/starships'>Starships</Link>
+			</li>
+			<li className={style("element")}>
+				<Link to='/vehicles'>Vehicles</Link>
+			</li>
+			<li className={style("element")}>
+				<Link to='/species'>Species</Link>
+			</li>
+			<li className={style("element")}>
+				<Link to='/planets'>Planets</Link>
 			</li>
 		</ul>
 	</nav>
