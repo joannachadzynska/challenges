@@ -1,6 +1,12 @@
 import React, { useEffect, useCallback, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSWAPIClient } from '../../hooks/useSWAPIClient';
+import { importCharactersData } from '../../actions/charactersActions';
+import { importFilmsData } from '../../actions/filmsActions';
+import { importPlanetsData } from '../../actions/planetsActions';
+import { importSpeciesData } from '../../actions/speciesActions';
+import { importStarshipsData } from '../../actions/starshipsActions';
+import { importVehiclesData } from '../../actions/vehiclesActions';
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as ContentStyles } from './Content.module.scss';
 import Routing from '../Routes';
@@ -15,22 +21,25 @@ export const Content: React.FC = () => {
 		const [
 			characters,
 			films,
-			starships,
-			species,
-			vehicles,
 			planets,
+			species,
+			starships,
+			vehicles,
 		] = await Promise.all([
 			client.getCharacters(),
 			client.getFilms(),
-			client.getStarships(),
-			client.getSpecies(),
-			client.getVehicles(),
 			client.getPlanets(),
+			client.getSpecies(),
+			client.getStarships(),
+			client.getVehicles(),
 		]);
 
-		console.log(characters);
-		console.log(films);
-		console.log(starships);
+		dispatch(importCharactersData(characters));
+		dispatch(importFilmsData(films));
+		dispatch(importPlanetsData(planets));
+		dispatch(importSpeciesData(species));
+		dispatch(importStarshipsData(starships));
+		dispatch(importVehiclesData(vehicles));
 	};
 
 	useEffect(() => {
