@@ -3,7 +3,7 @@ import { Person } from '../providers/swapiProvider/interfaces/Person';
 import { Common } from './Common';
 
 export class Character extends Common {
-	public readonly name: string;
+	public readonly name: string | null;
 	public readonly birthYear: string;
 	public readonly eyeColor: string;
 	public readonly gender: string;
@@ -23,6 +23,7 @@ export class Character extends Common {
 		const characterInfo = store.characters.find(
 			(character) => character.name === name
 		) as Person;
+
 		this.name = characterInfo.name;
 		this.birthYear = characterInfo.birth_year;
 		this.eyeColor = characterInfo.eye_color;
