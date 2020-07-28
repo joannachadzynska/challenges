@@ -1,18 +1,18 @@
 import {
 	CharactersActionTypes,
 	CharactersActions,
-} from "../actions/charactersActions";
+} from '../actions/charactersActions';
 
-import { Character } from "../types/characterTypes";
+import { Person } from '../providers/swapiProvider/interfaces/Person';
 
-const characters: Map<string, Character[]> = new Map();
+const characters: Person[] = [];
 
 export const charactersReducer = (
 	state = characters,
 	action: CharactersActionTypes
-): Map<string, Character[]> => {
+): Person[] => {
 	switch (action.type) {
-		case CharactersActions.IMPORT_DATA:
+		case CharactersActions.IMPORT_CHARACTERS_DATA:
 			return action.payload;
 
 		default:
