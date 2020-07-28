@@ -16,8 +16,8 @@ bemCssModules.setSettings({
 
 export const App: React.FC = () => (
 	<Provider store={store}>
-		<div className="app">
-			<BrowserRouter >
+		<div className='app'>
+			<BrowserRouter>
 				<Header />
 				<Content />
 			</BrowserRouter>
