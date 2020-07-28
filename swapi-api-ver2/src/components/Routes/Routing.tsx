@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import {
 	Characters,
 	Films,
@@ -7,7 +7,7 @@ import {
 	Species,
 	Starships,
 	Vehicles,
-} from "../lists";
+} from '../lists';
 
 import {
 	CharacterPage,
@@ -18,7 +18,7 @@ import {
 	SpeciesPage,
 	StarshipPage,
 	VehiclePage,
-} from "../pages";
+} from '../pages';
 
 const Routing: React.SFC = () => {
 	return (

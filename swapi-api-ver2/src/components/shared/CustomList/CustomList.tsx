@@ -1,14 +1,15 @@
-import React, { ReactChild } from "react";
+import React, { ReactChild } from 'react';
+import CustomLink from '../CustomLink';
 
 export interface CustomListProps {
-	children: ReactChild;
+	children: any;
 	name: string;
 }
 
 const CustomList: React.SFC<CustomListProps> = ({ children, name }) => {
 	return (
 		<nav>
-			<p>{name} in Star-Wars universe:</p>
+			<h3>{name} in Star-Wars universe:</h3>
 			<ul>{children}</ul>
 		</nav>
 	);
