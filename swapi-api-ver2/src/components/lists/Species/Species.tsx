@@ -5,6 +5,7 @@ import { CustomList, CustomLink } from '../../shared';
 
 const Species: React.SFC = () => {
 	const species = useSelector((state: RootState) => state.species);
+	species.sort((a, b) => (a.name > b.name ? 1 : -1));
 	return (
 		<CustomList name='Species'>
 			{species.map((species) => (

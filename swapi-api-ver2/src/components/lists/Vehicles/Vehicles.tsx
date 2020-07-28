@@ -5,6 +5,7 @@ import { CustomList, CustomLink } from '../../shared';
 
 const Vehicles: React.SFC = () => {
 	const vehicles = useSelector((state: RootState) => state.vehicles);
+	vehicles.sort((a, b) => (a.name > b.name ? 1 : -1));
 	return (
 		<CustomList name='Vehicles'>
 			{vehicles.map((vehicle) => (
