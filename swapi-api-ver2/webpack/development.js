@@ -2,6 +2,7 @@ module.exports = {
 	devServer: {
 		contentBase: './public',
 		port: 3000,
+		historyApiFallback: true,
 	},
 	devtool: 'inline-source-map',
 	module: {
@@ -24,7 +25,7 @@ module.exports = {
 							sourceMap: true,
 						},
 					},
-				]
+				],
 			},
 			{
 				test: /\.(s(a|c)ss|css)$/,
@@ -38,8 +39,8 @@ module.exports = {
 							sourceMap: true,
 						},
 					},
-				]
+				],
 			},
-		]
+		],
 	},
 };

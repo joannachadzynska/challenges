@@ -13,6 +13,7 @@ module.exports = {
 		path: path(destinationPath),
 		chunkFilename: 'js/[name].[contenthash:6].js',
 		filename: '[name].[contenthash:6].js',
+		publicPath: '/',
 	},
 	resolve: {
 		extensions: ['.js', '.ts', '.tsx'],
@@ -57,7 +58,7 @@ module.exports = {
 			useTypescriptIncrementalApi: true,
 		}),
 
-		new WebpackHtmlPlugin ({
+		new WebpackHtmlPlugin({
 			template: path(__dirname, '..', 'public', 'index.html'),
 		}),
 	],
