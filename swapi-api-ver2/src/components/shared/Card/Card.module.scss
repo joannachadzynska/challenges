@@ -1,14 +1,41 @@
 .card {
 	border: 1px solid white;
 	border-radius: 5px;
-	min-height: 100px;
-	text-align: center;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	// height: 500px;
+	height: 100%;
 
-	&__img {
-		box-sizing: inherit;
+	&__image {
+		display: block;
+		width: 100%;
 	}
 
-	&__name {
-		padding: 1rem;
+	&__content {
+		background: rgb(22, 21, 21);
+		line-height: 1.5;
+		font-size: 0.9em;
+		padding: 15px;
+
+		p:first-of-type {
+			margin-top: 0;
+		}
+
+		p:last-of-type {
+			margin-bottom: 0;
+		}
 	}
+
+	&__info {
+		background: rgb(39, 36, 36);
+		border-bottom: 2px solid #ccc;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.8em;
+		padding: 15px;
+	}
+}
+
+.card__link {
+	text-transform: uppercase;
 }

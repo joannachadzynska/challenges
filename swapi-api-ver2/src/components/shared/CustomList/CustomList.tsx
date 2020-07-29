@@ -14,7 +14,7 @@ const CustomList: React.SFC<CustomListProps> = ({ children, name }) => {
 		<nav className={style()}>
 			<h3>{name} in Star-Wars universe:</h3>
 			<br />
-			<ul>{children}</ul>
+			<div className={style('cards')}>{children}</div>
 		</nav>
 	);
 };
