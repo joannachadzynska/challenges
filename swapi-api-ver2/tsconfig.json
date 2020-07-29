@@ -21,8 +21,5 @@
 		"target": "ES2015",
 		"typeRoots": ["./@types"]
 	},
-	"include": [
-		"**/src/**/*.ts",
-		"**/src/**/*.tsx",
-	]
+	"include": ["**/src/**/*.ts", "**/src/**/*.tsx", "./src/index.d.ts"]
 }
