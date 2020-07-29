@@ -5,6 +5,8 @@ import { default as bemCssModules } from 'bem-css-modules';
 import { Content } from './components/Content/Content';
 import { Header } from './components/Header/Header';
 import { store } from './stores/store';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import './App.css';
 
@@ -14,13 +16,17 @@ bemCssModules.setSettings({
 	throwOnError: true,
 });
 
+const persistor = persistStore(store);
+
 export const App: React.FC = () => (
 	<Provider store={store}>
-		<div className='app'>
-			<BrowserRouter>
-				<Header />
-				<Content />
-			</BrowserRouter>
-		</div>
+		<PersistGate loading={null} persistor={persistor}>
+			<div className='app'>
+				<BrowserRouter>
+					<Header />
+					<Content />
+				</BrowserRouter>
+			</div>
+		</PersistGate>
 	</Provider>
 );

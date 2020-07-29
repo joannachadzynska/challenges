@@ -44,8 +44,7 @@ export const Content: React.FC = () => {
 
 	useEffect(() => {
 		void importDataFromAPI();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [importVehiclesData]);
 
 	return (
 		<section className={style()}>
