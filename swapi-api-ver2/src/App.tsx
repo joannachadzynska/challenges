@@ -21,12 +21,10 @@ const persistor = persistStore(store);
 export const App: React.FC = () => (
 	<Provider store={store}>
 		<PersistGate loading={null} persistor={persistor}>
-			<div className='app'>
-				<BrowserRouter>
-					<Header />
-					<Content />
-				</BrowserRouter>
-			</div>
+			<BrowserRouter>
+				<Header />
+				<Content />
+			</BrowserRouter>
 		</PersistGate>
 	</Provider>
 );

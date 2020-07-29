@@ -8,7 +8,6 @@ const CharacterPage: React.SFC = () => {
 	const { name } = useParams();
 	const state = useSelector((state: RootState) => state);
 	const character = new Character(name, state);
-	// console.log(character);
 
 	return (
 		<>
