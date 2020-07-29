@@ -1,0 +1,14 @@
+.card {
+	border: 1px solid white;
+	border-radius: 5px;
+	min-height: 100px;
+	text-align: center;
+
+	&__img {
+		box-sizing: inherit;
+	}
+
+	&__name {
+		padding: 1rem;
+	}
+}
