@@ -1,6 +1,24 @@
+@font-face {
+	font-family: 'Distant Galaxy Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Distant Galaxy Regular'),
+		url('../../../assets/fonts/distant-galaxy-cufonfonts-webfont/DISTGRG_.woff')
+			format('woff');
+}
+
 .landing {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin-top: 3rem;
+
+	&__subtitle {
+		color: #fff;
+		margin-top: 2rem;
+		font-family: 'Distant Galaxy Regular';
+		font-size: 3rem;
+		opacity: 0.8;
+	}
 }
