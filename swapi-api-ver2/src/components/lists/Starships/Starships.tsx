@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../reducers/rootReducer';
-import { CustomList, CustomLink } from '../../shared';
+import { CustomList, CustomLink, Card } from '../../shared';
 
 const Starships: React.SFC = () => {
 	const starships = useSelector((state: RootState) => state.starships);
@@ -9,9 +9,9 @@ const Starships: React.SFC = () => {
 	return (
 		<CustomList name='Starships'>
 			{starships.map((starship) => (
-				<li key={starship.name}>
-					<CustomLink endpoint='starships' id={starship.name} />
-				</li>
+				<CustomLink endpoint='starships' id={starship.name} key={starship.name}>
+					<Card name={starship.name} />
+				</CustomLink>
 			))}
 		</CustomList>
 	);
