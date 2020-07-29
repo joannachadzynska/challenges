@@ -9,6 +9,9 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	background-attachment: fixed;
+	color: white;
+	font-family: Helvetica;
 	height: 100vh;
 	width: 100vw;
 }

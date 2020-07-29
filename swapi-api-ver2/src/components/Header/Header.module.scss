@@ -1,18 +1,21 @@
 $primaryColor: #03a9f4;
 $secondaryColor: #bbdefb;
+$backgroundColor: #040507a8;
+$swColor: #ffc500;
 
 .header {
 	display: flex;
 	flex-direction: row;
-	height: 60px;
+	height: 80px;
 	margin-bottom: 10px;
 	padding: 10px;
-	background-color: $primaryColor;
+	background-color: lighten($backgroundColor, 5%);
 
 	&__list {
 		display: flex;
 		flex-direction: row;
 		align-items: stretch;
+		justify-content: center;
 		width: 100%;
 		max-width: 1366px;
 		margin: 0 auto;
@@ -37,14 +40,15 @@ $secondaryColor: #bbdefb;
 			height: 100%;
 			color: #fff;
 			text-decoration: none;
+			transition: 0.3s all linear;
 		}
 
 		&:hover {
-			border-color: $secondaryColor;
+			border-color: $swColor;
 		}
 
 		&:hover a {
-			color: $secondaryColor;
+			color: $swColor;
 		}
 	}
 }
