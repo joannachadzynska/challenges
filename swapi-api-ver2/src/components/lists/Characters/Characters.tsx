@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../reducers/rootReducer';
-import { CustomList, CustomLink } from '../../shared';
+import { CustomList, CustomLink, Card } from '../../shared';
+import yoda from '../../../assets/avatars/yoda.png';
 
 const Characters: React.SFC = () => {
 	const characters = useSelector((state: RootState) => state.characters);
@@ -13,7 +14,9 @@ const Characters: React.SFC = () => {
 		<CustomList name='Characters'>
 			{characters.map((character) => (
 				<li key={character.name}>
-					<CustomLink endpoint='characters' id={character.name} />
+					<CustomLink endpoint='characters' id={character.name}>
+						<Card name={character.name} />
+					</CustomLink>
 				</li>
 			))}
 		</CustomList>

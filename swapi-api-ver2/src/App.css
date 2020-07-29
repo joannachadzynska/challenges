@@ -4,6 +4,10 @@
 	padding: 0;
 }
 
+:root {
+	--primary-color: #ffc500;
+}
+
 body {
 	background-image: url(./assets//backgrounds/bg1.jpg);
 	background-repeat: no-repeat;
@@ -14,6 +18,20 @@ body {
 	font-family: Helvetica;
 	height: 100vh;
 	width: 100vw;
+}
+
+li {
+	list-style-type: none;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+	transition: all 0.3s linear;
+}
+
+a:hover {
+	color: var(--primary-color);
 }
 
 .app {

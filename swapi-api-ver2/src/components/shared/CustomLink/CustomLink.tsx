@@ -6,8 +6,8 @@ export interface CustomLinkProps {
 	id: string;
 }
 
-const CustomLink: React.SFC<CustomLinkProps> = ({ endpoint, id }) => {
-	return <Link to={`/${endpoint}/${id}`}>{id}</Link>;
+const CustomLink: React.SFC<CustomLinkProps> = ({ endpoint, children, id }) => {
+	return <Link to={`/${endpoint}/${id}`}>{children}</Link>;
 };
 
 export default CustomLink;

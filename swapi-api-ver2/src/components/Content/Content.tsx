@@ -8,6 +8,10 @@ import { importSpeciesData } from '../../actions/speciesActions';
 import { importStarshipsData } from '../../actions/starshipsActions';
 import { importVehiclesData } from '../../actions/vehiclesActions';
 import Routing from '../Routes';
+import { default as bemCssModules } from 'bem-css-modules';
+import { default as ContentStyles } from './Content.module.scss';
+
+const style = bemCssModules(ContentStyles);
 
 export const Content: React.FC = () => {
 	const client = useSWAPIClient();
@@ -42,5 +46,9 @@ export const Content: React.FC = () => {
 		void importDataFromAPI();
 	}, [importVehiclesData]);
 
-	return <Routing />;
+	return (
+		<section className={style()}>
+			<Routing />;
+		</section>
+	);
 };
