@@ -22,7 +22,7 @@ const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
 					<Link to='/about'>About</Link>
 				</li>
 				<li>
-					<Link to='/rocket'>Rocket</Link>
+					<Link to='/rockets'>Rockets</Link>
 				</li>
 				<li>
 					<Link to='/launches'>Launches</Link>

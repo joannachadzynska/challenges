@@ -6,6 +6,7 @@ import {
 	LaunchesPastListing,
 	NotFound,
 	RocketDetails,
+	RocketListing,
 } from '../pages';
 
 export interface RoutesProps {}
@@ -19,6 +20,9 @@ const Routes: React.SFC<RoutesProps> = () => {
 				</Route>
 				<Route path='/about'>
 					<About />
+				</Route>
+				<Route path='/rockets'>
+					<RocketListing />
 				</Route>
 				<Route path='/rocket/:id'>
 					<RocketDetails />
