@@ -35,7 +35,7 @@ const LaunchesPastListing: React.SFC<LaunchesPastListingProps> = () => {
 		return () => {
 			console.log('clean');
 		};
-	}, [data, cards]);
+	}, [data?.launchesPast]);
 
 	if (loading) return <h3>Loading..</h3>;
 	if (error) return <p>Error...</p>;
