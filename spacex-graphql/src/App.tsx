@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery } from 'react-apollo-hooks';
 import styled, { ThemeProvider } from 'styled-components';
@@ -29,6 +29,7 @@ const Box = styled.div`
 `;
 
 const App: React.SFC = () => {
+	const [themeMode, setThemeMode] = useState('light');
 	const { loading, error, data } = useQuery(GET_LAUNCHES);
 
 	if (loading) return <h3>Loading..</h3>;
@@ -37,8 +38,15 @@ const App: React.SFC = () => {
 	const getRandomImg = (images: string[]) =>
 		images[Math.floor(Math.random() * images.length)];
 
+	const toggleTheme = () => {
+		themeMode === 'light' ? setThemeMode('dark') : setThemeMode('light');
+	};
+
 	return (
-		<ThemeProvider theme={{ mode: 'dark' }}>
+		<ThemeProvider theme={{ mode: `${themeMode}` }}>
+			<Button variant='success' onClick={toggleTheme}>
+				change theme
+			</Button>
 			{data.launchesPast.map((launch: LaunchesPast) => (
 				<Box key={launch.mission_name}>
 					<h1>🛰 {launch.mission_name}</h1>
