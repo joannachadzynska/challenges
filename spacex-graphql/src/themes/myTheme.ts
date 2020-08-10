@@ -15,6 +15,15 @@ const boxStyles = theme('mode', {
 	`,
 });
 
+const linkStyles = theme('mode', {
+	light: css`
+		color: ${black};
+	`,
+	dark: css`
+		color: ${white};
+	`,
+});
+
 const backgroundColor = theme.variants('mode', 'variant', {
 	default: { light: 'gray', dark: 'darkgray' },
 	primary: { light: 'blue', dark: 'darkblue' },
@@ -31,4 +40,4 @@ Button.defaultProps = {
 	variant: 'default',
 };
 
-export { backgroundColor, Button, boxStyles };
+export { backgroundColor, Button, boxStyles, linkStyles };
