@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo-hooks';
+import './index.scss';
 
 const client = new ApolloClient({
-	uri: 'https://48p1r2roz4.sse.codesandbox.io',
-	cache: new InMemoryCache(),
+	uri: 'https://api.spacex.land/graphql',
 });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+	<Suspense fallback={<p>loading ... </p>}>
+		<ApolloProvider client={client}>
+			<App />
+		</ApolloProvider>
+	</Suspense>,
+	document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
