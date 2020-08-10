@@ -1,23 +1,61 @@
-import React, { Suspense } from 'react';
+import React from 'react';
+import { gql } from 'apollo-boost';
+import { useQuery } from 'react-apollo-hooks';
+import styled, { ThemeProvider } from 'styled-components';
+import { boxStyles, Button } from './themes/myTheme';
 
 import './App.css';
 
-import { ApolloClient, InMemoryCache } from '@apollo/client';
-import { ApolloProvider } from '@apollo/react-hooks';
+const GET_LAUNCHES = gql`
+	{
+		launchesPast {
+			mission_name
+			details
+			links {
+				flickr_images
+			}
+		}
+	}
+`;
 
-const client = new ApolloClient({
-	uri: 'https://api.spacex.land/graphql',
-	cache: new InMemoryCache(),
-});
+type LaunchesPast = {
+	mission_name: string;
+	details: any;
+	links: any;
+};
 
-function App() {
+const Box = styled.div`
+	${boxStyles}
+`;
+
+const App: React.SFC = () => {
+	const { loading, error, data } = useQuery(GET_LAUNCHES);
+
+	if (loading) return <h3>Loading..</h3>;
+	if (error) return <p>Error...</p>;
+
+	const getRandomImg = (images: string[]) =>
+		images[Math.floor(Math.random() * images.length)];
+
 	return (
-		<Suspense fallback={<div>loading...</div>}>
-			<ApolloProvider client={client}>
-				<div className='App'>gh</div>
-			</ApolloProvider>
-		</Suspense>
+		<ThemeProvider theme={{ mode: 'dark' }}>
+			{data.launchesPast.map((launch: LaunchesPast) => (
+				<Box key={launch.mission_name}>
+					<h1>🛰 {launch.mission_name}</h1>
+					<p>{launch.details}</p>
+					<img
+						src={getRandomImg(launch.links.flickr_images)}
+						width='200'
+						alt={launch.mission_name}
+					/>
+					<Button>Default</Button>
+					<Button variant='primary'>click me</Button>
+					<Button variant='success'>click me</Button>
+					<Button variant='warning'>click me</Button>
+				</Box>
+			))}
+		</ThemeProvider>
 	);
-}
+};
 
 export default App;
