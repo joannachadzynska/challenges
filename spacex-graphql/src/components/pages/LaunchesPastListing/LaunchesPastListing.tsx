@@ -47,20 +47,9 @@ const LaunchesPastListing: React.SFC<LaunchesPastListingProps> = () => {
 	return (
 		<section>
 			<h2>Launches Past</h2>
-			{/* {data.launchesPast.map((launch: LaunchPast) => (
-				<Box key={launch.id}>
-					<h1>🛰 {launch.mission_name}</h1>
-					<p>{launch.details}</p>
-					<img
-						src={getRandomImg(launch.links.flickr_images)}
-						width='200'
-						alt={launch.mission_name}
-					/>
-					<Button variant='primary'>Details</Button>
-				</Box>
-			))} */}
+
 			{cards.map((launch) => (
-				<LaunchCard key={launch.id} {...launch} />
+				<LaunchCard key={launch.mission_name} {...launch} />
 			))}
 			<Button onClick={handleOffset} variant='primary'>
 				Load more
