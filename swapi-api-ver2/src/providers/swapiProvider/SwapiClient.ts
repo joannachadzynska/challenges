@@ -8,12 +8,12 @@ import { Vehicle } from './interfaces/Vehicle';
 import { Response } from './interfaces/Response';
 
 export class SwapiClient {
-	private readonly PEOPLE_ENDPOINT = `/people/`;
-	private readonly FILMS_ENDPOINT = `/films/`;
-	private readonly PLANETS_ENDPOINT = `/planets/`;
-	private readonly SPECIES_ENDPOINT = `/species/`;
-	private readonly STARSHIPS_ENDPOINT = `/starships/`;
-	private readonly VEHICLES_ENDPOINT = `/vehicles/`;
+	private readonly PEOPLE_ENDPOINT = '/people/';
+	private readonly FILMS_ENDPOINT = '/films/';
+	private readonly PLANETS_ENDPOINT = '/planets/';
+	private readonly SPECIES_ENDPOINT = '/species/';
+	private readonly STARSHIPS_ENDPOINT = '/starships/';
+	private readonly VEHICLES_ENDPOINT = '/vehicles/';
 
 	private readonly request: AxiosInstance;
 
