@@ -13,16 +13,16 @@ const Routes: React.SFC = () => {
 	return (
 		<section>
 			<AnimatedRoutes exitBeforeEnter initial={false}>
-				<RouteTransition exact path='/'>
+				<RouteTransition exact path='/' slideUp={30}>
 					<Landing />
 				</RouteTransition>
-				<RouteTransition path='/about'>
+				<RouteTransition path='/about' slideUp={30}>
 					<About />
 				</RouteTransition>
-				<RouteTransition path='/rockets'>
+				<RouteTransition path='/rockets' slideUp={30}>
 					<RocketListing />
 				</RouteTransition>
-				<RouteTransition path='/rocket/:id'>
+				<RouteTransition path='/rocket/:id' slideUp={30}>
 					<RocketDetails />
 				</RouteTransition>
 				<RouteTransition path='/launches'>
