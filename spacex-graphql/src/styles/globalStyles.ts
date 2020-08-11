@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
 	    min-height: 100vh;
 	    max-width: 960px;
         margin: 0 auto;
+        transition: all 0.25s linear;
     }
 
 
