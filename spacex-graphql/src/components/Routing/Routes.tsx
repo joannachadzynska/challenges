@@ -1,5 +1,4 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import {
 	About,
 	Landing,
@@ -8,32 +7,31 @@ import {
 	RocketDetails,
 	RocketListing,
 } from '../pages';
+import { RouteTransition, AnimatedRoutes } from './animation/RouteTransition';
 
-export interface RoutesProps {}
-
-const Routes: React.SFC<RoutesProps> = () => {
+const Routes: React.SFC = () => {
 	return (
 		<section>
-			<Switch>
-				<Route exact path='/'>
+			<AnimatedRoutes exitBeforeEnter initial={false}>
+				<RouteTransition exact path='/'>
 					<Landing />
-				</Route>
-				<Route path='/about'>
+				</RouteTransition>
+				<RouteTransition path='/about'>
 					<About />
-				</Route>
-				<Route path='/rockets'>
+				</RouteTransition>
+				<RouteTransition path='/rockets'>
 					<RocketListing />
-				</Route>
-				<Route path='/rocket/:id'>
+				</RouteTransition>
+				<RouteTransition path='/rocket/:id'>
 					<RocketDetails />
-				</Route>
-				<Route path='/launches'>
+				</RouteTransition>
+				<RouteTransition path='/launches'>
 					<LaunchesPastListing />
-				</Route>
-				<Route path='*'>
+				</RouteTransition>
+				<RouteTransition path='*'>
 					<NotFound />
-				</Route>
-			</Switch>
+				</RouteTransition>
+			</AnimatedRoutes>
 		</section>
 	);
 };
