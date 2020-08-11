@@ -4,14 +4,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo-hooks';
-import './index.scss';
+import { LoadingIndicator } from './components/shared';
 
 const client = new ApolloClient({
 	uri: 'https://api.spacex.land/graphql',
 });
 
 ReactDOM.render(
-	<Suspense fallback={<p>loading ... </p>}>
+	<Suspense fallback={<LoadingIndicator />}>
 		<ApolloProvider client={client}>
 			<App />
 		</ApolloProvider>

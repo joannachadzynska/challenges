@@ -3,16 +3,10 @@ import { useQuery } from 'react-apollo-hooks';
 import { GET_LAUNCHES_PAST } from '../../../queries/getLaunchesPast';
 import { LaunchPast, LaunchesPastResult } from '../../../models/LaunchPast';
 import { LaunchCard } from '../../Launches';
-import { Button, boxStyles } from '../../../themes/myTheme';
-import styled from 'styled-components';
+import { LoadingIndicator } from '../../shared';
+import { Button } from '../../../themes/myTheme';
 
-export interface LaunchesPastListingProps {}
-
-const Box = styled.div`
-	${boxStyles}
-`;
-
-const LaunchesPastListing: React.SFC<LaunchesPastListingProps> = () => {
+const LaunchesPastListing: React.SFC = () => {
 	const [offset, setOffset] = React.useState(0);
 
 	const ELEMENTS_LIMIT = 10;
@@ -28,21 +22,22 @@ const LaunchesPastListing: React.SFC<LaunchesPastListingProps> = () => {
 	const handleOffset = () =>
 		setOffset((currentValue) => (currentValue += ELEMENTS_LIMIT));
 
-	React.useEffect(() => {
+	const updateCards = React.useCallback(() => {
 		if (data?.launchesPast.length) {
-			setCards([...cards, ...data.launchesPast]);
+			setCards((cards) => [...cards, ...data.launchesPast]);
 		}
 		return () => {
-			console.log('clean');
+			setCards([]);
 		};
-	}, [data?.launchesPast]);
+	}, [data]);
 
-	if (loading) return <h3>Loading..</h3>;
+	React.useEffect(() => {
+		updateCards();
+	}, [updateCards]);
+
+	if (loading) return <LoadingIndicator />;
 	if (error) return <p>Error...</p>;
 	if (!data?.launchesPast) return <p>there is not any data to display</p>;
-
-	// const getRandomImg = (images: string[]) =>
-	// 	images[Math.floor(Math.random() * images.length)];
 
 	return (
 		<section>
