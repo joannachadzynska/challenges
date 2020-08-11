@@ -33,9 +33,6 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
     ul {
-	list-style-type: none;
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-}
+	    list-style-type: none;
+    }
 `;
