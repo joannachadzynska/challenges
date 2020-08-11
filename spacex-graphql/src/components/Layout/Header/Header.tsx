@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../../themes/myTheme';
+import { NavList } from './styles';
 
 export interface HeaderProps {
 	themeMode: string;
@@ -14,7 +15,7 @@ const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
 
 	return (
 		<nav>
-			<ul>
+			<NavList>
 				<li>
 					<Link to='/'>Home</Link>
 				</li>
@@ -32,7 +33,7 @@ const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
 						change theme
 					</Button>
 				</li>
-			</ul>
+			</NavList>
 		</nav>
 	);
 };
