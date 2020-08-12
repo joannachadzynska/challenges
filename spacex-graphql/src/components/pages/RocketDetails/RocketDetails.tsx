@@ -1,23 +1,33 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-apollo-hooks';
+import { GET_ROCKET_DETAILS } from '../../../queries/getRocketDetails';
+import { Rocket } from '../../../models/Rocket';
+import { LoadingIndicator } from '../../shared';
+import { RocketName, RocketCountry, RocketDescription } from '../../Rockets';
 
-export interface RocketDetailsProps {}
+interface GraphQlResult {
+	rocket: Required<Rocket>;
+}
 
-const RocketDetails: React.SFC<RocketDetailsProps> = () => {
+const RocketDetails: React.SFC = () => {
 	const { id } = useParams();
-	console.log(id);
+
+	const { loading, error, data } = useQuery<GraphQlResult>(GET_ROCKET_DETAILS, {
+		variables: {
+			id: id,
+		},
+	});
+
+	if (loading) return <LoadingIndicator />;
+	if (error) return <p>Oops! Something went wrong!</p>;
+	if (!data?.rocket) return <p>There is no data to display</p>;
 
 	return (
 		<div>
-			RocketDetails{' '}
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis
-				commodi hic, iusto inventore saepe ipsum ad, ipsa numquam rerum quasi
-				iste libero. Expedita magni dolorum exercitationem veritatis sit
-				delectus aut amet ad consequatur deserunt possimus sint veniam tempora,
-				error itaque suscipit odit dolores explicabo. Quidem, consequuntur.
-				Obcaecati ab tempora deleniti?
-			</p>
+			<RocketName {...data.rocket} />
+			<RocketCountry {...data.rocket} />
+			<RocketDescription {...data.rocket} />
 		</div>
 	);
 };
