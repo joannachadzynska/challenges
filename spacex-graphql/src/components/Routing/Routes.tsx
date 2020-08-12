@@ -25,10 +25,10 @@ const Routes: React.SFC = () => {
 				<RouteTransition path='/rocket/:id' slideUp={30}>
 					<RocketDetails />
 				</RouteTransition>
-				<RouteTransition path='/launches'>
+				<RouteTransition path='/launches' slideUp={30}>
 					<LaunchesPastListing />
 				</RouteTransition>
-				<RouteTransition path='*'>
+				<RouteTransition path='*' slideUp={30}>
 					<NotFound />
 				</RouteTransition>
 			</AnimatedRoutes>
