@@ -21,14 +21,14 @@ export const GlobalStyle = createGlobalStyle`
 	    -webkit-font-smoothing: antialiased;
 	    -moz-osx-font-smoothing: grayscale;
 	    min-height: 100vh;
-	    max-width: 960px;
-        margin: 0 auto;
+	    /* max-width: 960px;
+        margin: 0 auto; */
         transition: all 0.25s linear;
     }
 
 
 	a {
-		${linkStyles};
+		/* ${linkStyles}; */
 		text-decoration: none;
 	}
 

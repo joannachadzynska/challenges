@@ -15,6 +15,17 @@ const boxStyles = theme('mode', {
 	`,
 });
 
+const navStyles = theme('mode', {
+	light: css`
+		background: ${black};
+		color: ${white};
+	`,
+	dark: css`
+		background: ${white};
+		color: ${black};
+	`,
+});
+
 const linkStyles = theme('mode', {
 	light: css`
 		color: ${black};
@@ -40,4 +51,4 @@ Button.defaultProps = {
 	variant: 'default',
 };
 
-export { backgroundColor, Button, boxStyles, linkStyles };
+export { backgroundColor, Button, boxStyles, linkStyles, navStyles };
