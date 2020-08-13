@@ -1,9 +1,15 @@
 import React from 'react';
-import { Button } from '../../../themes/myTheme';
-import { Navbar, NavbarContainer, NavbarLink, NavbarLinks } from './styles';
+import {
+	Navbar,
+	NavbarContainer,
+	NavbarLink,
+	NavbarLinks,
+	StyledHeader,
+} from './styles';
 import { Wrapper } from '../../../styles/Wrapper';
 import MotionLink from './MotionLink';
 import Logo from './Logo';
+import { Button } from '../../shared/Button/styles';
 
 export interface HeaderProps {
 	themeMode: string;
@@ -23,28 +29,36 @@ const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
 	];
 
 	return (
-		<Navbar>
-			<Wrapper>
-				<NavbarContainer>
-					<Logo />
-					<NavbarLinks>
-						<ul>
-							{links.map((link) => (
-								<MotionLink key={link.id}>
-									<NavbarLink to={link.path}>{link.name}</NavbarLink>
-								</MotionLink>
-							))}
+		<StyledHeader>
+			<Navbar>
+				<Wrapper>
+					<NavbarContainer>
+						<Logo />
+						<NavbarLinks>
+							<ul>
+								{links.map((link) => (
+									<MotionLink key={link.id}>
+										<NavbarLink to={link.path}>{link.name}</NavbarLink>
+									</MotionLink>
+								))}
 
-							<li>
-								<Button variant='success' onClick={toggleTheme}>
-									Toggle Theme
-								</Button>
-							</li>
-						</ul>
-					</NavbarLinks>
-				</NavbarContainer>
-			</Wrapper>
-		</Navbar>
+								<li>
+									<Button
+										variant='success'
+										onClick={toggleTheme}
+										whileHover={{
+											scale: 1.1,
+										}}
+										transition={{ type: 'spring', stiffness: 50 }}>
+										Toggle Theme
+									</Button>
+								</li>
+							</ul>
+						</NavbarLinks>
+					</NavbarContainer>
+				</Wrapper>
+			</Navbar>
+		</StyledHeader>
 	);
 };
 
