@@ -21,9 +21,14 @@ export const GlobalStyle = createGlobalStyle`
 	    -webkit-font-smoothing: antialiased;
 	    -moz-osx-font-smoothing: grayscale;
 	    min-height: 100vh;
-	    /* max-width: 960px;
-        margin: 0 auto; */
         transition: all 0.25s linear;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header",
+            "content",
+            "footer"
     }
 
 

@@ -35,20 +35,4 @@ const linkStyles = theme('mode', {
 	`,
 });
 
-const backgroundColor = theme.variants('mode', 'variant', {
-	default: { light: 'gray', dark: 'darkgray' },
-	primary: { light: 'blue', dark: 'darkblue' },
-	success: { light: 'green', dark: 'darkgreen' },
-	warning: { light: 'orange', dark: 'darkorange' },
-});
-
-const Button = styled.button`
-	background-color: ${backgroundColor};
-	color: ${white};
-`;
-
-Button.defaultProps = {
-	variant: 'default',
-};
-
-export { backgroundColor, Button, boxStyles, linkStyles, navStyles };
+export { boxStyles, linkStyles, navStyles };
