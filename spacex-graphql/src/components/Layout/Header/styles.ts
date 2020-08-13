@@ -3,9 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { navStyles } from '../../../themes/myTheme';
 import theme from 'styled-theming';
 
+export const StyledHeader = styled.header`
+	grid-area: header;
+`;
+
 export const Navbar = styled.nav`
-	${navStyles}
-	width:100%;
+	${navStyles};
+	width: 100%;
 `;
 
 export const NavbarContainer = styled.div`
