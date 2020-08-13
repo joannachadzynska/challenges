@@ -4,7 +4,7 @@ import { GET_LAUNCHES_PAST } from '../../../queries/getLaunchesPast';
 import { LaunchPast, LaunchesPastResult } from '../../../models/LaunchPast';
 import { LaunchCard } from '../../Launches';
 import { LoadingIndicator } from '../../shared';
-import { Button } from '../../../themes/myTheme';
+import { Button } from '../../shared/Button/styles';
 
 const LaunchesPastListing: React.SFC = () => {
 	const [offset, setOffset] = React.useState(0);
