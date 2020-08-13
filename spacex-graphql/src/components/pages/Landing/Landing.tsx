@@ -1,8 +1,10 @@
 import React from 'react';
+import { useModal } from '../../../hooks/useModal';
+import { Modal } from '../../shared';
+import { Button } from '../../shared/Button/styles';
 
-export interface LandingProps {}
-
-const Landing: React.SFC<LandingProps> = () => {
+const Landing: React.SFC = () => {
+	const { showModal, toggleModal } = useModal();
 	return (
 		<div>
 			Landing page
@@ -14,6 +16,10 @@ const Landing: React.SFC<LandingProps> = () => {
 				error itaque suscipit odit dolores explicabo. Quidem, consequuntur.
 				Obcaecati ab tempora deleniti?
 			</p>
+			<Button variant='primary' onClick={toggleModal}>
+				show Modal
+			</Button>
+			<Modal isOpen={showModal} onClose={toggleModal} />
 		</div>
 	);
 };
