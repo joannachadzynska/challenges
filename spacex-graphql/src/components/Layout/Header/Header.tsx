@@ -1,15 +1,11 @@
-import React from 'react';
-import {
-	Navbar,
-	NavbarContainer,
-	NavbarLink,
-	NavbarLinks,
-	StyledHeader,
-} from './styles';
+import React, { useRef } from 'react';
+import { useCycle } from 'framer-motion';
+import { useDimensions } from '../../../hooks/useDimensions';
+import { MenuMobile } from './MenuMobile';
+import { Navigation } from './Menu';
+import { Navbar, NavbarContainer, StyledHeader } from './styles';
 import { Wrapper } from '../../../styles/Wrapper';
-import MotionLink from './MotionLink';
 import Logo from './Logo';
-import { Button } from '../../shared/Button/styles';
 import ThemeSwitch from './ThemeSwitch';
 
 export interface HeaderProps {
@@ -18,6 +14,9 @@ export interface HeaderProps {
 }
 
 const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
+	const [isOpen, toggleOpen] = useCycle(false, true);
+	const containerRef = useRef(null);
+	const { height } = useDimensions(containerRef);
 	const toggleTheme = () => {
 		themeMode === 'light' ? setThemeMode('dark') : setThemeMode('light');
 	};
@@ -31,31 +30,18 @@ const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
 
 	return (
 		<StyledHeader>
-			<Navbar>
+			<Navbar
+				initial={false}
+				animate={isOpen ? 'open' : 'closed'}
+				custom={height}
+				ref={containerRef}>
 				<Wrapper>
 					<NavbarContainer>
 						<Logo />
-						<NavbarLinks>
-							<ul>
-								{links.map((link) => (
-									<MotionLink key={link.id}>
-										<NavbarLink to={link.path}>{link.name}</NavbarLink>
-									</MotionLink>
-								))}
 
-								<ThemeSwitch switchTheme={toggleTheme} />
-								{/* <Button
-									variant='success'
-									onClick={toggleTheme}
-									style={{ marginLeft: 10 }}
-									whileHover={{
-										scale: 1.1,
-									}}
-									transition={{ type: 'spring', stiffness: 50 }}>
-									Toggle Theme
-								</Button> */}
-							</ul>
-						</NavbarLinks>
+						<Navigation links={links} />
+						{/* <MenuMobile links={links} toggle={() => toggleOpen()} /> */}
+						<ThemeSwitch switchTheme={toggleTheme} />
 					</NavbarContainer>
 				</Wrapper>
 			</Navbar>
