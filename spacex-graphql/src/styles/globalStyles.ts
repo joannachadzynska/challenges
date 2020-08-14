@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { boxStyles, linkStyles } from '../themes/myTheme';
+import { backgroundColor, textColor } from '../themes/myTheme';
 
 export const Div = styled.div`
 	max-width: 100xp;
@@ -17,8 +17,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        ${boxStyles}
-        margin: 0;
+        background-color: ${backgroundColor};
+        color: ${textColor};
 	    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
 		sans-serif;
@@ -38,7 +38,6 @@ export const GlobalStyle = createGlobalStyle`
 
 
 	a {
-		/* ${linkStyles}; */
 		text-decoration: none;
 	}
 

@@ -1,4 +1,3 @@
-import { css } from 'styled-components';
 import theme from 'styled-theming';
 
 const colors = {
@@ -18,33 +17,48 @@ const colors = {
 	},
 };
 
-const boxStyles = theme('mode', {
-	light: css`
-		background: ${colors.light.background};
-		color: ${colors.light.color};
-	`,
-	dark: css`
-		background: ${colors.dark.background};
-		color: ${colors.dark.color};
-	`,
+const backgroundColor = theme('mode', {
+	light: `${colors.light.background}`,
+	dark: `${colors.dark.background}`,
 });
 
-const navStyles = theme('mode', {
-	light: css`
-		color: ${colors.light.color};
-	`,
-	dark: css`
-		color: ${colors.dark.color};
-	`,
+const reverseBackground = theme('mode', {
+	light: `${colors.dark.background}`,
+	dark: `${colors.light.background}`,
 });
 
-const linkStyles = theme('mode', {
-	light: css`
-		color: ${colors.light.color};
-	`,
-	dark: css`
-		color: ${colors.dark.color};
-	`,
+const textColor = theme('mode', {
+	light: `${colors.light.color}`,
+	dark: `${colors.dark.color}`,
 });
 
-export { boxStyles, linkStyles, navStyles, colors };
+const reverseTextColor = theme('mode', {
+	light: `${colors.dark.color}`,
+	dark: `${colors.light.color}`,
+});
+
+const headingColor = theme('mode', {
+	light: `${colors.light.heading}`,
+	dark: `${colors.dark.heading}`,
+});
+
+const primaryColor = theme('mode', {
+	light: `${colors.light.primary}`,
+	dark: `${colors.dark.primary}`,
+});
+
+const secondaryColor = theme('mode', {
+	light: `${colors.light.secondary}`,
+	dark: `${colors.dark.secondary}`,
+});
+
+export {
+	colors,
+	backgroundColor,
+	textColor,
+	headingColor,
+	primaryColor,
+	reverseBackground,
+	reverseTextColor,
+	secondaryColor,
+};

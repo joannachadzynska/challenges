@@ -1,14 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { linkStyles } from '../../../themes/myTheme';
-import theme from 'styled-theming';
+import { textColor } from '../../../themes/myTheme';
 
 export const StyledHeader = styled.header`
 	grid-area: header;
 `;
 
-export const Navbar = styled.nav`
+export const Navbar = styled(motion.nav)`
 	width: 100%;
 `;
 
@@ -28,19 +27,10 @@ export const NavbarLinks = styled.div`
 	}
 `;
 
-const navLinkStyles = theme('mode', {
-	light: css`
-		stroke: #000;
-	`,
-	dark: css`
-		stroke: #fff;
-	`,
-});
-
 export const NavbarLink = styled(NavLink)`
+	color: ${textColor};
 	display: block;
 	padding: 1rem;
-	${linkStyles}
 `;
 
 export const NavbarBrand = styled(motion.div)`
@@ -55,10 +45,10 @@ export const RocketSvg = styled(motion.svg)`
 	margin: 10px;
 	width: 40px;
 	overflow: visible;
+	stroke: ${textColor};
 	stroke-width: 4;
 	stroke-linejoin: round;
 	stroke-linecap: round;
-	${navLinkStyles}
 `;
 
 // Theme Switch component
@@ -105,6 +95,7 @@ export const ThemeSwitchLabel = styled.label`
 	input {
 		display: none;
 	}
+
 	input:checked + ${ThemeSwitchSlider} {
 		background-color: #66bb6a;
 	}
