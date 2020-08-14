@@ -1,13 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-
-const infiniteSpinning = keyframes`    
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
-`;
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const Moon = styled.div`
 	background: #c7cbd0;
@@ -26,12 +18,10 @@ export const Moon = styled.div`
 	}
 `;
 
-export const Loader = styled.img`
+export const Loader = styled(motion.img)`
 	position: absolute;
 	width: 30px;
 	height: 20px;
-	animation: ${infiniteSpinning} 4s infinite;
-	animation-timing-function: linear;
 	transform-origin: 335% 500%;
 `;
 
