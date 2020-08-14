@@ -1,38 +1,50 @@
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import theme from 'styled-theming';
 
-const white = '#fff';
-const black = '#000';
+const colors = {
+	light: {
+		background: '#fff',
+		color: '#424242',
+		heading: '#292922',
+		primary: '#302AE6',
+		secondary: '#536390',
+	},
+	dark: {
+		background: '#161625',
+		color: '#e1e1ff',
+		heading: '#818cab',
+		primary: '#9A97F3',
+		secondary: '#818cab',
+	},
+};
 
 const boxStyles = theme('mode', {
 	light: css`
-		background: ${white};
-		color: ${black};
+		background: ${colors.light.background};
+		color: ${colors.light.color};
 	`,
 	dark: css`
-		background: ${black};
-		color: ${white};
+		background: ${colors.dark.background};
+		color: ${colors.dark.color};
 	`,
 });
 
 const navStyles = theme('mode', {
 	light: css`
-		background: ${black};
-		color: ${white};
+		color: ${colors.light.color};
 	`,
 	dark: css`
-		background: ${white};
-		color: ${black};
+		color: ${colors.dark.color};
 	`,
 });
 
 const linkStyles = theme('mode', {
 	light: css`
-		color: ${black};
+		color: ${colors.light.color};
 	`,
 	dark: css`
-		color: ${white};
+		color: ${colors.dark.color};
 	`,
 });
 
-export { boxStyles, linkStyles, navStyles };
+export { boxStyles, linkStyles, navStyles, colors };

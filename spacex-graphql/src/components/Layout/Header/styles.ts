@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { navStyles } from '../../../themes/myTheme';
+import { linkStyles } from '../../../themes/myTheme';
 import theme from 'styled-theming';
 
 export const StyledHeader = styled.header`
@@ -9,7 +9,6 @@ export const StyledHeader = styled.header`
 `;
 
 export const Navbar = styled.nav`
-	${navStyles};
 	width: 100%;
 `;
 
@@ -26,28 +25,25 @@ export const NavbarLinks = styled.div`
 		justify-content: space-evenly;
 		margin: 0;
 		padding: 0;
-
-		li {
-		}
 	}
 `;
 
 const navLinkStyles = theme('mode', {
 	light: css`
-		color: #fff;
+		stroke: #000;
 	`,
 	dark: css`
-		color: #000;
+		stroke: #fff;
 	`,
 });
 
 export const NavbarLink = styled(NavLink)`
-	${navLinkStyles};
 	display: block;
 	padding: 1rem;
+	${linkStyles}
 `;
 
-export const NavbarBrand = styled.div`
+export const NavbarBrand = styled(motion.div)`
 	font-size: 1.5rem;
 	margin: 0.5rem;
 	display: flex;
@@ -56,11 +52,64 @@ export const NavbarBrand = styled.div`
 `;
 
 export const RocketSvg = styled(motion.svg)`
-	margin: 5px;
+	margin: 10px;
 	width: 40px;
 	overflow: visible;
-	stroke: #fff;
 	stroke-width: 4;
 	stroke-linejoin: round;
 	stroke-linecap: round;
+	${navLinkStyles}
+`;
+
+// Theme Switch component
+export const ThemeSwitchWrapper = styled.div`
+	display: flex;
+	align-items: center;
+
+	em {
+		margin-left: 10px;
+		font-size: 1rem;
+	}
+`;
+
+export const ThemeSwitchSlider = styled(motion.div)`
+	background-color: #ccc;
+	bottom: 0;
+	border-radius: 34px;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: 0.4s;
+
+	&::before {
+		background-color: #fff;
+		bottom: 4px;
+		border-radius: 50%;
+		content: '';
+		height: 26px;
+		left: 4px;
+		position: absolute;
+		transition: 0.4s;
+		width: 26px;
+	}
+`;
+
+export const ThemeSwitchLabel = styled.label`
+	display: inline-block;
+	height: 34px;
+	position: relative;
+	width: 60px;
+
+	input {
+		display: none;
+	}
+	input:checked + ${ThemeSwitchSlider} {
+		background-color: #66bb6a;
+	}
+
+	input:checked + ${ThemeSwitchSlider}::before {
+		transform: translateX(26px);
+	}
 `;

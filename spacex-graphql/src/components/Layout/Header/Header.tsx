@@ -10,6 +10,7 @@ import { Wrapper } from '../../../styles/Wrapper';
 import MotionLink from './MotionLink';
 import Logo from './Logo';
 import { Button } from '../../shared/Button/styles';
+import ThemeSwitch from './ThemeSwitch';
 
 export interface HeaderProps {
 	themeMode: string;
@@ -42,17 +43,17 @@ const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
 									</MotionLink>
 								))}
 
-								<li>
-									<Button
-										variant='success'
-										onClick={toggleTheme}
-										whileHover={{
-											scale: 1.1,
-										}}
-										transition={{ type: 'spring', stiffness: 50 }}>
-										Toggle Theme
-									</Button>
-								</li>
+								<ThemeSwitch switchTheme={toggleTheme} />
+								{/* <Button
+									variant='success'
+									onClick={toggleTheme}
+									style={{ marginLeft: 10 }}
+									whileHover={{
+										scale: 1.1,
+									}}
+									transition={{ type: 'spring', stiffness: 50 }}>
+									Toggle Theme
+								</Button> */}
 							</ul>
 						</NavbarLinks>
 					</NavbarContainer>

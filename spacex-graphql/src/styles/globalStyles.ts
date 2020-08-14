@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    html {
+        height: 100%
+    }
+
     body {
         ${boxStyles}
         margin: 0;
@@ -20,11 +24,12 @@ export const GlobalStyle = createGlobalStyle`
 		sans-serif;
 	    -webkit-font-smoothing: antialiased;
 	    -moz-osx-font-smoothing: grayscale;
-	    min-height: 100vh;
+        line-height: 1.6;
+        min-height: 100%;
         transition: all 0.25s linear;
         display: grid;
         grid-template-rows: auto 1fr auto;
-        grid-template-columns: 1fr;
+        grid-template-columns: auto;
         grid-template-areas: 
             "header",
             "content",
