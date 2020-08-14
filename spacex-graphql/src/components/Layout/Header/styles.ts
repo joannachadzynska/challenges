@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { navStyles } from '../../../themes/myTheme';
 import theme from 'styled-theming';
 
@@ -54,8 +55,8 @@ export const NavbarBrand = styled.div`
 	align-items: center;
 `;
 
-export const RocketSvg = styled.svg`
-	margin: 10px;
+export const RocketSvg = styled(motion.svg)`
+	margin: 5px;
 	width: 40px;
 	overflow: visible;
 	stroke: #fff;

@@ -14,10 +14,27 @@ const titleVariants = {
 	},
 };
 
+const svgVariants = {
+	hidden: {
+		x: -50,
+		y: 50,
+	},
+	visible: {
+		x: 0,
+		y: 0,
+		transition: {
+			duration: 1,
+		},
+	},
+};
+
 const Logo: React.SFC = () => {
 	return (
 		<NavbarBrand>
 			<RocketSvg
+				variants={svgVariants}
+				initial='hidden'
+				animate='visible'
 				enable-background='new 0 0 24 24'
 				viewBox='0 0 24 24'
 				xmlns='http://www.w3.org/2000/svg'>
