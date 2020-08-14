@@ -16,14 +16,16 @@ const titleVariants = {
 
 const svgVariants = {
 	hidden: {
-		x: -50,
-		y: 50,
+		x: '-50vh',
+		y: '50vh',
+		opacity: 0,
 	},
 	visible: {
 		x: 0,
 		y: 0,
+		opacity: 1,
 		transition: {
-			duration: 1,
+			duration: 2,
 		},
 	},
 };
@@ -32,6 +34,7 @@ const Logo: React.SFC = () => {
 	return (
 		<NavbarBrand>
 			<RocketSvg
+				drag
 				variants={svgVariants}
 				initial='hidden'
 				animate='visible'
