@@ -37,7 +37,7 @@ const MenuItem: React.SFC<MenuItemProps> = ({ id, name, path, i }) => {
 			whileHover={{ scale: 1.1 }}
 			whileTap={{ scale: 0.95 }}>
 			<IconPlaceholder style={style} />
-			<TextPlaceholder style={style}>
+			<TextPlaceholder>
 				<NavLink to={path}>{name}</NavLink>{' '}
 			</TextPlaceholder>
 		</MotionLiNav>
