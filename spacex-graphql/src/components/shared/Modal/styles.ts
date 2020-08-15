@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { mediaQueries } from '../../../themes/mediaTemplates';
 
 export const ModalContainer = styled(motion.div)`
 	background: azure;
 	border: 5px solid black;
 	height: 35vh;
 	max-height: 100%;
-	width: 80vh;
+	width: 60vh;
 	max-width: 100%;
 	overflow: auto;
 	padding: 20px;
 	text-align: center;
 	z-index: 1010;
+
+	${mediaQueries('md')`
+    width: 70vh;
+  `};
 `;
 
 export const ModalOverlay = styled(motion.div)`

@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import {
 	reverseBackground,
 	reverseTextColor,
+	textColor,
 } from '../../../../themes/myTheme';
+import { mediaQueries } from '../../../../themes/mediaTemplates';
 
 export const Hamburger = styled.button`
 	outline: none;
@@ -19,6 +21,10 @@ export const Hamburger = styled.button`
 	height: 50px;
 	border-radius: 50%;
 	background: transparent;
+
+	${mediaQueries('md')`
+    display: none;
+  `};
 `;
 
 export const Background = styled(motion.div)`
@@ -28,6 +34,9 @@ export const Background = styled(motion.div)`
 	bottom: 0;
 	width: 300px;
 	background: ${reverseBackground};
+	${mediaQueries('md')`
+    background: none;
+  `};
 `;
 
 export const MotionPath = styled(motion.path)`
@@ -43,6 +52,13 @@ export const MotionUlNav = styled(motion.ul)`
 	top: 100px;
 	left: 2rem;
 	width: 230px;
+
+	${mediaQueries('md')`
+    position: relative;
+    display: flex;
+    align-items: center;
+   
+  `};
 `;
 
 export const MotionLiNav = styled(motion.li)`
@@ -54,6 +70,10 @@ export const MotionLiNav = styled(motion.li)`
 
 	a {
 		color: ${reverseTextColor};
+
+		${mediaQueries('md')`
+        color: black;
+        `};
 	}
 `;
 
@@ -63,6 +83,10 @@ export const IconPlaceholder = styled.div`
 	border-radius: 50%;
 	flex: 40px 0;
 	margin-right: 20px;
+
+	${mediaQueries('md')`
+        display: none
+    `};
 `;
 
 export const TextPlaceholder = styled.div`
@@ -71,4 +95,8 @@ export const TextPlaceholder = styled.div`
 	height: auto;
 	padding-left: 10px;
 	flex: 1;
+	${mediaQueries('md')`
+        border: none;
+
+    `};
 `;

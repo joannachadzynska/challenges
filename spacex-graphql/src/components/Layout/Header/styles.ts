@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { textColor } from '../../../themes/myTheme';
+import { mediaQueries } from '../../../themes/mediaTemplates';
 
 export const StyledHeader = styled.header`
 	grid-area: header;
@@ -13,8 +14,11 @@ export const Navbar = styled(motion.nav)`
 
 export const NavbarContainer = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
+	${mediaQueries('md')`
+    justify-content: space-between
+  `};
 `;
 
 export const NavbarLinks = styled.div`
@@ -63,26 +67,23 @@ export const ThemeSwitchWrapper = styled.div`
 `;
 
 export const ThemeSwitchSlider = styled(motion.div)`
-	background-color: #ccc;
+	background: linear-gradient(#39598a, #79d7ed);
 	bottom: 0;
+	border: 1px solid #fff;
 	border-radius: 34px;
 	cursor: pointer;
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
+	height: 100%;
+	position: relative;
 	transition: 0.4s;
 
 	&::before {
-		background-color: #fff;
-		bottom: 4px;
-		border-radius: 50%;
-		content: '';
-		height: 26px;
-		left: 4px;
+		color: yellow;
+		content: '\f185';
+		font-family: FontAwesome;
+		font-size: 22px;
 		position: absolute;
+		left: 4px;
 		transition: 0.4s;
-		width: 26px;
 	}
 `;
 
@@ -97,10 +98,13 @@ export const ThemeSwitchLabel = styled.label`
 	}
 
 	input:checked + ${ThemeSwitchSlider} {
-		background-color: #66bb6a;
+		background: linear-gradient(#091236, #1e215d);
 	}
 
 	input:checked + ${ThemeSwitchSlider}::before {
 		transform: translateX(26px);
+		color: azure;
+		content: '\f186';
+		font-family: FontAwesome;
 	}
 `;
