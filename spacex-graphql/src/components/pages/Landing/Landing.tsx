@@ -2,11 +2,13 @@ import React from 'react';
 import { useModal } from '../../../hooks/useModal';
 import { Modal } from '../../shared';
 import { Button } from '../../shared/Button/styles';
+import { LandingContainer } from './styles';
 
 const Landing: React.SFC = () => {
 	const { showModal, toggleModal } = useModal();
+
 	return (
-		<div>
+		<LandingContainer>
 			Landing page
 			<p>
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis
@@ -20,7 +22,7 @@ const Landing: React.SFC = () => {
 				show Modal
 			</Button>
 			<Modal isOpen={showModal} onClose={toggleModal} />
-		</div>
+		</LandingContainer>
 	);
 };
 
