@@ -37,11 +37,17 @@ const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
 				ref={containerRef}>
 				<Wrapper>
 					<NavbarContainer>
-						<Logo />
-
-						<Navigation links={links} />
-						{/* <MenuMobile links={links} toggle={() => toggleOpen()} /> */}
+						{window.innerWidth >= 768 ? (
+							<Navigation links={links} />
+						) : (
+							<MenuMobile
+								links={links}
+								toggle={() => toggleOpen()}
+								isOpen={isOpen}
+							/>
+						)}
 						<ThemeSwitch switchTheme={toggleTheme} />
+						<Logo />
 					</NavbarContainer>
 				</Wrapper>
 			</Navbar>
