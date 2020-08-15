@@ -16,7 +16,7 @@ const ThemeSwitch: React.SFC<ThemeSwitchProps> = ({ switchTheme }) => {
 				<input type='checkbox' id='checkbox' onChange={switchTheme} />
 				<ThemeSwitchSlider />
 			</ThemeSwitchLabel>
-			<em>Enable Dark Mode!</em>
+			{/* <em>Enable Dark Mode!</em> */}
 		</ThemeSwitchWrapper>
 	);
 };
