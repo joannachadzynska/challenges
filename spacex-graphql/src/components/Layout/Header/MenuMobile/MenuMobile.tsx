@@ -12,6 +12,7 @@ type Link = {
 export interface MenuMobileProps {
 	links: Link[];
 	toggle: () => void;
+	isOpen: boolean;
 }
 
 const sidebar = {
@@ -34,12 +35,13 @@ const sidebar = {
 	},
 };
 
-const MenuMobile: React.SFC<MenuMobileProps> = ({ links, toggle }) => {
+const MenuMobile: React.SFC<MenuMobileProps> = ({ links, toggle, isOpen }) => {
 	return (
 		<>
 			<Background variants={sidebar} />
-			<NavigationMobile links={links} />
-			<MenuToggle toggle={toggle} />
+			<NavigationMobile links={links} isOpen={isOpen} />
+
+			{<MenuToggle toggle={toggle} />}
 		</>
 	);
 };

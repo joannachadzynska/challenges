@@ -10,6 +10,7 @@ type Link = {
 
 export interface NavigationProps {
 	links: Link[];
+	isOpen: boolean;
 }
 
 const variants = {
@@ -21,7 +22,7 @@ const variants = {
 	},
 };
 
-const NavigationMobile: React.SFC<NavigationProps> = ({ links }) => {
+const NavigationMobile: React.SFC<NavigationProps> = ({ links, isOpen }) => {
 	return (
 		<MotionUlNav variants={variants}>
 			{links.map((link, index) => (
