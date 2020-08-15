@@ -5,6 +5,7 @@ import { LaunchPast, LaunchesPastResult } from '../../../models/LaunchPast';
 import { LaunchCard } from '../../Launches';
 import { LoadingIndicator } from '../../shared';
 import { Button } from '../../shared/Button/styles';
+import { Grid } from './styles';
 
 const LaunchesPastListing: React.SFC = () => {
 	const [offset, setOffset] = React.useState(0);
@@ -42,10 +43,13 @@ const LaunchesPastListing: React.SFC = () => {
 	return (
 		<section>
 			<h2>Launches Past</h2>
+			<br />
+			<Grid>
+				{cards.map((launch) => (
+					<LaunchCard key={launch.mission_name} {...launch} />
+				))}
+			</Grid>
 
-			{cards.map((launch) => (
-				<LaunchCard key={launch.mission_name} {...launch} />
-			))}
 			<Button onClick={handleOffset} variant='primary'>
 				Load more
 			</Button>
