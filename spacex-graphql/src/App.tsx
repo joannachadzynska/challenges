@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Header, Footer, Content } from './components/Layout';
+import { useDarkMode } from './hooks/useDarkMode';
 import { GlobalStyle } from './styles/globalStyles';
 
 const App: React.SFC = () => {
-	const [themeMode, setThemeMode] = useState('light');
+	const { theme, themeToggler, mountedComponent } = useDarkMode();
+
+	if (!mountedComponent) return <div />;
+
 	return (
-		<ThemeProvider theme={{ mode: `${themeMode}` }}>
+		<ThemeProvider theme={{ mode: `${theme}` }}>
 			<GlobalStyle />
 			<Router>
-				<Header setThemeMode={setThemeMode} themeMode={themeMode} />
+				<Header toggleTheme={themeToggler} theme={theme} />
 				<Content />
 				<Footer />
 			</Router>
