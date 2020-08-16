@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { ThemedStyledProps } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { textColor } from '../../../themes/myTheme';
@@ -97,12 +97,19 @@ export const ThemeSwitchLabel = styled.label`
 		display: none;
 	}
 
+	input + ${ThemeSwitchSlider}::before {
+		transform: ${(props: any) =>
+			props.theme === 'light' ? 'translateX(0)' : 'translateX(26px)'};
+		/* content: ${(props: any) => (props.theme === 'dark' ? '\f186' : `\f185`)}; */
+	}
+
 	input:checked + ${ThemeSwitchSlider} {
 		background: linear-gradient(#091236, #1e215d);
 	}
 
 	input:checked + ${ThemeSwitchSlider}::before {
-		transform: translateX(26px);
+		transform: ${(props: any) =>
+			props.theme === 'light' ? 'translateX(26px)' : 'translateX(0)'};
 		color: azure;
 		content: '\f186';
 		font-family: FontAwesome;
