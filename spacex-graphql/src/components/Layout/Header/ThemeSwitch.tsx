@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
 	ThemeSwitchWrapper,
 	ThemeSwitchLabel,
@@ -6,17 +7,19 @@ import {
 } from './styles';
 
 export interface ThemeSwitchProps {
-	switchTheme: () => void;
+	toggleTheme: () => void;
+	theme: string | null;
 }
 
-const ThemeSwitch: React.SFC<ThemeSwitchProps> = ({ switchTheme }) => {
+const ThemeSwitch: React.SFC<ThemeSwitchProps> = ({ toggleTheme, theme }) => {
+	console.log(theme);
+
 	return (
 		<ThemeSwitchWrapper>
-			<ThemeSwitchLabel htmlFor='checkbox'>
-				<input type='checkbox' id='checkbox' onChange={switchTheme} />
-				<ThemeSwitchSlider />
+			<ThemeSwitchLabel htmlFor='checkbox' theme>
+				<input type='checkbox' id='checkbox' onChange={toggleTheme} />
+				<ThemeSwitchSlider theme />
 			</ThemeSwitchLabel>
-			{/* <em>Enable Dark Mode!</em> */}
 		</ThemeSwitchWrapper>
 	);
 };

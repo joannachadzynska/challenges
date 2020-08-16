@@ -9,17 +9,14 @@ import Logo from './Logo';
 import ThemeSwitch from './ThemeSwitch';
 
 export interface HeaderProps {
-	themeMode: string;
-	setThemeMode: (mode: string) => void;
+	toggleTheme: () => void;
+	theme: string;
 }
 
-const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
+const Header: React.SFC<HeaderProps> = ({ toggleTheme, theme }) => {
 	const [isOpen, toggleOpen] = useCycle(false, true);
 	const containerRef = useRef(null);
 	const { height } = useDimensions(containerRef);
-	const toggleTheme = () => {
-		themeMode === 'light' ? setThemeMode('dark') : setThemeMode('light');
-	};
 
 	const links = [
 		{ id: 'home', path: '/', name: 'Home' },
@@ -46,7 +43,7 @@ const Header: React.SFC<HeaderProps> = ({ themeMode, setThemeMode }) => {
 								isOpen={isOpen}
 							/>
 						)}
-						<ThemeSwitch switchTheme={toggleTheme} />
+						<ThemeSwitch toggleTheme={toggleTheme} theme={theme} />
 						<Logo />
 					</NavbarContainer>
 				</Wrapper>
