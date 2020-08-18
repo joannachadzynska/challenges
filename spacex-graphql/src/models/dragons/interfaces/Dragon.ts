@@ -3,19 +3,19 @@ import { Distance, Mass, Force } from '../../rockets/interfaces/Rocket';
 export interface Dragon {
 	active?: boolean;
 	crew_capacity?: number;
-	description?: string;
+	description: string;
 	diameter?: Distance;
 	dry_mass_kg?: number;
-	first_flight?: string;
+	first_flight: string;
 	heat_shield?: DragonHeatShield;
-	id?: number;
+	id: number;
 	launch_payload_mass?: Mass;
-	name?: string;
+	name: string;
 	return_payload_mass?: Mass;
 	thrusters?: DragonThrust[];
 	trunk?: DragonTrunk;
-	type?: string;
-	wikipedia?: string;
+	type: string;
+	wikipedia: string;
 }
 
 export interface DragonHeatShield {

@@ -8,7 +8,7 @@ export interface Launchpad {
 	name: string;
 	status?: string;
 	successful_launches?: number;
-	vehicles_launched?: Rocket[];
+	vehicles_launched: Rocket[];
 	wikipedia?: string;
 }
 
