@@ -7,7 +7,7 @@ export const GET_HISTORIES = gql`
 			event_date_utc
 			id
 			title
-			links {
+			  links {
 				article
 			}
 			flight {

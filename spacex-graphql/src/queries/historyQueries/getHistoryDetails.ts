@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const GET_HISTORY_DETAILS = gql`
-	query getHistoryDetails($id: String) {
+	query getHistoryDetails($id: ID!) {
 		history(id: $id) {
 			details
 			event_date_utc

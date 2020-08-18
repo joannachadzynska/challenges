@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const GET_DRAGON_DETAILS = gql`
-	query getDragonDetails($id: String) {
+	query getDragonDetails($id: ID!) {
 		dragon(id: $id) {
 			crew_capacity
 			description

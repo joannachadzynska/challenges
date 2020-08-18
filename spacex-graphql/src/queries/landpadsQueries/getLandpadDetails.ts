@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const GET_LANDPAD_DETAILS = gql`
-	query getLandpadDetails($id: String) {
+	query getLandpadDetails($id: ID!) {
 		landpad(id: $id) {
 			status
 			landing_type

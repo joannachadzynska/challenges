@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const GET_LAUNCHPAD_DETAILS = gql`
-	query getLaunchpadsDetails($id: String) {
+	query getLaunchpadsDetails($id: ID!) {
 		launchpad(is: $id) {
 			attempted_launches
 			details
