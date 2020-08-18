@@ -6,7 +6,7 @@ export const Grid = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     grid-gap: 1rem;
     grid-auto-flow: dense;
-    max-width: 100%none;
+    max-width: 100%;
     
     /* margin: 1em auto; */
 
