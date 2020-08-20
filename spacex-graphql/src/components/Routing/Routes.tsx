@@ -7,6 +7,7 @@ import {
 	NotFound,
 	RocketDetails,
 	RocketListing,
+	MissionsListing,
 } from '../pages';
 import { RouteTransition, AnimatedRoutes } from './animation/RouteTransition';
 
@@ -20,14 +21,17 @@ const Routes: React.SFC = () => {
 				<RouteTransition path='/about' slideUp={30}>
 					<About />
 				</RouteTransition>
+				<RouteTransition path='/launches' slideUp={30}>
+					<LaunchesPastListing />
+				</RouteTransition>
+				<RouteTransition path='/missions' slideUp={30}>
+					<MissionsListing />
+				</RouteTransition>
 				<RouteTransition path='/rockets' slideUp={30}>
 					<RocketListing />
 				</RouteTransition>
 				<RouteTransition path='/rocket/:id' slideUp={30}>
 					<RocketDetails />
-				</RouteTransition>
-				<RouteTransition path='/launches' slideUp={30}>
-					<LaunchesPastListing />
 				</RouteTransition>
 				<RouteTransition path='*' slideUp={30}>
 					<NotFound />
