@@ -1,4 +1,4 @@
-import styled, { ThemedStyledProps } from 'styled-components';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { textColor } from '../../../themes/myTheme';
@@ -13,26 +13,35 @@ export const Navbar = styled(motion.nav)`
 `;
 
 export const NavbarContainer = styled.div`
+	border-bottom: 5px solid #fff;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	padding-bottom: 0.1em;
 	${mediaQueries('md')`
     justify-content: space-between
   `};
 `;
 
-export const NavbarLinks = styled.div`
+export const NavbarLinks = styled.nav`
 	ul {
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
 		margin: 0;
 		padding: 0;
+
+		li:last-of-type > a {
+			padding-right: 0;
+		}
 	}
 `;
 
 export const NavbarLink = styled(NavLink)`
-	color: ${textColor};
+	/* color: ${textColor}; */
+	color: #fff;
+	font-weight: 500;
+	font-size: 1.5rem;
 	display: block;
 	padding: 1rem;
 `;
@@ -53,6 +62,11 @@ export const RocketSvg = styled(motion.svg)`
 	stroke-width: 4;
 	stroke-linejoin: round;
 	stroke-linecap: round;
+`;
+
+export const LogoLink = styled(NavbarLink)`
+	font-size: 3rem;
+	padding: 0;
 `;
 
 // Theme Switch component
@@ -100,7 +114,8 @@ export const ThemeSwitchLabel = styled.label`
 	input + ${ThemeSwitchSlider}::before {
 		transform: ${(props: any) =>
 			props.theme === 'light' ? 'translateX(0)' : 'translateX(26px)'};
-		/* content: ${(props: any) => (props.theme === 'dark' ? '\f186' : `\f185`)}; */
+		/* content: ${(props: any) =>
+			props.theme === 'dark' ? '\f186' : `\f185`}; */
 	}
 
 	input:checked + ${ThemeSwitchSlider} {
