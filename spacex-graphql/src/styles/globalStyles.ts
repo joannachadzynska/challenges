@@ -1,5 +1,11 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { backgroundColor, textColor } from '../themes/myTheme';
+import planet from '../assets/images/planet1280.jpg';
+
+export const fonts = {
+	mavenPro: "'Maven Pro', sans-serif",
+	montserrat: "'Montserrat', sans-serif",
+};
 
 export const Div = styled.div`
 	max-width: 100xp;
@@ -13,32 +19,28 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html {
-        height: 100%
+        height: 100%;
+
     }
 
     body {
-        background-color: ${backgroundColor};
+        background-image: url(${planet});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right 0;
+        background-attachment: fixed;
         color: ${textColor};
-	    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
-	    -webkit-font-smoothing: antialiased;
-	    -moz-osx-font-smoothing: grayscale;
-        line-height: 1.6;
-        min-height: 100%;
+	    font-family: ${fonts.mavenPro};
+        /* min-height: 100%; */
         transition: all 0.25s linear;
         display: grid;
         grid-template-rows: auto 1fr auto;
         grid-template-columns: auto;
-        grid-template-areas: 
-            "header",
-            "content",
-            "footer"
     }
 
 
 	a {
-		text-decoration: none;
+		   text-decoration: none;
 	}
 
     ul {
