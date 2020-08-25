@@ -1,27 +1,60 @@
 import React from 'react';
 import { useModal } from '../../../hooks/useModal';
 import { Modal } from '../../shared';
-import { Button } from '../../shared/Button/styles';
-import { LandingContainer } from './styles';
+import { Button } from '../../../styles/Button';
+import {
+	LandingContainer,
+	LandingHeader,
+	CountdownContainer,
+	Countdown,
+	CountdownTime,
+} from './styles';
 
 const Landing: React.SFC = () => {
 	const { showModal, toggleModal } = useModal();
 
 	return (
 		<LandingContainer>
-			Landing page
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis
-				commodi hic, iusto inventore saepe ipsum ad, ipsa numquam rerum quasi
-				iste libero. Expedita magni dolorum exercitationem veritatis sit
-				delectus aut amet ad consequatur deserunt possimus sint veniam tempora,
-				error itaque suscipit odit dolores explicabo. Quidem, consequuntur.
-				Obcaecati ab tempora deleniti?
-			</p>
-			<Button variant='primary' onClick={toggleModal}>
+			<LandingHeader>
+				<h1>
+					Space X <br />
+					Guider
+				</h1>
+				<h2>guide web for you</h2>
+			</LandingHeader>
+			<br />
+			<br />
+			<CountdownContainer>
+				<h2>
+					Next Mission: <span>MISSION NAME </span>
+				</h2>
+
+				<Countdown>
+					<CountdownTime>
+						<h1>07</h1>
+						<span>days</span>
+					</CountdownTime>
+
+					<CountdownTime>
+						<h1>10</h1>
+						<span>hours</span>
+					</CountdownTime>
+					<CountdownTime>
+						<h1>58</h1>
+						<span>minutes</span>
+					</CountdownTime>
+					<CountdownTime>
+						<h1>46</h1>
+						<span>seconds</span>
+					</CountdownTime>
+
+					<Button>Explore</Button>
+				</Countdown>
+			</CountdownContainer>
+			{/* <Button variant='primary' onClick={toggleModal}>
 				show Modal
 			</Button>
-			<Modal isOpen={showModal} onClose={toggleModal} />
+			<Modal isOpen={showModal} onClose={toggleModal} /> */}
 		</LandingContainer>
 	);
 };
