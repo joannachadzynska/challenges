@@ -1,12 +1,18 @@
 import React, { useRef } from 'react';
 import { useCycle } from 'framer-motion';
 import { useDimensions } from '../../../hooks/useDimensions';
-import { MenuMobile } from './MenuMobile';
-import { Navigation } from './Menu';
-import { Navbar, NavbarContainer, StyledHeader } from './styles';
+// import { MenuMobile } from './MenuMobile';
+import Navigation from './Navigation/Navigation';
+import {
+	Navbar,
+	NavbarContainer,
+	StyledHeader,
+	NavbarLink,
+	LogoLink,
+} from './styles';
 import { Wrapper } from '../../../styles/Wrapper';
 import Logo from './Logo';
-import ThemeSwitch from './ThemeSwitch';
+// import ThemeSwitch from './ThemeSwitch';
 
 export interface HeaderProps {
 	toggleTheme: () => void;
@@ -18,12 +24,12 @@ const Header: React.SFC<HeaderProps> = ({ toggleTheme, theme }) => {
 	const containerRef = useRef(null);
 	const { height } = useDimensions(containerRef);
 
-	const links = [
-		{ id: 'home', path: '/', name: 'Home' },
-		{ id: 'about', path: '/about', name: 'About' },
-		{ id: 'rockets', path: '/rockets', name: 'Rockets' },
-		{ id: 'launches', path: '/launches', name: 'Launches' },
-	];
+	// const links = [
+	// 	{ id: 'home', path: '/', name: 'Home' },
+	// 	{ id: 'about', path: '/about', name: 'About' },
+	// 	{ id: 'rockets', path: '/rockets', name: 'Rockets' },
+	// 	{ id: 'launches', path: '/launches', name: 'Launches' },
+	// ];
 
 	return (
 		<StyledHeader>
@@ -34,7 +40,7 @@ const Header: React.SFC<HeaderProps> = ({ toggleTheme, theme }) => {
 				ref={containerRef}>
 				<Wrapper>
 					<NavbarContainer>
-						{window.innerWidth >= 768 ? (
+						{/* {window.innerWidth >= 768 ? (
 							<Navigation links={links} />
 						) : (
 							<MenuMobile
@@ -42,9 +48,13 @@ const Header: React.SFC<HeaderProps> = ({ toggleTheme, theme }) => {
 								toggle={() => toggleOpen()}
 								isOpen={isOpen}
 							/>
-						)}
-						<ThemeSwitch toggleTheme={toggleTheme} theme={theme} />
-						<Logo />
+						)} */}
+						{/* <ThemeSwitch toggleTheme={toggleTheme} theme={theme} /> */}
+						<LogoLink to='/'>
+							<Logo />
+						</LogoLink>
+
+						<Navigation />
 					</NavbarContainer>
 				</Wrapper>
 			</Navbar>
