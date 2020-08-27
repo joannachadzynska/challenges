@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { backgroundColor, textColor } from '../themes/myTheme';
+import { textColor } from '../themes/myTheme';
 import planet from '../assets/images/planet1280.jpg';
 
 export const fonts = {
