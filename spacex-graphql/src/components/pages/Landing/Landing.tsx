@@ -1,6 +1,4 @@
 import React from 'react';
-import { useModal } from '../../../hooks/useModal';
-import { Modal } from '../../shared';
 import { Button } from '../../../styles/Button';
 import {
 	LandingContainer,
@@ -11,8 +9,6 @@ import {
 } from './styles';
 
 const Landing: React.SFC = () => {
-	const { showModal, toggleModal } = useModal();
-
 	return (
 		<LandingContainer>
 			<LandingHeader>
