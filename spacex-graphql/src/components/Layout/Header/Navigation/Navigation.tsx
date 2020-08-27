@@ -1,24 +1,36 @@
 import React from 'react';
 import { NavbarLinks, NavbarLink } from '../styles';
-import MotionLink from '../Menu/MotionLink';
+import MenuItem from './MenuItem';
 
-export interface NavigationProps {}
+type NavigationProps = {
+	isOpen: boolean;
+};
+
 const links = [
 	{ id: 'launches', path: '/launches', name: 'Missions' },
 	{ id: 'rockets', path: '/rockets', name: 'Rockets' },
 	{ id: 'about', path: '/about', name: 'About' },
 ];
 
-const Navigation: React.SFC<NavigationProps> = () => {
+const variants = {
+	open: {
+		transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+	},
+	closed: {
+		transition: { staggerChildren: 0.05, staggerDirection: -1 },
+	},
+};
+
+const Navigation: React.SFC<NavigationProps> = ({ isOpen }) => {
 	return (
-		<NavbarLinks>
-			<ul>
-				{links.map((link) => (
-					<MotionLink key={link.id}>
-						<NavbarLink to={link.path}>{link.name}</NavbarLink>
-					</MotionLink>
-				))}
-			</ul>
+		<NavbarLinks variants={variants}>
+			{links.map((link) => (
+				<MenuItem key={link.id}>
+					<NavbarLink to={link.path} open={isOpen}>
+						{link.name}
+					</NavbarLink>
+				</MenuItem>
+			))}
 		</NavbarLinks>
 	);
 };
