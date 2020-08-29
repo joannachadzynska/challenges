@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mediaQueries } from '../themes/mediaTemplates';
 
 export const Button = styled.button`
 	background: transparent;
@@ -14,4 +15,8 @@ export const Button = styled.button`
 		background: #0094ff;
 		color: #000;
 	}
+
+	${mediaQueries('md')`
+        align-self: flex-start;
+    `};
 `;

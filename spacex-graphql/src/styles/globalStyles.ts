@@ -32,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
         color: ${textColor};
 	    font-family: ${fonts.mavenPro};
         /* min-height: 100%; */
+        line-height: 1.5;
         transition: all 0.25s linear;
         display: grid;
         grid-template-rows: auto 1fr auto;

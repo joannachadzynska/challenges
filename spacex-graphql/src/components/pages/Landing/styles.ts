@@ -6,56 +6,84 @@ export const LandingContainer = styled.section`
 	color: #fff;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
-	height: 74vh;
+	justify-content: space-between;
 	max-width: 800px;
-	margin: 0 0 0 4em;
-	/* background-color: red;
+	min-height: 72vh;
 
 	${mediaQueries('md')`
-    background-color: green;
-  `}; */
+        justify-content: flex-end;
+    `};
 `;
 
 export const LandingHeader = styled.div`
 	h1 {
-		font-size: 6.25rem;
+		font-size: 4.75rem;
 		font-weight: 700;
-		line-height: 1;
+
+		${mediaQueries('md')`
+        font-size: 6rem;
+    `};
 	}
+
 	h2 {
 		font-family: ${fonts.montserrat};
-		font-size: 1.875rem;
+		font-size: 1.25rem;
 		font-weight: 500;
-		margin-top: 1em;
 		text-transform: uppercase;
+
+		${mediaQueries('md')`
+        font-size: 1.75rem;
+    `};
 	}
 `;
 
 export const CountdownContainer = styled.div`
-	margin-top: 2em;
 	h2 {
 		font-family: ${fonts.montserrat};
-		font-size: 1.625rem;
+		font-size: 1rem;
 		font-weight: 500;
+
+		${mediaQueries('md')`
+        font-size: 2rem;
+    `};
 	}
+
+	${mediaQueries('md')`
+        margin-top: 1em;
+
+    `};
 `;
 
 export const Countdown = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-bottom: 2em;
+
+	${mediaQueries('md')`
+        max-width: 500px;
+    `};
 `;
 
 export const CountdownTime = styled.div`
 	text-align: center;
+	max-width: 75px;
 	h1 {
 		color: #0094ff;
-		font-size: 5rem;
+		font-size: 2rem;
 		font-weight: 400;
+
+		${mediaQueries('md')`
+        font-size: 4rem;
+    `};
 	}
 	span {
 		font-family: ${fonts.montserrat};
+		font-size: 0.875rem;
 		text-transform: uppercase;
+
+		${mediaQueries('md')`
+        font-size: 1.25rem;
+    `};
 	}
 `;
