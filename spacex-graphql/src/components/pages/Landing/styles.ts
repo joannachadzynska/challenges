@@ -7,11 +7,19 @@ export const LandingContainer = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	gap: 2em;
 	max-width: 800px;
 	min-height: 72vh;
 
 	${mediaQueries('md')`
-        justify-content: flex-end;
+       justify-content: flex-end;
+       position: relative;
+
+       button {
+           position: absolute;
+           right: 0;
+           bottom: 5%;
+       }
     `};
 `;
 
@@ -19,9 +27,11 @@ export const LandingHeader = styled.div`
 	h1 {
 		font-size: 4.75rem;
 		font-weight: 700;
+		line-height: 1.1;
 
 		${mediaQueries('md')`
-        font-size: 6rem;
+        font-size: 5.25rem;
+
     `};
 	}
 
@@ -29,27 +39,30 @@ export const LandingHeader = styled.div`
 		font-family: ${fonts.montserrat};
 		font-size: 1.25rem;
 		font-weight: 500;
+		margin-top: 1em;
 		text-transform: uppercase;
 
 		${mediaQueries('md')`
-        font-size: 1.75rem;
+        font-size: 1.5rem;
+        margin-bottom: 2em;
     `};
 	}
 `;
 
 export const CountdownContainer = styled.div`
+	display: flex;
+	flex-direction: column;
 	h2 {
 		font-family: ${fonts.montserrat};
-		font-size: 1rem;
+		font-size: 1.25rem;
 		font-weight: 500;
 
 		${mediaQueries('md')`
-        font-size: 2rem;
+        font-size: 1.5rem;
     `};
 	}
 
 	${mediaQueries('md')`
-        margin-top: 1em;
 
     `};
 `;
@@ -58,7 +71,6 @@ export const Countdown = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 2em;
 
 	${mediaQueries('md')`
         max-width: 500px;
@@ -70,7 +82,7 @@ export const CountdownTime = styled.div`
 	max-width: 75px;
 	h1 {
 		color: #0094ff;
-		font-size: 2rem;
+		font-size: 3rem;
 		font-weight: 400;
 
 		${mediaQueries('md')`
@@ -83,7 +95,7 @@ export const CountdownTime = styled.div`
 		text-transform: uppercase;
 
 		${mediaQueries('md')`
-        font-size: 1.25rem;
+        font-size: 1rem;
     `};
 	}
 `;

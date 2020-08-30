@@ -8,9 +8,7 @@ type Props = {
 	open: boolean;
 };
 
-export const StyledHeader = styled.header`
-	grid-area: header;
-`;
+export const StyledHeader = styled.header``;
 
 export const Navbar = styled(motion.nav)`
 	width: 100%;
@@ -45,6 +43,10 @@ export const NavbarLinks = styled(motion.ul)`
     width: auto;
     padding: 0;
     text-align: right;
+
+    li:last-child a {
+        padding-right:0;
+    }
   `};
 `;
 
@@ -81,7 +83,9 @@ export const RocketSvg = styled(motion.svg)`
 	stroke-linecap: round;
 `;
 
-export const LogoLink = styled(NavbarLink)`
+export const LogoLink = styled(NavLink)`
 	font-size: 3rem;
+	font-weight: 700;
 	padding: 0;
+	color: #fff;
 `;
