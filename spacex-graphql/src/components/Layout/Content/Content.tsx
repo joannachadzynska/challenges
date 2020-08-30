@@ -5,11 +5,11 @@ import { StyledContent } from './styles';
 import { Wrapper } from '../../../styles/Wrapper';
 
 const Content: React.SFC = () => (
-	<Wrapper>
-		<StyledContent>
+	<StyledContent>
+		<Wrapper>
 			<Routes />
-		</StyledContent>
-	</Wrapper>
+		</Wrapper>
+	</StyledContent>
 );
 
 export default Content;
