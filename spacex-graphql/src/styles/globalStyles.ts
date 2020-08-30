@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { textColor } from '../themes/myTheme';
 import planet from '../assets/images/planet1280.jpg';
 
@@ -6,10 +6,6 @@ export const fonts = {
 	mavenPro: "'Maven Pro', sans-serif",
 	montserrat: "'Montserrat', sans-serif",
 };
-
-export const Div = styled.div`
-	max-width: 100xp;
-`;
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -19,8 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html {
-        height: 100%;
-
+       height: 100%;
     }
 
     body {
@@ -31,14 +26,16 @@ export const GlobalStyle = createGlobalStyle`
         background-attachment: fixed;
         color: ${textColor};
 	    font-family: ${fonts.mavenPro};
-        /* min-height: 100%; */
         line-height: 1.5;
         transition: all 0.25s linear;
+    }
+
+    #root {
+        height: 100vh;
         display: grid;
         grid-template-rows: auto 1fr auto;
         grid-template-columns: auto;
     }
-
 
 	a {
 		   text-decoration: none;
