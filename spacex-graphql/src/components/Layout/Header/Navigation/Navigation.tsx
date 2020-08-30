@@ -7,7 +7,7 @@ type NavigationProps = {
 };
 
 const links = [
-	{ id: 'launches', path: '/launches', name: 'Missions' },
+	{ id: 'launches', path: '/missions', name: 'Missions' },
 	{ id: 'rockets', path: '/rockets', name: 'Rockets' },
 	{ id: 'about', path: '/about', name: 'About' },
 ];
