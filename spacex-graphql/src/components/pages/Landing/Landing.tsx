@@ -18,8 +18,7 @@ const Landing: React.SFC = () => {
 				</h1>
 				<h2>guide web for you</h2>
 			</LandingHeader>
-			<br />
-			<br />
+
 			<CountdownContainer>
 				<h2>
 					Next Mission: <span>MISSION NAME </span>
@@ -44,7 +43,6 @@ const Landing: React.SFC = () => {
 					</CountdownTime>
 				</Countdown>
 			</CountdownContainer>
-
 			<Button>Explore</Button>
 			{/* <Button variant='primary' onClick={toggleModal}>
 				show Modal
