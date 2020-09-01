@@ -44,4 +44,8 @@ export const GlobalStyle = createGlobalStyle`
     ul {
 	    list-style-type: none;
     }
+
+    h1 {
+        color: #fff;
+    }
 `;
