@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '../../../../../styles/Button';
 import MissionName from './MiissionName';
 import { LaunchViewModel } from '../../../../../models/launches/viewModels/LaunchViewModel';
 import LaunchDate from './LaunchDate';
@@ -14,7 +13,6 @@ const CardContent: React.SFC<CardContentProps> = (props) => {
 			<MissionName {...props} />
 			<LaunchDate {...props} />
 			<LaunchDescription {...props} />
-			<Button>More Details</Button>
 		</CardContentContainer>
 	);
 };
