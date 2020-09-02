@@ -1,24 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import { Header, Footer, Content } from './components/Layout';
-import { useDarkMode } from './hooks/useDarkMode';
+// import { useDarkMode } from './hooks/useDarkMode';
 import { GlobalStyle } from './styles/globalStyles';
+import Theme from './themes/theme';
 
 const App: React.SFC = () => {
-	const { theme, themeToggler, mountedComponent } = useDarkMode();
+	// const { theme, themeToggler, mountedComponent } = useDarkMode();
 
-	if (!mountedComponent) return <div />;
+	// if (!mountedComponent) return <div />;
 
 	return (
-		<ThemeProvider theme={{ mode: `${theme}` }}>
+		<Theme>
 			<GlobalStyle />
 			<Router>
-				<Header toggleTheme={themeToggler} theme={theme} />
+				<Header />
 				<Content />
 				<Footer />
 			</Router>
-		</ThemeProvider>
+		</Theme>
 	);
 };
 
