@@ -8,6 +8,8 @@ import {
 import { LoadingIndicator } from '../../../../shared';
 import { Button } from '../../../../../styles/Button';
 import MissionCard from '../MissionCard';
+import { MissionsContainer } from './styles';
+
 export interface AllMissionsProps {}
 
 const AllMissions: React.SFC<AllMissionsProps> = () => {
@@ -42,7 +44,7 @@ const AllMissions: React.SFC<AllMissionsProps> = () => {
 	if (!data?.launches) return <p>there is not any data to display</p>;
 
 	return (
-		<div>
+		<MissionsContainer>
 			<h1>All missions</h1>
 			<div>
 				{cards.map((card) => (
@@ -50,7 +52,7 @@ const AllMissions: React.SFC<AllMissionsProps> = () => {
 				))}
 			</div>
 			<Button onClick={handleOffset}>Load more</Button>
-		</div>
+		</MissionsContainer>
 	);
 };
 
