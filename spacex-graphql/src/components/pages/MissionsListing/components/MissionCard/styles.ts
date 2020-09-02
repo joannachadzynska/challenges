@@ -11,6 +11,14 @@ export const CardContainer = styled.div`
 	border-radius: 0 0 10px 10px;
 	font-family: ${fonts.montserrat};
 	min-height: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	button {
+		align-self: center;
+		margin-bottom: 2em;
+	}
 `;
 
 // header
@@ -46,7 +54,6 @@ export const CardImageWrapper = styled.div`
 export const CardImg = styled.img`
 	margin: 0 auto;
 	display: block;
-	/* object-fit: cover; */
 	max-width: 100%;
 `;
 
