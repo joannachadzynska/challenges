@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { textColor } from '../themes/myTheme';
 import planet from '../assets/images/planet1280.jpg';
 
 export const fonts = {
@@ -24,8 +23,8 @@ export const GlobalStyle = createGlobalStyle`
         background-repeat: no-repeat;
         background-position: right 0;
         background-attachment: fixed;
-        color: ${textColor};
-	    font-family: ${fonts.mavenPro};
+        color:  ${({ theme }) => theme.colors.white};
+	    font-family:  ${({ theme }) => theme.fonts.mavenPro};
         line-height: 1.5;
         transition: all 0.25s linear;
     }
@@ -38,7 +37,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
 	a {
-		   text-decoration: none;
+        text-decoration: none;
+        color:  ${({ theme }) => theme.colors.blue.veryDark}
 	}
 
     ul {
@@ -46,6 +46,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-        color: #fff;
+        color:  ${({ theme }) => theme.colors.white};
     }
 `;

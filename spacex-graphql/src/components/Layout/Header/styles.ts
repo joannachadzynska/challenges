@@ -1,21 +1,18 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { textColor } from '../../../themes/myTheme';
 import { mediaQueries } from '../../../themes/mediaTemplates';
 
 type Props = {
 	open: boolean;
 };
 
-export const StyledHeader = styled.header``;
-
 export const Navbar = styled(motion.nav)`
 	width: 100%;
 `;
 
 export const NavbarContainer = styled.div`
-	border-bottom: 5px solid #fff;
+	border-bottom: 5px solid ${({ theme }) => theme.colors.white};
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -77,8 +74,8 @@ export const RocketSvg = styled(motion.svg)`
 	margin: 10px;
 	width: 40px;
 	overflow: visible;
-	stroke: ${textColor};
-	stroke-width: 4;
+	stroke: ${({ theme }) => theme.colors.white};
+	stroke-width: 3;
 	stroke-linejoin: round;
 	stroke-linecap: round;
 `;
@@ -87,5 +84,5 @@ export const LogoLink = styled(NavLink)`
 	font-size: 3rem;
 	font-weight: 700;
 	padding: 0;
-	color: #fff;
+	color: ${({ theme }) => theme.colors.white};
 `;

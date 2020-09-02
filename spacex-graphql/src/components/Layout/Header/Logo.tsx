@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavbarBrand, RocketSvg, LogoLink } from './styles';
 import { motion } from 'framer-motion';
+import Theme from '../../../themes/theme';
 
 const titleVariants = {
 	hidden: {

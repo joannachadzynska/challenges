@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { reverseTextColor } from '../../../../themes/myTheme';
 import { mediaQueries } from '../../../../themes/mediaTemplates';
 
 export const Hamburger = styled.button`
@@ -24,7 +23,7 @@ export const Hamburger = styled.button`
 `;
 
 export const Background = styled(motion.div)`
-	background: #fff;
+	background: ${({ theme }) => theme.colors.white};
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -36,40 +35,9 @@ export const Background = styled(motion.div)`
 
 export const MotionPath = styled(motion.path)`
 	fill: transparent;
-	stroke: ${reverseTextColor};
+	stroke: ${({ theme }) => theme.colors.blue.veryDark};
 	stroke-width: 3;
 	stroke-linecap: round;
-`;
-
-export const MotionUlNav = styled(motion.ul)`
-	padding: 25px;
-	position: absolute;
-	top: 100px;
-	left: 2rem;
-	width: 230px;
-
-	${mediaQueries('md')`
-    position: relative;
-    display: flex;
-    align-items: center;
-   
-  `};
-`;
-
-export const MotionLiNav = styled(motion.li)`
-	list-style: none;
-	margin-bottom: 20px;
-	display: flex;
-	align-items: center;
-	cursor: pointer;
-
-	a {
-		color: ${reverseTextColor};
-
-		${mediaQueries('md')`
-        color: black;
-        `};
-	}
 `;
 
 export const IconPlaceholder = styled.div`

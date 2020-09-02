@@ -43,7 +43,7 @@ const Landing: React.SFC = () => {
 					</CountdownTime>
 				</Countdown>
 			</CountdownContainer>
-			<Button>Explore</Button>
+			<Button fontSize='1.5'>Explore</Button>
 			{/* <Button variant='primary' onClick={toggleModal}>
 				show Modal
 			</Button>
