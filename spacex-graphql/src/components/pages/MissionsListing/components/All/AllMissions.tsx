@@ -8,7 +8,7 @@ import {
 import { LoadingIndicator } from '../../../../shared';
 import { Button } from '../../../../../styles/Button';
 import MissionCard from '../MissionCard';
-import { MissionsContainer } from './styles';
+import { MissionsContainer, MissionsGrid } from './styles';
 
 export interface AllMissionsProps {}
 
@@ -46,11 +46,13 @@ const AllMissions: React.SFC<AllMissionsProps> = () => {
 	return (
 		<MissionsContainer>
 			<h1>All missions</h1>
-			<div>
+			<MissionsGrid>
 				{cards.map((card) => (
 					<MissionCard key={card.id} {...card} />
 				))}
-			</div>
+			</MissionsGrid>
+			<br />
+			<br />
 			<Button onClick={handleOffset}>Load more</Button>
 		</MissionsContainer>
 	);
