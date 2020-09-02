@@ -18,6 +18,10 @@ export const CardContainer = styled.div`
 	button {
 		align-self: center;
 		margin-bottom: 2em;
+
+		a {
+			color: #fff;
+		}
 	}
 `;
 

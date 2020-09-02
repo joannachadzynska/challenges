@@ -5,7 +5,7 @@ import CardImage from './CardImage';
 import CardContent from './CardContent';
 import MissionSuccess from './MissionSuccess';
 import { CardContainer } from './styles';
-import { Button } from '../../../../../styles/Button';
+import DetailsButton from './DetailsButton';
 
 const MissionCard: React.SFC<Launch> = (props) => {
 	const data = new LaunchViewModel(props);
@@ -15,7 +15,7 @@ const MissionCard: React.SFC<Launch> = (props) => {
 			<MissionSuccess {...data} />
 			<CardImage {...data} />
 			<CardContent {...data} />
-			<Button>More details</Button>
+			<DetailsButton {...data} />
 		</CardContainer>
 	);
 };
