@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { fonts } from '../../../../../styles/globalStyles';
 
 type HeaderProps = {
-	launchSuccess: boolean | undefined;
+	launchSuccess: boolean | undefined | null;
 };
 
 export const CardContainer = styled.div`
@@ -23,8 +23,20 @@ export const CardContainer = styled.div`
 // header
 
 export const CardHeader = styled.div<HeaderProps>`
-	background-color: #002235;
-	color: ${(props) => (props.launchSuccess ? 'green' : 'red')};
+	background-color: ${({ theme }) => theme.colors.blue.veryDark};
+	border-bottom: 1px solid
+		${(props) =>
+			props.launchSuccess !== null
+				? props.launchSuccess
+					? props.theme.colors.green.dark
+					: props.theme.colors.red
+				: props.theme.colors.blue.primary};
+	color: ${(props) =>
+		props.launchSuccess !== null
+			? props.launchSuccess
+				? props.theme.colors.green.dark
+				: props.theme.colors.red
+			: props.theme.colors.blue.primary};
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -43,9 +55,8 @@ export const CardHeader = styled.div<HeaderProps>`
 // image
 
 export const CardImageWrapper = styled.div<HeaderProps>`
-	border-top: 1px solid ${(props) => (props.launchSuccess ? 'green' : 'red')};
 	margin: 0 auto;
-	padding-top: 1.5em;
+	padding-top: 1.5rem;
 	width: 100%;
 `;
 
@@ -60,14 +71,13 @@ export const CardImg = styled.img`
 export const CardContentContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
+	text-align: center;
 	padding: 0 2em;
 `;
 
 export const MissionTitleLink = styled(Link)`
 	color: #f6c744;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	padding-bottom: 0.25em;
 	padding-top: 0.75em;
 `;
