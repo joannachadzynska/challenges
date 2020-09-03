@@ -23,8 +23,32 @@ export const GET_LAUNCH_DETAILS = gql`
 			mission_id
 			mission_name
 			rocket {
+				first_stage {
+					cores {
+						flight
+						reused
+						land_success
+						landing_intent
+						landing_vehicle
+						landing_type
+					}
+				}
 				rocket_type
 				rocket_name
+				rocket {
+					id
+				}
+				second_stage {
+					payloads {
+						nationality
+						customers
+						payload_type
+						manufacturer
+						orbit
+						payload_mass_lbs
+						id
+					}
+				}
 			}
 			ships {
 				image
