@@ -123,7 +123,7 @@ export const StyledLinkButton = styled(Link)<IProps>`
             `;
 			}
 		}};
-		font-weight: 500;
+		font-weight: 600;
 	}
 
 	${mediaQueries('md')`
