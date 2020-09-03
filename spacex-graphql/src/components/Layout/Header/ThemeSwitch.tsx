@@ -63,8 +63,8 @@ export const ThemeSwitchLabel = styled.label`
 `;
 
 export interface ThemeSwitchProps {
-	toggleTheme: () => void;
-	theme: string | null;
+	toggleTheme?: () => void;
+	theme?: string | null;
 }
 
 const ThemeSwitch: React.SFC<ThemeSwitchProps> = ({ toggleTheme, theme }) => {
@@ -72,9 +72,9 @@ const ThemeSwitch: React.SFC<ThemeSwitchProps> = ({ toggleTheme, theme }) => {
 
 	return (
 		<ThemeSwitchWrapper>
-			<ThemeSwitchLabel htmlFor='checkbox' theme>
+			<ThemeSwitchLabel htmlFor='checkbox'>
 				<input type='checkbox' id='checkbox' onChange={toggleTheme} />
-				<ThemeSwitchSlider theme />
+				<ThemeSwitchSlider />
 			</ThemeSwitchLabel>
 		</ThemeSwitchWrapper>
 	);
