@@ -17,7 +17,6 @@ const LoadingIndicator: React.SFC = () => {
 		<Moon>
 			<Loader
 				variants={loader}
-				// initial='hidden'
 				animate='visible'
 				src='https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/space-rocket-512.png'
 				alt='space rocket'
