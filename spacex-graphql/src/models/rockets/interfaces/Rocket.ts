@@ -6,7 +6,7 @@ export interface Rocket {
 	country: string;
 	description: string;
 	diameter?: Distance;
-	engines?: RocketEngines;
+	engines: RocketEngines;
 	first_flight: Date;
 	first_stage?: RocketFirstStage;
 	height?: Distance;
