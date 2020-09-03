@@ -8,23 +8,17 @@ import {
 import { LoadingIndicator } from '../../../../shared';
 import { Button } from '../../../../../styles/Button';
 import MissionCard from '../MissionCard';
-import { MissionsContainer, MissionsGrid } from './styles';
+import { MissionsContainer, MissionsGrid } from '../missionsStyles';
+import { useInfiniteScroll } from '../../../../../hooks/useInfiniteScroll';
 
-export interface AllMissionsProps {}
-
-const AllMissions: React.SFC<AllMissionsProps> = () => {
-	const [offset, setOffset] = React.useState(0);
-
-	const ELEMENTS_LIMIT = 10;
+const AllMissions: React.SFC = () => {
+	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll(0);
 
 	const { loading, error, data } = useQuery<Launches>(GET_LAUNCHES, {
 		variables: { offset: offset, limit: ELEMENTS_LIMIT },
 	});
 
 	const [cards, setCards] = React.useState<Launch[]>([]);
-
-	const handleOffset = () =>
-		setOffset((currentValue) => (currentValue += ELEMENTS_LIMIT));
 
 	const updateCards = React.useCallback(() => {
 		if (data?.launches.length) {
@@ -45,7 +39,6 @@ const AllMissions: React.SFC<AllMissionsProps> = () => {
 
 	return (
 		<MissionsContainer>
-			<h1>All missions</h1>
 			<MissionsGrid>
 				{cards.map((card) => (
 					<MissionCard key={card.id} {...card} />
