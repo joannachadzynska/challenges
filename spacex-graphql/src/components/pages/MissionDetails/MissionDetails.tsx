@@ -1,8 +1,24 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-apollo-hooks';
+import { GET_LAUNCH_DETAILS } from '../../../queries/launchQueries/getLaunch';
+import { Launch } from '../../../models/launches/interfaces/Launch';
+import { LoadingIndicator } from '../../shared';
 
-export interface MissionDetailsProps {}
+const MissionDetails: React.SFC = () => {
+	const { id } = useParams();
 
-const MissionDetails: React.SFC<MissionDetailsProps> = () => {
+	const { loading, error, data } = useQuery<Launch>(GET_LAUNCH_DETAILS, {
+		variables: {
+			id: id,
+		},
+	});
+
+	if (loading) return <LoadingIndicator />;
+	if (error) return <p>Oops! Something went wrong!</p>;
+	if (!data) return <p>There is no data to display</p>;
+	console.log(data);
+
 	return (
 		<div>
 			<h2>mission details</h2>
