@@ -8,24 +8,24 @@ import {
 } from '../interfaces/Rocket';
 
 export class RocketViewModel {
-	private readonly active?: boolean;
-	private readonly boosters?: number;
-	private readonly company: string;
-	private readonly costPerLaunch?: number;
-	private readonly country: string;
-	private readonly description: string;
-	private readonly diameter?: Distance;
-	private readonly engines?: RocketEngines;
-	private readonly firstFlight: Date;
-	private readonly firstStage?: RocketFirstStage;
-	private readonly height?: Distance;
-	private readonly id: number;
-	private readonly mass?: Mass;
-	private readonly name: string;
-	private readonly secondStage?: RocketSecondStage;
-	private readonly stages?: number;
-	private readonly type: string;
-	private readonly wikipedia: string;
+	public readonly active?: boolean;
+	public readonly boosters?: number;
+	public readonly company: string;
+	public readonly costPerLaunch?: number;
+	public readonly country: string;
+	public readonly description: string;
+	public readonly diameter?: Distance;
+	public readonly engines?: RocketEngines;
+	public readonly firstFlight?: Date;
+	public readonly firstStage?: RocketFirstStage;
+	public readonly height?: Distance;
+	public readonly id: number;
+	public readonly mass?: Mass;
+	public readonly name: string;
+	public readonly secondStage?: RocketSecondStage;
+	public readonly stages?: number;
+	public readonly type: string;
+	public readonly wikipedia: string;
 
 	constructor(data: Rocket) {
 		this.boosters = data.boosters;
