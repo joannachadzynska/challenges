@@ -6,8 +6,8 @@ import {
 } from '../interfaces/Launch';
 
 import { Ship } from '../../ships/interfaces/Ship';
-import { Rocket } from '../../rockets/interfaces/Rocket';
-import { RocketViewModel } from '../../rockets/viewModels/RocketViewModel';
+import { LaunchRocketViewModel } from './LaunchRocketViewModel';
+import { LaunchRocket } from '../interfaces/LaunchRocket';
 
 export class LaunchViewModel {
 	public readonly details: string;
@@ -19,32 +19,19 @@ export class LaunchViewModel {
 	public readonly links: LaunchLinks;
 	public readonly missionId: string[];
 	public readonly missionName: string;
-	public readonly rocket: RocketViewModel;
+	public readonly rocket: LaunchRocketViewModel;
 	public readonly staticFireDateUnix?: Date;
 	public readonly telemetry?: LaunchTelemetry;
 	public readonly upcoming: boolean;
 	public readonly ships?: Ship[];
 
 	constructor(data: Launch) {
-		const rocketData: Rocket = {
-			active: data.rocket.rocket.active,
-			boosters: data.rocket.rocket.boosters,
-			company: data.rocket.rocket.company,
-			cost_per_launch: data.rocket.rocket.cost_per_launch,
-			country: data.rocket.rocket.country,
-			description: data.rocket.rocket.description,
-			diameter: data.rocket.rocket.diameter,
-			engines: data.rocket.rocket.engines,
-			first_flight: data.rocket.rocket.first_flight,
-			first_stage: data.rocket.rocket.first_stage,
-			height: data.rocket.rocket.height,
-			id: data.rocket.rocket.id,
-			mass: data.rocket.rocket.mass,
-			name: data.rocket.rocket.name,
-			second_stage: data.rocket.rocket.second_stage,
-			stages: data.rocket.rocket.stages,
-			type: data.rocket.rocket.type,
-			wikipedia: data.rocket.rocket.wikipedia,
+		const launchRocketData: LaunchRocket = {
+			first_stage: data.rocket.first_stage,
+			rocket_name: data.rocket.rocket_name,
+			rocket_type: data.rocket.rocket_type,
+			rocket: data.rocket.rocket,
+			second_stage: data.rocket.second_stage,
 		};
 
 		this.details = data.details;
@@ -56,7 +43,7 @@ export class LaunchViewModel {
 		this.links = data.links;
 		this.missionId = data.mission_id;
 		this.missionName = data.mission_name;
-		this.rocket = new RocketViewModel(rocketData);
+		this.rocket = new LaunchRocketViewModel(launchRocketData);
 		this.staticFireDateUnix = new Date(data.static_fire_date_unix);
 		this.telemetry = data.telemetry;
 		this.upcoming = data.upcoming;
