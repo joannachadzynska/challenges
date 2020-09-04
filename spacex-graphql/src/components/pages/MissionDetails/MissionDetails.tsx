@@ -4,7 +4,7 @@ import { useQuery } from 'react-apollo-hooks';
 import { GET_LAUNCH_DETAILS } from '../../../queries/launchQueries/getLaunch';
 import { Launch } from '../../../models/launches/interfaces/Launch';
 import { LoadingIndicator } from '../../shared';
-import { MissionSummary } from './containers';
+import { MissionSummary, MissionImages, MissionLinks } from './containers';
 
 type GraphQlResponse = {
 	launch: Launch;
@@ -29,6 +29,8 @@ const MissionDetails: React.SFC = () => {
 	return (
 		<div>
 			<MissionSummary {...data.launch} />
+			<MissionImages {...data.launch} />
+			<MissionLinks {...data.launch} />
 		</div>
 	);
 };
