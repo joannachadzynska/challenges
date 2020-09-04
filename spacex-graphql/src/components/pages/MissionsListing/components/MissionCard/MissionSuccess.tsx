@@ -15,7 +15,7 @@ const MissionSuccess: React.SFC<MissionSuccessProps> = ({
 				{launchSuccess ? (
 					<>
 						<FiCheckCircle size='1.5em' />
-						<span>Success</span>
+						<span>Successful</span>
 					</>
 				) : (
 					<>
