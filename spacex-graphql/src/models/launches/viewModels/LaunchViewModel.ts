@@ -23,7 +23,7 @@ export class LaunchViewModel {
 	public readonly staticFireDateUnix?: Date;
 	public readonly telemetry?: LaunchTelemetry;
 	public readonly upcoming: boolean;
-	public readonly ships?: Ship[];
+	public readonly ships: Ship[];
 
 	constructor(data: Launch) {
 		const launchRocketData: LaunchRocket = {
