@@ -14,10 +14,15 @@ export const GET_LAUNCH_DETAILS = gql`
 			launch_year
 			links {
 				flickr_images
+				presskit
+				video_link
 				article_link
 				mission_patch
 				mission_patch_small
-				video_link
+				reddit_campaign
+				reddit_launch
+				reddit_media
+				reddit_recovery
 				wikipedia
 			}
 			mission_id
