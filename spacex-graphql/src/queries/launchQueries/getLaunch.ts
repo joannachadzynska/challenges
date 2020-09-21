@@ -74,8 +74,8 @@ export const GET_LAUNCH_DETAILS = gql`
 `;
 
 export const GET_LAUNCH_LATEST = gql`
-	query getLaunchLatest($offset: Int = 0) {
-		launchLatest(offset: $offset) {
+	query getLaunchLatest {
+		launchLatest {
 			details
 			id
 			launch_date_local
@@ -117,8 +117,8 @@ export const GET_LAUNCH_LATEST = gql`
 	}
 `;
 export const GET_LAUNCH_NEXT = gql`
-	query getLaunchNext($offset: Int = 0) {
-		launchNext(offset: $offset) {
+	query getLaunchNext {
+		launchNext {
 			details
 			id
 			launch_date_local
