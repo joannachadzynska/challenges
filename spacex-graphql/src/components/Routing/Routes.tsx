@@ -1,14 +1,14 @@
-import React from 'react';
-
 import {
-	About,
 	Landing,
-	NotFound,
-	RocketDetails,
-	RocketListing,
+	About,
 	MissionsListing,
 	MissionDetails,
-} from '../pages';
+	RocketListing,
+	RocketDetails,
+	NotFound,
+} from 'components/pages';
+import React from 'react';
+
 import { RouteTransition, AnimatedRoutes } from './animation/RouteTransition';
 
 const Routes: React.SFC = () => {

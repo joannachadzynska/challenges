@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from '../../../styles/Button';
+import { Button } from 'styles/Button';
+
 import {
 	LandingContainer,
 	LandingHeader,
@@ -44,10 +45,6 @@ const Landing: React.SFC = () => {
 				</Countdown>
 			</CountdownContainer>
 			<Button fontSize='1.5'>Explore</Button>
-			{/* <Button variant='primary' onClick={toggleModal}>
-				show Modal
-			</Button>
-			<Modal isOpen={showModal} onClose={toggleModal} /> */}
 		</LandingContainer>
 	);
 };

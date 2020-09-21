@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useCycle, motion } from 'framer-motion';
-import { useDimensions } from '../../../../hooks/useDimensions';
+import { useDimensions } from 'hooks/useDimensions';
 import Navigation from './Navigation';
 import MenuToggle from './MenuToggle';
 import { Background } from './styles';

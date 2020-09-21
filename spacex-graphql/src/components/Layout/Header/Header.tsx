@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, NavbarContainer } from './styles';
-import { Wrapper } from '../../../styles/Wrapper';
+import { Wrapper } from 'styles/Wrapper';
 import Logo from './Logo';
 import Menu from './Navigation';
 

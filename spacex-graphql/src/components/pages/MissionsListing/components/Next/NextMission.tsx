@@ -1,10 +1,11 @@
 import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
-import { LaunchNext } from '../../../../../models/launches/interfaces/Launch';
-import { GET_LAUNCH_NEXT } from '../../../../../queries/launchQueries/getLaunch';
-import { LoadingIndicator } from '../../../../shared';
-import { MissionDetailsCard } from '../../../MissionDetails/components';
-import { SectionTitle } from '../../../MissionDetails/styles';
+import { MissionDetailsCard } from 'components/pages/MissionDetails/components';
+import { SectionTitle } from 'components/pages/MissionDetails/styles';
+import { LoadingIndicator } from 'components/shared';
+import { LaunchNext } from 'models/launches/interfaces/Launch';
+import { GET_LAUNCH_NEXT } from 'queries/launchQueries/getLaunch';
+
 import DetailsButton from '../MissionCard/DetailsButton';
 
 export interface NextMissionProps {}

@@ -1,8 +1,7 @@
 import React from 'react';
-import Routes from '../../Routing';
-
+import Routes from 'components/Routing';
+import { Wrapper } from 'styles/Wrapper';
 import { StyledContent } from './styles';
-import { Wrapper } from '../../../styles/Wrapper';
 
 const Content: React.SFC = () => (
 	<StyledContent>
