@@ -44,6 +44,7 @@ export const CardDetailsContentContainer = styled(CardContentContainer)`
 
 export const Description = styled.div`
 	margin-top: 1em;
+	text-align: justify;
 
 	p {
 		font-size: 0.938rem;

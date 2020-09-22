@@ -1,6 +1,6 @@
+import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
-import { StyledLinkButton } from '../../../../../styles/Button';
-import { LaunchViewModel } from '../../../../../models/launches/viewModels/LaunchViewModel';
+import { StyledLinkButton } from 'styles/Button';
 
 type DetailsButtonProps = Pick<LaunchViewModel, 'id'>;
 

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import { mediaQueries } from '../../../themes/mediaTemplates';
+import { mediaQueries } from 'themes/mediaTemplates';
 
 export const SectionTitle = styled.h2`
 	font-size: 1.5rem;

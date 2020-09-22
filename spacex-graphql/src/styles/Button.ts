@@ -98,6 +98,7 @@ export const StyledLinkButton = styled(Link)<IProps>`
 	margin: 0 auto;
 	margin-bottom: 2em;
 	padding: 0.875em 1.5em;
+	text-align: center;
 	text-transform: uppercase;
 	transition: 0.4s all linear;
 

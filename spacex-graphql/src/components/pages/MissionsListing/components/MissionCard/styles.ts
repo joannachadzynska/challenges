@@ -89,7 +89,7 @@ export const MissionLaunchDate = styled.p`
 
 export const MissionLaunchDescription = styled.div`
 	height: 100px;
-	max-width: 400px;
+	max-width: auto;
 	margin: 1em 0;
 
 	p {
