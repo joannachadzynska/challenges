@@ -16,7 +16,7 @@ export class RocketViewModel {
 	public readonly description: string;
 	public readonly diameter?: Distance;
 	public readonly engines?: RocketEngines;
-	public readonly firstFlight?: Date;
+	public readonly firstFlight: Date;
 	public readonly firstStage?: RocketFirstStage;
 	public readonly height?: Distance;
 	public readonly id: number;

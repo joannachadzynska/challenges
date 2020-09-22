@@ -47,6 +47,7 @@ export const StyledFirstFlight = styled.span`
 
 export const StyledRocketDescription = styled.div`
 	p {
+		font-size: 0.875rem;
 		text-align: justify;
 	}
 `;

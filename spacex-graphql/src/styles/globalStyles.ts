@@ -45,7 +45,8 @@ export const GlobalStyle = createGlobalStyle`
 	    list-style-type: none;
     }
 
-    h1 {
+    h1, h2 {
         color:  ${({ theme }) => theme.colors.white};
+        text-shadow: rgba(0, 0, 0, 0.3) 3px 3px 4px;
     }
 `;
