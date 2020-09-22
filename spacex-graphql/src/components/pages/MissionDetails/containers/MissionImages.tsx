@@ -1,8 +1,8 @@
 import React from 'react';
+import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import { ImageGroup, Image } from 'react-fullscreen-image';
-import { SectionTitle } from '../styles';
-import { LaunchViewModel } from '../../../../models/launches/viewModels/LaunchViewModel';
-import { MissionImage, MissionImagesContainer } from './styles';
+import { SectionTitle } from 'styles/SectionTitle';
+import { MissionImagesContainer, MissionImage } from './styles';
 
 type MissionImagesProps = Pick<LaunchViewModel, 'links'>;
 

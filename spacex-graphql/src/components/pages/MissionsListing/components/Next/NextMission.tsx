@@ -1,13 +1,12 @@
 import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { MissionDetailsCard } from 'components/pages/MissionDetails/components';
-import { SectionTitle } from 'components/pages/MissionDetails/styles';
 import { LoadingIndicator } from 'components/shared';
 import { LaunchNext } from 'models/launches/interfaces/Launch';
 import { GET_LAUNCH_NEXT } from 'queries/launchQueries/getLaunch';
-
-import DetailsButton from '../MissionCard/DetailsButton';
 import { ViewDetailsButton } from '../Latest/style';
+import { SectionTitle } from 'styles/SectionTitle';
+import { DetailsButton } from '../MissionCard/components';
 
 const NextMission: React.SFC = () => {
 	const { loading, error, data } = useQuery<LaunchNext>(GET_LAUNCH_NEXT);

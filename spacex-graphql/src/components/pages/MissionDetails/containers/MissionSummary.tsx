@@ -1,7 +1,7 @@
 import React from 'react';
+import { Launch } from 'models/launches/interfaces/Launch';
+import { SectionTitle } from 'styles/SectionTitle';
 import { MissionDetailsCard } from '../components';
-import { SectionTitle } from '../styles';
-import { Launch } from '../../../../models/launches/interfaces/Launch';
 
 const MissionSummary: React.SFC<Launch> = (props) => (
 	<section>

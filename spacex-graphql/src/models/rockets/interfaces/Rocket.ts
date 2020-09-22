@@ -85,3 +85,7 @@ export interface RocketSecondStagePayloadCompositeFairing {
 	height: Distance;
 	diameter: Distance;
 }
+
+export interface Rockets {
+	rockets: Rocket[];
+}

@@ -1,12 +1,13 @@
 import React from 'react';
+import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
+
 import {
 	FaFile,
 	FaNewspaper,
 	FaRedditAlien,
 	FaWikipediaW,
 } from 'react-icons/fa';
-import { SectionTitle } from '../styles';
-import { LaunchViewModel } from '../../../../models/launches/viewModels/LaunchViewModel';
+import { SectionTitle } from 'styles/SectionTitle';
 import { MissionLinksContainer } from './styles';
 
 type MissionLinksProps = Pick<LaunchViewModel, 'links'>;

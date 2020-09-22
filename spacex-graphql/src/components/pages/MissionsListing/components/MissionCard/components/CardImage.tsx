@@ -1,7 +1,7 @@
 import React from 'react';
-import { LaunchViewModel } from '../../../../../models/launches/viewModels/LaunchViewModel';
-import { CardImageWrapper, CardImg } from './styles';
-import spaceX from '../../../../../assets/images/spacex.jpg';
+import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
+import { CardImageWrapper, CardImg } from '../styles';
+import spaceX from 'assets/images/spacex.jpg';
 
 type CardImageProps = Pick<LaunchViewModel, 'links' | 'launchSuccess'>;
 

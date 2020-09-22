@@ -1,7 +1,7 @@
 import React from 'react';
-import { LaunchViewModel } from '../../../../../models/launches/viewModels/LaunchViewModel';
+import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import { FiCheckCircle, FiXCircle, FiClock } from 'react-icons/fi';
-import { CardHeader } from './styles';
+import { CardHeader } from '../styles';
 
 type MissionSuccessProps = Pick<LaunchViewModel, 'launchSuccess' | 'id'>;
 

@@ -3,10 +3,10 @@ import { useQuery } from 'react-apollo-hooks';
 import { GET_LAUNCH_LATEST } from 'queries/launchQueries/getLaunch';
 import { LaunchLatest } from 'models/launches/interfaces/Launch';
 import { MissionDetailsCard } from 'components/pages/MissionDetails/components';
-import { SectionTitle } from 'components/pages/MissionDetails/styles';
 import { LoadingIndicator } from 'components/shared';
 import { ViewDetailsButton } from './style';
-import DetailsButton from '../MissionCard/DetailsButton';
+import { SectionTitle } from 'styles/SectionTitle';
+import { DetailsButton } from '../MissionCard/components';
 
 const LatestMission: React.SFC = () => {
 	const { loading, error, data } = useQuery<LaunchLatest>(GET_LAUNCH_LATEST);

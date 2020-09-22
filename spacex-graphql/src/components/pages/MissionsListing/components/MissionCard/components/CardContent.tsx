@@ -1,9 +1,9 @@
 import React from 'react';
-import MissionName from './MiissionName';
-import { LaunchViewModel } from '../../../../../models/launches/viewModels/LaunchViewModel';
-import LaunchDate from './LaunchDate';
-import LaunchDescription from './LaunchDescription';
-import { CardContentContainer } from './styles';
+import MissionName from '../MiissionName';
+import { LaunchViewModel } from '../../../../../../models/launches/viewModels/LaunchViewModel';
+import LaunchDate from '../LaunchDate';
+import LaunchDescription from '../LaunchDescription';
+import { CardContentContainer } from '../styles';
 
 type CardContentProps = Omit<LaunchViewModel, 'image'>;
 

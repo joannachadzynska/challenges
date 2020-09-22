@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { useQuery } from 'react-apollo-hooks';
-import { GET_LAUNCHES } from '../../../../../queries/launchQueries/getLaunches';
-import {
-	Launches,
-	Launch,
-} from '../../../../../models/launches/interfaces/Launch';
-import { LoadingIndicator } from '../../../../shared';
-import { Button } from '../../../../../styles/Button';
+
+import { LoadingIndicator } from 'components/shared';
+import { useInfiniteScroll } from 'hooks/useInfiniteScroll';
+import { Launches, Launch } from 'models/launches/interfaces/Launch';
+import { GET_LAUNCHES } from 'queries/launchQueries/getLaunches';
+
+import { Button } from 'styles/Button';
 import MissionCard from '../MissionCard';
 import { MissionsContainer, MissionsGrid } from '../missionsStyles';
-import { useInfiniteScroll } from '../../../../../hooks/useInfiniteScroll';
 
 const AllMissions: React.SFC = () => {
 	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll(0);

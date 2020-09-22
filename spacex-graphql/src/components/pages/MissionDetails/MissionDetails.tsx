@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-apollo-hooks';
-import { GET_LAUNCH_DETAILS } from '../../../queries/launchQueries/getLaunch';
-import { Launch } from '../../../models/launches/interfaces/Launch';
-import { LoadingIndicator } from '../../shared';
+import { LoadingIndicator } from 'components/shared';
+import { Launch } from 'models/launches/interfaces/Launch';
+import { GET_LAUNCH_DETAILS } from 'queries/launchQueries/getLaunch';
 import { MissionSummary, MissionImages, MissionLinks } from './containers';
 
 type GraphQlResponse = {

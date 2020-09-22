@@ -1,16 +1,16 @@
 import { gql } from 'apollo-boost';
 
 export const GET_ROCKETS = gql`
-	query getRockets($limit: Int = 3, $offset: Int = 0) {
-		rockets(offset: $offset, limit: $limit) {
-			company
-			cost_per_launch
-			country
+	query getRockets {
+		rockets {
+			active
 			description
+			diameter {
+				feet
+			}
+			first_flight
 			id
 			name
-			type
-			wikipedia
 		}
 	}
 `;

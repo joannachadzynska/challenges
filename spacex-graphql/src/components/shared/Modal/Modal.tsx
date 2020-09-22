@@ -2,7 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ModalContainer, ModalOverlay } from './styles';
-import { Button } from '../Button/styles';
+import { Button } from 'styles/Button';
 
 const modalsContainer = document.getElementById('portal')!;
 
@@ -51,9 +51,7 @@ const Modal: React.SFC<ModalProps> = ({ children, isOpen, onClose }) =>
 							😃
 						</span>
 					</p>
-					<Button variant='primary' onClick={onClose}>
-						CloseMe
-					</Button>
+					<Button onClick={onClose}>CloseMe</Button>
 				</ModalContainer>
 			</ModalOverlay>
 		</AnimatePresence>,

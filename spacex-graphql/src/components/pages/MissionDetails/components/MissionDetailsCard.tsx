@@ -1,7 +1,7 @@
 import React from 'react';
-import MissionSuccess from '../../MissionsListing/components/MissionCard/MissionSuccess';
-import { LaunchViewModel } from '../../../../models/launches/viewModels/LaunchViewModel';
-import { Launch } from '../../../../models/launches/interfaces/Launch';
+import { MissionSuccess } from 'components/pages/MissionsListing/components/MissionCard/components';
+import { Launch } from 'models/launches/interfaces/Launch';
+import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import { DetailsImage, DetailsContent, LaunchInfo } from './DetailsCard';
 import { CardDetailsContainer, CardMainContainer } from './DetailsCard/styles';
 
