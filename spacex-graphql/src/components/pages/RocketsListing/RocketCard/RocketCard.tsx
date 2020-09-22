@@ -3,6 +3,7 @@ import { Rocket } from 'models/rockets/interfaces/Rocket';
 import { RocketViewModel } from 'models/rockets/viewModels/RocketViewModel';
 import {
 	RocketDescription,
+	RocketDetailsButton,
 	RocketFirstFlight,
 	RocketName,
 	RocketStatus,
@@ -20,6 +21,7 @@ const RocketCard: React.SFC<Rocket> = (props) => {
 				<RocketName {...data} />
 				<RocketFirstFlight {...data} />
 				<RocketDescription {...data} />
+				<RocketDetailsButton {...data} />
 			</RocketCardContent>
 		</RocketCardContainer>
 	);

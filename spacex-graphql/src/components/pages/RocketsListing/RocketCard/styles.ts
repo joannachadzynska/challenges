@@ -22,6 +22,10 @@ export const RocketStatusContainer = styled.div<CardProps>`
 
 export const RocketCardContent = styled.div`
 	padding: 0 2em 2em 2em;
+
+	a {
+		margin: 0;
+	}
 `;
 
 export const StyledRocketName = styled(SectionTitle)`
@@ -46,6 +50,7 @@ export const StyledFirstFlight = styled.span`
 `;
 
 export const StyledRocketDescription = styled.div`
+	margin: 2em 0;
 	p {
 		font-size: 0.875rem;
 		text-align: justify;
