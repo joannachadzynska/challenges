@@ -15,3 +15,28 @@ export const setDateToString = (date: Date) => {
 
 	return `${month} ${dayWithOrdinal} ${year}`;
 };
+
+export type TimeLeft = {
+	difference: number;
+	days: number;
+	hours: number;
+	minutes: number;
+	seconds: number;
+};
+
+export const calculateTimeLeft = (time: Date) => {
+	let deadline = new Date(time).getTime();
+	let now = new Date().getTime();
+	let difference = deadline - now;
+	let timeleft: TimeLeft = {} as TimeLeft;
+	if (difference > 0) {
+		timeleft = {
+			difference: difference,
+			days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+			hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+			minutes: Math.floor((difference / 1000 / 60) % 60),
+			seconds: Math.floor((difference / 1000) % 60),
+		};
+	}
+	return timeleft;
+};
