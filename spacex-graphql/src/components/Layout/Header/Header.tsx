@@ -1,15 +1,10 @@
 import React from 'react';
-import { Navbar, NavbarContainer } from './styles';
 import { Wrapper } from 'styles/Wrapper';
 import Logo from './Logo';
 import Menu from './Navigation';
+import { Navbar, NavbarContainer } from './styles';
 
-export interface HeaderProps {
-	toggleTheme?: () => void;
-	theme?: string;
-}
-
-const Header: React.SFC<HeaderProps> = () => (
+const Header: React.SFC = () => (
 	<Navbar>
 		<Wrapper>
 			<NavbarContainer>

@@ -1,6 +1,7 @@
+import { Content } from 'components/Layout';
+import { Footer, Header } from 'containers';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Header, Footer, Content } from 'components/Layout';
 import { GlobalStyle } from 'styles/globalStyles';
 import Theme from 'themes/theme';
 

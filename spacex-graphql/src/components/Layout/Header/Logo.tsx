@@ -1,6 +1,6 @@
-import React from 'react';
-import { NavbarBrand, RocketSvg, LogoLink } from './styles';
 import { motion } from 'framer-motion';
+import React from 'react';
+import { LogoLink, NavbarBrand, RocketSvg } from './styles';
 
 const titleVariants = {
 	hidden: {
@@ -55,16 +55,6 @@ const Logo: React.SFC = () => {
 					animate='visible'>
 					SX-H
 				</motion.div>
-				{/* <div>
-				Icons made by{' '}
-				<a href='https://icon54.com/' title='Pixel perfect'>
-					Pixel perfect
-				</a>{' '}
-				from{' '}
-				<a href='https://www.flaticon.com/' title='Flaticon'>
-					www.flaticon.com
-				</a>
-			</div> */}
 			</NavbarBrand>
 		</LogoLink>
 	);
