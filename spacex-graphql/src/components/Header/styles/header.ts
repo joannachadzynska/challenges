@@ -8,7 +8,6 @@ type Props = {
 };
 
 export const Wrapper = styled.section`
-	width: 100%;
 	max-width: 1180px;
 	margin: 0 auto;
 	padding: 0 10px;
@@ -16,28 +15,36 @@ export const Wrapper = styled.section`
 
 export const Container = styled(motion.nav)`
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: clamp(45px, 2.5vw, 5rem);
-	margin: 0 2.812rem;
-	padding-top: 1.25rem;
-	max-width: 1920px;
+	flex-direction: column;
+	margin: 0 0.75em;
 `;
 
 export const Inner = styled.div`
-	border-bottom: 5px solid ${({ theme }) => theme.colors.white};
+	border: none;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
+	padding-top: 1.25rem;
 	padding-bottom: 0.1em;
+	max-width: 1920px;
 
-	${mediaQueries('md')`
-    justify-content: space-between
-  `};
+	/* 
+export const screenSizes: Sizes = {
+	sm: 414,
+	md: 768,
+	lg: 1024,
+	xl: 1366,
+}; */
+
+	@media (min-width: 768px) {
+		border-bottom: 5px solid ${({ theme }) => theme.colors.white};
+		justify-content: space-between;
+		margin: 0 2.812rem;
+	}
 `;
 
 export const LogoLink = styled(NavLink)`
-	font-size: 3rem;
+	font-size: clamp(1.5rem, 5vh, 3rem);
 	font-weight: 700;
 	padding: 0;
 	color: ${({ theme }) => theme.colors.white};
@@ -45,7 +52,6 @@ export const LogoLink = styled(NavLink)`
 
 export const LogoBrand = styled(motion.div)`
 	font-size: 1.5rem;
-	margin: 0.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -53,7 +59,7 @@ export const LogoBrand = styled(motion.div)`
 
 export const LogoIcon = styled(motion.svg)`
 	margin: 10px;
-	width: 40px;
+	width: clamp(30px, 5vw, 40px);
 	overflow: visible;
 	stroke: ${({ theme }) => theme.colors.white};
 	stroke-width: 3;
@@ -62,7 +68,8 @@ export const LogoIcon = styled(motion.svg)`
 `;
 
 export const LogoName = styled(motion.h2)`
-	margin-left: 1rem;
+	margin-left: 0.2em;
+	font-size: clamp(1.5rem, 5vw, 3rem);
 `;
 
 export const Menu = styled(motion.nav)``;
@@ -79,6 +86,9 @@ export const MenuBackground = styled(motion.div)`
 `;
 
 export const MenuHamburger = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	outline: none;
 	border: none;
 	-webkit-user-select: none;
@@ -86,7 +96,7 @@ export const MenuHamburger = styled.div`
 	-ms-user-select: none;
 	cursor: pointer;
 	position: absolute;
-	top: 18px;
+	top: 15px;
 	right: 15px;
 	width: 50px;
 	height: 50px;

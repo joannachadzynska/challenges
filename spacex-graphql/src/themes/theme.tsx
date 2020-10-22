@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, DefaultTheme } from 'styled-components';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 const theme: DefaultTheme = {
 	colors: {
