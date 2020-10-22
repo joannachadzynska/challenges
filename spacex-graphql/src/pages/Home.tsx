@@ -3,10 +3,10 @@ import React from 'react';
 
 const Home: React.SFC = () => {
 	return (
-		<div>
+		<section>
 			<Header />
 			<Footer />
-		</div>
+		</section>
 	);
 };
 
