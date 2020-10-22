@@ -1,7 +1,6 @@
-import { Content } from 'components/Layout';
-import { Footer, Header } from 'containers';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from 'routing/routes';
 import { GlobalStyle } from 'styles/globalStyles';
 import Theme from 'themes/theme';
 
@@ -10,9 +9,9 @@ const App: React.SFC = () => {
 		<Theme>
 			<GlobalStyle />
 			<Router>
-				<Header />
-				<Content />
-				<Footer />
+				<Routes />
+
+				{/* <Content /> */}
 			</Router>
 		</Theme>
 	);
