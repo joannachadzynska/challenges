@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { setInterval } from 'timers';
 import { calculateTimeLeft } from 'utils/date';
