@@ -7,11 +7,21 @@ type Props = {
 	open: boolean;
 };
 
-export const Container = styled(motion.nav)`
+export const Wrapper = styled.section`
 	width: 100%;
 	max-width: 1180px;
 	margin: 0 auto;
 	padding: 0 10px;
+`;
+
+export const Container = styled(motion.nav)`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: clamp(45px, 2.5vw, 5rem);
+	margin: 0 2.812rem;
+	padding-top: 1.25rem;
+	max-width: 1920px;
 `;
 
 export const Inner = styled.div`
