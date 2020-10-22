@@ -1,9 +1,15 @@
+import { Footer, Header } from 'containers';
 import React from 'react';
-
 export interface AboutProps {}
 
 const About: React.SFC<AboutProps> = () => {
-	return <div>about</div>;
+	return (
+		<>
+			<Header />
+			<div>about</div>
+			<Footer />
+		</>
+	);
 };
 
 export default About;

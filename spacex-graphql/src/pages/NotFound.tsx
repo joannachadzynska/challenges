@@ -1,9 +1,13 @@
+import { Header } from 'containers';
 import React from 'react';
-
 export interface NotFoundProps {}
 
 const NotFound: React.SFC<NotFoundProps> = () => {
-	return <div>not found</div>;
+	return (
+		<>
+			<Header />
+		</>
+	);
 };
 
 export default NotFound;
