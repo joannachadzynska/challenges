@@ -6,6 +6,7 @@ import {
 	CountdownContainer,
 	CountdownName,
 	CountdownTime,
+	HeaderContainer,
 	Image,
 	SubTitle,
 	Title,
@@ -20,6 +21,7 @@ export interface JumbotronComposition {
 	Image: React.FC;
 	SubTitle: React.FC;
 	Title: React.FC;
+	Header: React.FC;
 }
 
 const Jumbotron: React.SFC & JumbotronComposition = ({
@@ -29,6 +31,9 @@ const Jumbotron: React.SFC & JumbotronComposition = ({
 	return <Container {...restProps}>{children}</Container>;
 };
 
+export const JumbotronHeader: React.FC = ({ children, ...restProps }) => {
+	return <HeaderContainer {...restProps}>{children}</HeaderContainer>;
+};
 export const JumbotronTitle: React.FC = ({ children, ...restProps }) => {
 	return <Title {...restProps}>{children}</Title>;
 };
@@ -78,5 +83,6 @@ Jumbotron.CountdownContainer = JumbotronCountdownContainer;
 Jumbotron.CountdownName = JumbotronCountdownName;
 Jumbotron.CountdownTime = JumbotronCountdownTime;
 Jumbotron.Image = JumbotronImage;
+Jumbotron.Header = JumbotronHeader;
 
 export default Jumbotron;
