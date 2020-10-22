@@ -29,6 +29,7 @@ export const calculateTimeLeft = (time: Date) => {
 	let now = new Date().getTime();
 	let difference = deadline - now;
 	let timeleft: TimeLeft = {} as TimeLeft;
+
 	if (difference > 0) {
 		timeleft = {
 			difference: difference,
@@ -37,6 +38,15 @@ export const calculateTimeLeft = (time: Date) => {
 			minutes: Math.floor((difference / 1000 / 60) % 60),
 			seconds: Math.floor((difference / 1000) % 60),
 		};
+	} else {
+		timeleft = {
+			difference: 0,
+			days: Number('00'),
+			hours: Number('00'),
+			minutes: Number('00'),
+			seconds: Number('00'),
+		};
 	}
+
 	return timeleft;
 };
