@@ -4,16 +4,16 @@
 	"private": true,
 	"dependencies": {
 		"apollo-boost": "^0.4.9",
-		"framer-motion": "^2.3.0",
+		"framer-motion": "^2.9.4",
 		"graphql": "^15.3.0",
-		"react": "^16.13.1",
+		"react": "^16.14.0",
 		"react-apollo-hooks": "^0.5.0",
-		"react-dom": "^16.13.1",
+		"react-dom": "^16.14.0",
 		"react-fullscreen-image": "0.0.3",
 		"react-icons": "^3.11.0",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "^3.4.4",
-		"styled-components": "^5.1.1",
+		"styled-components": "^5.2.0",
 		"typescript": "^3.7.5"
 	},
 	"scripts": {
@@ -65,15 +65,15 @@
 		]
 	},
 	"devDependencies": {
-		"@graphql-codegen/cli": "^1.17.6",
+		"@graphql-codegen/cli": "^1.18.0",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.5.0",
 		"@testing-library/user-event": "^7.2.1",
 		"@types/jest": "^24.9.1",
-		"@types/node": "^12.12.53",
-		"@types/react": "^16.9.43",
+		"@types/node": "^12.19.0",
+		"@types/react": "^16.9.53",
 		"@types/react-dom": "^16.9.8",
-		"@types/react-router-dom": "^5.1.5",
-		"@types/styled-components": "^5.1.2"
+		"@types/react-router-dom": "^5.1.6",
+		"@types/styled-components": "^5.1.4"
 	}
 }
