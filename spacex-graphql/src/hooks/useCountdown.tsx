@@ -5,6 +5,7 @@ import { calculateTimeLeft } from 'utils/date';
 
 export const useCountdown = (time: Date) => {
 	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(time));
+
 	useEffect(() => {
 		const interval = setInterval(
 			() => setTimeLeft(calculateTimeLeft(time)),
@@ -15,5 +16,6 @@ export const useCountdown = (time: Date) => {
 			clearInterval(interval);
 		}
 	}, []);
+
 	return { timeLeft };
 };
