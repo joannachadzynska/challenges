@@ -1,12 +1,13 @@
-import { Footer, Header } from 'containers';
+import { Footer, Header, Jumbotron } from 'containers';
 import React from 'react';
 
 const Home: React.SFC = () => {
 	return (
-		<section>
+		<>
 			<Header />
+			<Jumbotron />
 			<Footer />
-		</section>
+		</>
 	);
 };
 
