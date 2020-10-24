@@ -1,6 +1,10 @@
 export const ABOUT = '/about';
 export const HOME = '/';
 export const MISSIONS = '/missions';
+export const MISSIONS_LATEST = '/missions/latest';
+export const MISSIONS_NEXT = '/missions/next';
+export const MISSIONS_PAST = '/missions/past';
+export const MISSIONS_UPCOMING = '/missions/upcoming';
 export const MISSION_DETAILS = '/mission/:id';
 export const VEHICLES = '/vehicles';
 export const VEHICLE_DETAILS = '/vehicle/:id';
