@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { fonts } from '../../../../../styles/globalStyles';
 
 type HeaderProps = {
@@ -72,7 +72,7 @@ export const CardContentContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	padding: 0 2em;
+	padding: 0 2em 2em 2em;
 `;
 
 export const MissionTitleLink = styled(Link)`

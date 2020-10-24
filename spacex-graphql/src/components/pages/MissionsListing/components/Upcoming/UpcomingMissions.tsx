@@ -1,11 +1,11 @@
+import { LoadingIndicator } from 'components/shared';
+import { useInfiniteScroll } from 'hooks';
+import { Launch, LaunchesUpcoming } from 'models/launches/interfaces/Launch';
+import { GET_LAUNCHES_UPCOMING } from 'queries/launchQueries/getLaunches';
 import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
-import { useInfiniteScroll } from 'hooks/useInfiniteScroll';
-import { LaunchesUpcoming, Launch } from 'models/launches/interfaces/Launch';
-import { GET_LAUNCHES_UPCOMING } from 'queries/launchQueries/getLaunches';
 import { Button } from 'styles/Button';
 import MissionCard from '../MissionCard';
-import { LoadingIndicator } from 'components/shared';
 import { MissionsContainer, MissionsGrid } from '../missionsStyles';
 
 const UpcomingMissions: React.SFC = () => {

@@ -1,12 +1,11 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { useQuery } from 'react-apollo-hooks';
-import { useInfiniteScroll } from 'hooks/useInfiniteScroll';
-import { LaunchesPast, Launch } from 'models/launches/interfaces/Launch';
+import { LoadingIndicator } from 'components/shared';
+import { useInfiniteScroll } from 'hooks';
+import { Launch, LaunchesPast } from 'models/launches/interfaces/Launch';
 import { GET_LAUNCHES_PAST } from 'queries/launchQueries/getLaunches';
-
+import React, { useCallback, useEffect, useState } from 'react';
+import { useQuery } from 'react-apollo-hooks';
 import { Button } from 'styles/Button';
 import MissionCard from '../MissionCard';
-import { LoadingIndicator } from 'components/shared';
 import { MissionsContainer, MissionsGrid } from '../missionsStyles';
 
 const PastMissions: React.SFC = () => {
