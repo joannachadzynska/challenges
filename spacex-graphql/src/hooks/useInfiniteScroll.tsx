@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useInfiniteScroll = (initOffset: number) => {
+const useInfiniteScroll = (initOffset: number) => {
 	const [offset, setOffset] = useState(initOffset);
 
 	const ELEMENTS_LIMIT = 10;
@@ -10,3 +10,5 @@ export const useInfiniteScroll = (initOffset: number) => {
 
 	return { handleOffset, offset, ELEMENTS_LIMIT };
 };
+
+export default useInfiniteScroll;
