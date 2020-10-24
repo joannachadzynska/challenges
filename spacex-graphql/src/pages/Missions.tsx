@@ -1,13 +1,12 @@
-import { Footer, Header } from 'containers';
+import { Footer, Header, MissionsContainer } from 'containers';
 import React from 'react';
 import { Wrapper } from './../styles/Wrapper';
-export interface MissionsProps {}
 
-const Missions: React.SFC<MissionsProps> = () => {
+const Missions: React.SFC = () => {
 	return (
 		<Wrapper>
 			<Header />
-			<div>missions</div>
+			<MissionsContainer />
 			<Footer />
 		</Wrapper>
 	);
