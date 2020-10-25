@@ -15,7 +15,7 @@ const Content: React.SFC<ContentProps> = ({
 	missionName,
 }) => {
 	return (
-		<Card.Content>
+		<Card.Content direction='rows'>
 			<Card.Title to={`/mission/${id}`}>{missionName}</Card.Title>
 			<Card.Date>
 				<time dateTime={launchDateLocal.toISOString()}>
@@ -25,7 +25,6 @@ const Content: React.SFC<ContentProps> = ({
 			<Card.Description>
 				<p>{details}</p>
 			</Card.Description>
-			<Card.Button>More Details</Card.Button>
 		</Card.Content>
 	);
 };

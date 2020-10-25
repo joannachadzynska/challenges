@@ -11,6 +11,8 @@ const CardContainer: React.SFC<Launch> = (props) => {
 			<Header {...data} />
 			<Image {...data} />
 			<Content {...data} />
+			<Card.Button to={`/mission/${data.id}`}>More Details</Card.Button>
+			<Card.Break />
 		</Card>
 	);
 };
