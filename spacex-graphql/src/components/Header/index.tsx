@@ -46,8 +46,8 @@ const Header: React.FC & HeaderComposition = ({ children, ...restProps }) => {
 
 export const HeaderLogo: React.FC = ({ children, ...restProps }) => {
 	return (
-		<LogoLink to={ROUTES.HOME} {...restProps}>
-			<LogoBrand>{children}</LogoBrand>
+		<LogoLink to={ROUTES.HOME}>
+			<LogoBrand {...restProps}>{children}</LogoBrand>
 		</LogoLink>
 	);
 };
