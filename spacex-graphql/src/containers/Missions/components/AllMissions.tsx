@@ -1,6 +1,5 @@
 import { Card } from 'components';
-import { LoadingIndicator } from 'components/shared';
-import CardContainer from 'containers/Card';
+import { CardContainer } from 'containers/Card';
 import { useInfiniteScroll } from 'hooks';
 import { Launch, Launches } from 'models/launches/interfaces/Launch';
 import { GET_LAUNCHES } from 'queries/launchQueries/getLaunches';
@@ -24,7 +23,7 @@ const AllMissions: React.SFC = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data?.launches]);
 
-	if (loading) return <LoadingIndicator />;
+	if (loading) return <div>Loading...</div>;
 	if (error) return <p>Error...</p>;
 	if (!data?.launches) return <p>there is not any data to display</p>;
 
