@@ -6,6 +6,10 @@ type HeaderProps = {
 	launchSuccess: boolean | undefined | null;
 };
 
+export interface ContentProps {
+	direction?: 'cols' | 'rows';
+}
+
 export const Group = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -19,6 +23,37 @@ export const Container = styled.div`
 	font-family: ${fonts.montserrat};
 	display: grid;
 	grid-template-rows: auto 1fr 1fr;
+	height: 100%;
+`;
+
+export const ImageContainer = styled.div`
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+export const Image = styled.img`
+	margin: 0 auto;
+	max-width: 100%;
+	display: block;
+	width: 50%;
+`;
+
+export const DetailsContainer = styled.div`
+	border-radius: 0 0 10px 10px;
+	font-family: ${fonts.montserrat};
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+
+	${ImageContainer} {
+		margin: 3em 0;
+	}
+
+	@media (min-width: 768px) {
+		grid-template-columns: auto 1fr auto;
+	}
 `;
 
 export const Header = styled.div<HeaderProps>`
@@ -51,30 +86,40 @@ export const Header = styled.div<HeaderProps>`
 	}
 `;
 
-export const Button = styled.button``;
-
-export const ImageContainer = styled.div`
+export const Button = styled(Link)`
+	background-color: transparent;
+	border-radius: 5px;
+	border: 2px solid;
+	color: ${({ theme }) => theme.colors.yellow.light};
+	border-color: ${({ theme }) => theme.colors.yellow.light};
+	font-size: clamp(0.875rem, 5vw, 1.25rem);
+	font-weight: 600;
 	margin: 0 auto;
-	padding-top: 1.5rem;
-	width: 100%;
+	padding: 0.875em 1.5em;
+	text-transform: uppercase;
+	transition: 0.4s all cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+	&:hover,
+	&:focus {
+		border-color: transparent;
+		color: ${({ theme }) => theme.colors.blue.veryDark};
+		background-color: ${({ theme }) => theme.colors.yellow.light};
+	}
 `;
 
-export const Image = styled.img`
-	margin: 0 auto;
-	max-width: 100%;
-	display: block;
-	width: 50%;
-`;
-
-export const Content = styled.div`
+export const Content = styled.div<ContentProps>`
 	display: grid;
 	grid-template-rows: auto auto 1fr auto;
 	padding: 0 2em 2em 2em;
+	/* ${({ direction }) =>
+		direction === 'cols'
+			? `grid-template-cols: auto auto 1fr auto`
+			: `grid-template-rows: auto auto 1fr auto`} */
 `;
 
 export const TitleLink = styled(Link)`
 	color: #f6c744;
-	font-size: 1.25rem;
+	font-size: clamp(1.25rem, 5vw, 1.5rem);
 	padding-bottom: 0.25em;
 	padding-top: 0.75em;
 `;
@@ -102,4 +147,17 @@ export const Description = styled.div`
 		-webkit-line-clamp: 4;
 		-webkit-box-orient: vertical;
 	}
+`;
+
+export const FullDescription = styled.p`
+	color: #fff;
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0 auto;
+	text-align: justify;
+	max-width: clamp(45ch, 50%, 75ch);
+`;
+
+export const Break = styled.div`
+	margin-bottom: 2em;
 `;

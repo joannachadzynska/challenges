@@ -1,10 +1,13 @@
 import React from 'react';
 import {
+	Break,
 	Button,
 	Container,
 	Content,
 	Date,
 	Description,
+	DetailsContainer,
+	FullDescription,
 	Group,
 	Header,
 	Image,
@@ -13,10 +16,13 @@ import {
 } from './styles/card';
 
 export interface CardComposition {
-	Button: React.FC;
-	Content: React.FC;
+	Break: React.FC;
+	Button: React.FC<ButtonProps>;
+	Content: React.FC<ContentProps>;
 	Date: React.FC;
 	Description: React.FC;
+	DetailsContainer: React.FC;
+	FullDescription: React.FC;
 	Group: React.FC;
 	Header: React.FC<HeaderProps>;
 	Image: React.FC<ImageProps>;
@@ -25,6 +31,14 @@ export interface CardComposition {
 
 export interface TitleProps {
 	to: any;
+}
+
+export interface ButtonProps {
+	to: any;
+}
+
+export interface ContentProps {
+	direction?: 'cols' | 'rows';
 }
 
 export interface ImageProps {
@@ -42,6 +56,10 @@ const Card: React.SFC & CardComposition = ({ children, ...restProps }) => {
 
 export const CardGroup: React.FC = ({ children, ...restProps }) => {
 	return <Group {...restProps}>{children}</Group>;
+};
+
+export const CardBreak: React.FC = ({ ...restProps }) => {
+	return <Break {...restProps} />;
 };
 
 export const CardHeader: React.FC<HeaderProps> = ({
@@ -64,8 +82,20 @@ export const CardImage: React.FC<ImageProps> = ({ src, ...restProps }) => {
 	);
 };
 
-export const CardContent: React.FC = ({ children, ...restProps }) => {
-	return <Content {...restProps}>{children}</Content>;
+export const CardContent: React.FC<ContentProps> = ({
+	children,
+	direction,
+	...restProps
+}) => {
+	return (
+		<Content {...restProps} direction={direction}>
+			{children}
+		</Content>
+	);
+};
+
+export const CardDetailsContainer: React.FC = ({ children, ...restProps }) => {
+	return <DetailsContainer {...restProps}>{children}</DetailsContainer>;
 };
 
 export const CardTitle: React.FC<TitleProps> = ({
@@ -88,14 +118,29 @@ export const CardDescription: React.FC = ({ children, ...restProps }) => {
 	return <Description {...restProps}>{children}</Description>;
 };
 
-export const CardButton: React.FC = ({ children, ...restProps }) => {
-	return <Button {...restProps}>{children}</Button>;
+export const CardFullDescription: React.FC = ({ children, ...restProps }) => {
+	return <FullDescription {...restProps}>{children}</FullDescription>;
 };
 
+export const CardButton: React.FC<ButtonProps> = ({
+	to,
+	children,
+	...restProps
+}) => {
+	return (
+		<Button to={to} {...restProps}>
+			{children}
+		</Button>
+	);
+};
+
+Card.Break = CardBreak;
 Card.Button = CardButton;
 Card.Content = CardContent;
 Card.Date = CardDate;
 Card.Description = CardDescription;
+Card.DetailsContainer = CardDetailsContainer;
+Card.FullDescription = CardFullDescription;
 Card.Group = CardGroup;
 Card.Header = CardHeader;
 Card.Image = CardImage;
