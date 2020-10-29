@@ -4,8 +4,6 @@ import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
 import { Launch } from './../../../models/launches/interfaces/Launch';
 
-type CountdownProps = Pick<LaunchViewModel, 'launchDateLocal'>;
-
 const Countdown: React.SFC<Launch> = (props) => {
 	const data = new LaunchViewModel(props);
 	const { timeLeft } = useCountdown(data.launchDateLocal);
