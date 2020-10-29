@@ -3,3 +3,4 @@ export { default as Content } from './Content';
 export { default as ContentFull } from './ContentFull';
 export { default as Header } from './Header';
 export { default as Image } from './Image';
+export { default as LaunchInfo } from './LaunchInfo';

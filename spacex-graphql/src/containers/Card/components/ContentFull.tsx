@@ -23,9 +23,7 @@ const ContentFull: React.SFC<ContentFullProps> = ({
 				</time>
 			</Card.Date>
 			<Card.Break />
-			<Card.FullDescription>
-				<p>{details}</p>
-			</Card.FullDescription>
+			<Card.FullDescription>{details}</Card.FullDescription>
 		</Card.Content>
 	);
 };

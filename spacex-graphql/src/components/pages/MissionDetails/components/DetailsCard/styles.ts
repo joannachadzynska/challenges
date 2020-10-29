@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import { mediaQueries } from '../../../../../themes/mediaTemplates';
 import {
 	CardContainer,
-	CardImageWrapper,
 	CardContentContainer,
+	CardImageWrapper,
 } from '../../../MissionsListing/components/MissionCard/styles';
-import { mediaQueries } from '../../../../../themes/mediaTemplates';
 
 export const CardDetailsContainer = styled(CardContainer)``;
 

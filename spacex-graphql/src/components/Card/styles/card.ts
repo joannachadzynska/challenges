@@ -22,7 +22,7 @@ export const Container = styled.div`
 	border-radius: 0 0 10px 10px;
 	font-family: ${fonts.montserrat};
 	display: grid;
-	grid-template-rows: auto 1fr 1fr;
+	grid-template-rows: auto 1fr;
 	height: 100%;
 `;
 
@@ -52,7 +52,7 @@ export const DetailsContainer = styled.div`
 	}
 
 	@media (min-width: 768px) {
-		grid-template-columns: auto 1fr auto;
+		grid-template-columns: auto 2fr 1fr;
 	}
 `;
 
@@ -153,11 +153,42 @@ export const FullDescription = styled.p`
 	color: #fff;
 	font-size: 1rem;
 	line-height: 1.6;
-	margin: 0 auto;
+	justify-self: center;
 	text-align: justify;
 	max-width: clamp(45ch, 50%, 75ch);
 `;
 
 export const Break = styled.div`
 	margin-bottom: 2em;
+`;
+
+export const LaunchContainer = styled.ul`
+	list-style-type: none;
+	margin: 0;
+	padding: 2em;
+	border-top: 1px dotted rgb(255, 255, 255);
+
+	@media (min-width: 768px) {
+		align-self: center;
+		border-top: none;
+		border-left: 1px dotted rgb(255, 255, 255);
+		padding: 0;
+		padding-left: 1em;
+	}
+`;
+
+export const LaunchItem = styled.li`
+	font-size: 0.938rem;
+	opacity: 0.9;
+	margin-bottom: calc(1.666em / 2);
+	padding-left: 0;
+
+	*:last-child {
+		margin-bottom: 0;
+	}
+
+	span:last-of-type {
+		color: ${({ theme }) => theme.colors.yellow.light};
+		margin-left: 1em;
+	}
 `;

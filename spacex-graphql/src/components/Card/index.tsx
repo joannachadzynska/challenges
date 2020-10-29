@@ -12,6 +12,8 @@ import {
 	Header,
 	Image,
 	ImageContainer,
+	LaunchContainer,
+	LaunchItem,
 	TitleLink,
 } from './styles/card';
 
@@ -26,6 +28,8 @@ export interface CardComposition {
 	Group: React.FC;
 	Header: React.FC<HeaderProps>;
 	Image: React.FC<ImageProps>;
+	Launch: React.FC;
+	LaunchItem: React.FC;
 	Title: React.FC<TitleProps>;
 }
 
@@ -134,6 +138,13 @@ export const CardButton: React.FC<ButtonProps> = ({
 	);
 };
 
+export const CardLaunch: React.FC = ({ children, ...restProps }) => {
+	return <LaunchContainer {...restProps}>{children}</LaunchContainer>;
+};
+export const CardLaunchItem: React.FC = ({ children, ...restProps }) => {
+	return <LaunchItem {...restProps}>{children}</LaunchItem>;
+};
+
 Card.Break = CardBreak;
 Card.Button = CardButton;
 Card.Content = CardContent;
@@ -144,6 +155,8 @@ Card.FullDescription = CardFullDescription;
 Card.Group = CardGroup;
 Card.Header = CardHeader;
 Card.Image = CardImage;
+Card.Launch = CardLaunch;
+Card.LaunchItem = CardLaunchItem;
 Card.Title = CardTitle;
 
 export default Card;
