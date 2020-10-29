@@ -6,9 +6,7 @@ import { GET_LAUNCHES_PAST } from 'queries/launchQueries/getLaunches';
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-apollo-hooks';
 
-export interface PastMissionsProps {}
-
-const PastMissions: React.SFC<PastMissionsProps> = () => {
+const PastMissions: React.SFC = () => {
 	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll(0);
 	const { loading, error, data } = useQuery<LaunchesPast>(GET_LAUNCHES_PAST, {
 		variables: { offset: offset, limit: ELEMENTS_LIMIT },

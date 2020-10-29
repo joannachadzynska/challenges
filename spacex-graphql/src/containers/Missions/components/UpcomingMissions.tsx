@@ -7,9 +7,7 @@ import { useQuery } from 'react-apollo-hooks';
 import { LaunchesUpcoming } from './../../../models/launches/interfaces/Launch';
 import { GET_LAUNCHES_UPCOMING } from './../../../queries/launchQueries/getLaunches';
 
-export interface UpcomingMissionsProps {}
-
-const UpcomingMissions: React.SFC<UpcomingMissionsProps> = () => {
+const UpcomingMissions: React.SFC = () => {
 	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll(0);
 	const { loading, error, data } = useQuery<LaunchesUpcoming>(
 		GET_LAUNCHES_UPCOMING,
