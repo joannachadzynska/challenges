@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 import { mediaQueries } from '../../../../../themes/mediaTemplates';
-import {
-	CardContainer,
-	CardContentContainer,
-	CardImageWrapper,
-} from '../../../MissionsListing/components/MissionCard/styles';
 
-export const CardDetailsContainer = styled(CardContainer)``;
+export const CardDetailsContainer = styled.div``;
 
 export const CardMainContainer = styled.div`
 	display: grid;
@@ -21,7 +16,7 @@ export const CardMainContainer = styled.div`
   `};
 `;
 
-export const CardDetailsImageWrapper = styled(CardImageWrapper)`
+export const CardDetailsImageWrapper = styled.div`
 	margin: 0 auto;
 	padding: 0;
 	display: flex;
@@ -36,7 +31,7 @@ export const CardDetailsImage = styled.img`
 	height: auto;
 `;
 
-export const CardDetailsContentContainer = styled(CardContentContainer)`
+export const CardDetailsContentContainer = styled.div`
 	text-align: left;
 	padding: 1em 0;
 	margin: 0;

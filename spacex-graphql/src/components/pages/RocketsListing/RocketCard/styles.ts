@@ -1,4 +1,4 @@
-import { CardContainer } from 'components/pages/MissionsListing/components/MissionCard/styles';
+// import { CardContainer } from 'components/pages/MissionsListing/components/MissionCard/styles';
 import styled from 'styled-components';
 import { SectionTitle } from 'styles/SectionTitle';
 import { mediaQueries } from 'themes/mediaTemplates';
@@ -7,7 +7,7 @@ type CardProps = {
 	isActive?: boolean;
 };
 
-export const RocketCardContainer = styled(CardContainer)<CardProps>`
+export const RocketCardContainer = styled.div<CardProps>`
 	border-radius: 10px;
 `;
 

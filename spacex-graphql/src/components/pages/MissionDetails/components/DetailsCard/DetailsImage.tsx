@@ -1,8 +1,7 @@
 import React from 'react';
-
 import spaceX from '../../../../../assets/images/spacex.jpg';
 import { LaunchViewModel } from '../../../../../models/launches/viewModels/LaunchViewModel';
-import { CardDetailsImageWrapper, CardDetailsImage } from './styles';
+import { CardDetailsImage, CardDetailsImageWrapper } from './styles';
 
 type DetailsImageProps = Pick<LaunchViewModel, 'links' | 'launchSuccess'>;
 
@@ -11,7 +10,7 @@ const DetailsImage: React.SFC<DetailsImageProps> = ({
 	launchSuccess,
 }) => {
 	return (
-		<CardDetailsImageWrapper launchSuccess={launchSuccess}>
+		<CardDetailsImageWrapper>
 			<CardDetailsImage
 				src={
 					links.flickr_images.length > 0 ||
