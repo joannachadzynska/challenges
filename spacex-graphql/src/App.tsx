@@ -4,17 +4,13 @@ import Routes from 'routing/routes';
 import { GlobalStyle } from 'styles/globalStyles';
 import Theme from 'themes/theme';
 
-const App: React.SFC = () => {
-	return (
-		<Theme>
-			<GlobalStyle />
-			<Router>
-				<Routes />
-
-				{/* <Content /> */}
-			</Router>
-		</Theme>
-	);
-};
+const App: React.SFC = () => (
+	<Theme>
+		<GlobalStyle />
+		<Router>
+			<Routes />
+		</Router>
+	</Theme>
+);
 
 export default App;
