@@ -1,5 +1,5 @@
-import { LaunchRocket } from './LaunchRocket';
 import { Ship } from '../../ships/interfaces/Ship';
+import { LaunchRocket } from './LaunchRocket';
 
 export interface Launch {
 	details: string;
