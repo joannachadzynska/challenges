@@ -1,3 +1,4 @@
+import { Card } from 'components';
 import { MissionCard } from 'containers/Card';
 import { LaunchLatest } from 'models/launches/interfaces/Launch';
 import { GET_LAUNCH_LATEST } from 'queries/launchQueries/getLaunch';
@@ -12,7 +13,9 @@ const LatestMission: React.SFC = () => {
 
 	return (
 		<section>
+			<Card.Break />
 			<h1>Latest mission</h1>
+			<Card.Break />
 			<MissionCard {...data.launchLatest} />
 		</section>
 	);

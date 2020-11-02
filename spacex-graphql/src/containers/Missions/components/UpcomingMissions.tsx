@@ -30,7 +30,10 @@ const UpcomingMissions: React.SFC = () => {
 	if (error) return <p>Error...</p>;
 	if (!data?.launchesUpcoming) return <p>there is not any data to display</p>;
 	return (
-		<div>
+		<section>
+			<Card.Break />
+			<h1>Upcoming missions</h1>
+			<Card.Break />
 			<Card.Group>
 				{cards.map((card) => (
 					<CardContainer key={card.id} {...card} />
@@ -38,7 +41,7 @@ const UpcomingMissions: React.SFC = () => {
 			</Card.Group>
 			<hr />
 			<button onClick={handleOffset}>Load more</button>
-		</div>
+		</section>
 	);
 };
 

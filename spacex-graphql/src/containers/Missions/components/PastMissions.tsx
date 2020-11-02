@@ -27,7 +27,10 @@ const PastMissions: React.SFC = () => {
 	if (!data?.launchesPast) return <p>there is not any data to display</p>;
 
 	return (
-		<div>
+		<section>
+			<Card.Break />
+			<h1>Past missions</h1>
+			<Card.Break />
 			<Card.Group>
 				{cards.map((card) => (
 					<CardContainer key={card.id} {...card} />
@@ -35,7 +38,7 @@ const PastMissions: React.SFC = () => {
 			</Card.Group>
 			<hr />
 			<button onClick={handleOffset}>Load more</button>
-		</div>
+		</section>
 	);
 };
 

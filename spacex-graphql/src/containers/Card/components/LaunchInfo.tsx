@@ -1,16 +1,18 @@
 import { Card } from 'components';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { LaunchViewModel } from './../../../models/launches/viewModels/LaunchViewModel';
 
 type LaunchInfoProps = Pick<
 	LaunchViewModel,
-	'launchDateLocal' | 'launchSite' | 'rocket'
+	'launchDateLocal' | 'launchSite' | 'rocket' | 'id'
 >;
 
 const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 	launchDateLocal,
 	launchSite,
 	rocket,
+	id,
 }) => {
 	return (
 		<Card.Launch>
@@ -24,7 +26,9 @@ const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 			</Card.LaunchItem>
 			<Card.LaunchItem>
 				<span>Rocket Name:</span>
-				<span>{rocket.rocketName}</span>
+				<span>
+					<Link to={`/vehicle/${id}`}>{rocket.rocketName}</Link>
+				</span>
 			</Card.LaunchItem>
 		</Card.Launch>
 	);
