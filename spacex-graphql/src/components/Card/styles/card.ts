@@ -29,6 +29,7 @@ export const Container = styled.div`
 export const ImageContainer = styled.div`
 	width: 100%;
 	height: auto;
+	margin-top: 1em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -52,7 +53,7 @@ export const DetailsContainer = styled.div`
 	}
 
 	@media (min-width: 768px) {
-		grid-template-columns: auto 2fr 1fr;
+		grid-template-columns: 1fr 2fr 1fr;
 	}
 `;
 
@@ -111,10 +112,6 @@ export const Content = styled.div<ContentProps>`
 	display: grid;
 	grid-template-rows: auto auto 1fr auto;
 	padding: 0 2em 2em 2em;
-	/* ${({ direction }) =>
-		direction === 'cols'
-			? `grid-template-cols: auto auto 1fr auto`
-			: `grid-template-rows: auto auto 1fr auto`} */
 `;
 
 export const TitleLink = styled(Link)`
@@ -187,7 +184,8 @@ export const LaunchItem = styled.li`
 		margin-bottom: 0;
 	}
 
-	span:last-of-type {
+	span:last-of-type,
+	span > a {
 		color: ${({ theme }) => theme.colors.yellow.light};
 		margin-left: 1em;
 	}
