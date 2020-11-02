@@ -6,7 +6,7 @@ const VehicleDetails: React.SFC<VehicleDetailsProps> = () => {
 	return (
 		<>
 			<Header />
-			<div>vehicle details</div>;
+			<div>vehicle details</div>
 			<Footer />
 		</>
 	);
