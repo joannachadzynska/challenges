@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-apollo-hooks';
 
 const PastMissions: React.SFC = () => {
-	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll(0);
+	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll();
 	const { loading, error, data } = useQuery<LaunchesPast>(GET_LAUNCHES_PAST, {
 		variables: { offset: offset, limit: ELEMENTS_LIMIT },
 	});

@@ -7,17 +7,41 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-apollo-hooks';
 
 const AllMissions: React.SFC = () => {
-	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll(0);
-
-	const { loading, error, data } = useQuery<Launches>(GET_LAUNCHES, {
-		variables: { offset: offset, limit: ELEMENTS_LIMIT },
-	});
-
 	const [cards, setCards] = useState<Launch[]>([]);
+	const onLoadMore = () => {
+		fetchMore({
+			variables: {
+				offset: offset,
+			},
+			updateQuery: (prev, { fetchMoreResult }) => {
+				if (!fetchMoreResult) return prev;
+				return Object.assign({}, prev, {
+					cards: [...prev.launches, ...fetchMoreResult.launches],
+				});
+			},
+		});
+	};
+
+	const {
+		isBottom,
+		setIsBottom,
+		offset,
+		handleOffset,
+		ELEMENTS_LIMIT,
+	} = useInfiniteScroll(onLoadMore);
+
+	const { loading, error, data, fetchMore } = useQuery<Launches>(GET_LAUNCHES, {
+		variables: {
+			offset: offset,
+			limit: ELEMENTS_LIMIT,
+			sort: 'launch_date_local',
+		},
+	});
 
 	useEffect(() => {
 		if (data?.launches.length) {
 			setCards((cards) => [...cards, ...data.launches]);
+			setIsBottom(false);
 		}
 		return () => setCards([]);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -25,7 +49,7 @@ const AllMissions: React.SFC = () => {
 
 	if (loading) return <div>Loading...</div>;
 	if (error) return <p>Error...</p>;
-	if (!data?.launches) return <p>there is not any data to display</p>;
+	if (!cards.length) return <p>there is not any data to display</p>;
 
 	return (
 		<section>

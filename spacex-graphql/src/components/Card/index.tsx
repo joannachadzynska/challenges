@@ -25,7 +25,7 @@ export interface CardComposition {
 	Description: React.FC;
 	DetailsContainer: React.FC;
 	FullDescription: React.FC;
-	Group: React.FC;
+	Group: React.FC<GroupProps>;
 	Header: React.FC<HeaderProps>;
 	Image: React.FC<ImageProps>;
 	Launch: React.FC;
@@ -50,6 +50,10 @@ export interface ImageProps {
 	alt?: string;
 }
 
+export interface GroupProps {
+	onScroll?: (e: React.UIEvent<HTMLElement>) => void;
+}
+
 export interface HeaderProps {
 	launchSuccess: boolean | undefined | null;
 }
@@ -58,8 +62,16 @@ const Card: React.SFC & CardComposition = ({ children, ...restProps }) => {
 	return <Container {...restProps}>{children}</Container>;
 };
 
-export const CardGroup: React.FC = ({ children, ...restProps }) => {
-	return <Group {...restProps}>{children}</Group>;
+export const CardGroup: React.FC<GroupProps> = ({
+	children,
+	onScroll,
+	...restProps
+}) => {
+	return (
+		<Group onScroll={onScroll} {...restProps}>
+			{children}
+		</Group>
+	);
 };
 
 export const CardBreak: React.FC = ({ ...restProps }) => {

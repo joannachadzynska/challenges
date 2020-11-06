@@ -1,13 +1,8 @@
 import { gql } from 'apollo-boost';
 
 export const GET_LAUNCHES = gql`
-	query getLaunches(
-		$offset: Int = 0
-		$limit: Int = 3
-		$sort: String
-		$order: String
-	) {
-		launches(limit: $limit, offset: $offset, order: $order, sort: $sort) {
+	query getLaunches($offset: Int = 0, $limit: Int = 3, $sort: String) {
+		launches(limit: $limit, offset: $offset, sort: $sort) {
 			id
 			details
 			launch_date_local

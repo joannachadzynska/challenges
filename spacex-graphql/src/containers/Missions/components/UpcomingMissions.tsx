@@ -8,7 +8,7 @@ import { LaunchesUpcoming } from './../../../models/launches/interfaces/Launch';
 import { GET_LAUNCHES_UPCOMING } from './../../../queries/launchQueries/getLaunches';
 
 const UpcomingMissions: React.SFC = () => {
-	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll(0);
+	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll();
 	const { loading, error, data } = useQuery<LaunchesUpcoming>(
 		GET_LAUNCHES_UPCOMING,
 		{

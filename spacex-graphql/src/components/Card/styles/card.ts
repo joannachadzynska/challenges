@@ -10,7 +10,7 @@ export interface ContentProps {
 	direction?: 'cols' | 'rows';
 }
 
-export const Group = styled.div`
+export const Group = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 	grid-gap: 2em;
