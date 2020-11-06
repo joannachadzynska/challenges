@@ -37,6 +37,11 @@ export interface LaunchLinks {
 	video_link: string;
 	wikipedia: string;
 }
+
+export interface Result {
+	totalCount: number;
+}
+
 export interface LaunchTelemetry {
 	flight_club: string;
 }
@@ -47,6 +52,12 @@ export interface Launches {
 export interface LaunchesPast {
 	launchesPast: Launch[];
 }
+
+export interface LaunchesPastResult {
+	data: Launch[];
+	result: Result;
+}
+
 export interface LaunchesUpcoming {
 	launchesUpcoming: Launch[];
 }
