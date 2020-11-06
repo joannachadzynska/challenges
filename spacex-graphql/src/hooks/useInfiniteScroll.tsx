@@ -1,14 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const useInfiniteScroll = (callback?: any) => {
+const useInfiniteScroll = (cardsLength?: any) => {
 	const [offset, setOffset] = useState(0);
 	const [isBottom, setIsBottom] = useState(false);
 
 	const ELEMENTS_LIMIT = 10;
-
-	const handleOffset = () => {
-		setOffset((currentValue) => (currentValue += 10));
-	};
 
 	const handleScroll = () => {
 		const scrollTop =
@@ -18,8 +14,10 @@ const useInfiniteScroll = (callback?: any) => {
 			(document.documentElement && document.documentElement.scrollHeight) ||
 			document.body.scrollHeight;
 
-		if (scrollTop + window.innerHeight + 50 >= scrollHeight) {
+		if (scrollTop + window.innerHeight + 100 >= scrollHeight) {
 			setIsBottom(true);
+		} else {
+			setIsBottom(false);
 		}
 	};
 
@@ -31,12 +29,20 @@ const useInfiniteScroll = (callback?: any) => {
 
 	useEffect(() => {
 		if (!isBottom) return;
-		handleOffset();
-		// callback();
-	}, [isBottom]);
+
+		const timeout = setTimeout(() => {
+			if (offset <= cardsLength) {
+				setOffset((currentValue) => (currentValue += 10));
+			} else {
+				setOffset(offset);
+			}
+		}, 2000);
+
+		return () => clearTimeout(timeout);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isBottom, cardsLength]);
 
 	return {
-		handleOffset,
 		setIsBottom,
 		offset,
 		ELEMENTS_LIMIT,

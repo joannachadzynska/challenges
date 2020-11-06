@@ -8,46 +8,48 @@ import { useQuery } from 'react-apollo-hooks';
 
 const AllMissions: React.SFC = () => {
 	const [cards, setCards] = useState<Launch[]>([]);
-	const onLoadMore = () => {
-		fetchMore({
-			variables: {
-				offset: offset,
-			},
-			updateQuery: (prev, { fetchMoreResult }) => {
-				if (!fetchMoreResult) return prev;
-				return Object.assign({}, prev, {
-					cards: [...prev.launches, ...fetchMoreResult.launches],
-				});
-			},
-		});
-	};
 
-	const {
-		isBottom,
-		setIsBottom,
-		offset,
-		handleOffset,
-		ELEMENTS_LIMIT,
-	} = useInfiniteScroll(onLoadMore);
+	const { isBottom, setIsBottom, offset, ELEMENTS_LIMIT } = useInfiniteScroll(
+		cards.length
+	);
 
-	const { loading, error, data, fetchMore } = useQuery<Launches>(GET_LAUNCHES, {
+	const { loading, error, data } = useQuery<Launches>(GET_LAUNCHES, {
 		variables: {
 			offset: offset,
 			limit: ELEMENTS_LIMIT,
-			sort: 'launch_date_local',
+			order: 'DESC',
+			sort: 'launch_date_utc',
 		},
 	});
 
+	// const onLoadMore = () => {
+	// 	fetchMore({
+	// 		variables: {
+	// 			offset: offset,
+	// 		},
+	// 		updateQuery: (prev, { fetchMoreResult }) => {
+	// 			if (!fetchMoreResult) return prev;
+	// 			return Object.assign({}, prev, {
+	// 				cards: [...prev.launches, ...fetchMoreResult.launches],
+	// 			});
+	// 		},
+	// 	});
+	// };
+
 	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setIsBottom(false);
+		}, 1000);
+
 		if (data?.launches.length) {
 			setCards((cards) => [...cards, ...data.launches]);
-			setIsBottom(false);
 		}
-		return () => setCards([]);
+
+		return () => clearTimeout(timeout);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data?.launches]);
 
-	if (loading) return <div>Loading...</div>;
+	if (loading && !isBottom) return <div>Loading...</div>;
 	if (error) return <p>Error...</p>;
 	if (!cards.length) return <p>there is not any data to display</p>;
 
@@ -62,8 +64,11 @@ const AllMissions: React.SFC = () => {
 					<CardContainer key={card.id} {...card} />
 				))}
 			</Card.Group>
-			<hr />
-			<button onClick={handleOffset}>Load more</button>
+			<br />
+			<br />
+			{isBottom &&
+				cards.length >= offset + ELEMENTS_LIMIT &&
+				'Loading more data'}
 		</section>
 	);
 };

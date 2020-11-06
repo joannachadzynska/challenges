@@ -8,27 +8,45 @@ import { LaunchesUpcoming } from './../../../models/launches/interfaces/Launch';
 import { GET_LAUNCHES_UPCOMING } from './../../../queries/launchQueries/getLaunches';
 
 const UpcomingMissions: React.SFC = () => {
-	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll();
+	const [cards, setCards] = React.useState<Launch[]>([]);
+
+	const {
+		offset,
+
+		ELEMENTS_LIMIT,
+		isBottom,
+		setIsBottom,
+	} = useInfiniteScroll();
+
 	const { loading, error, data } = useQuery<LaunchesUpcoming>(
 		GET_LAUNCHES_UPCOMING,
 		{
-			variables: { offset: offset, limit: ELEMENTS_LIMIT },
+			variables: {
+				offset: offset,
+				limit: ELEMENTS_LIMIT,
+				order: 'DESC',
+				sort: 'launch_date_utc',
+			},
 		}
 	);
 
-	const [cards, setCards] = React.useState<Launch[]>([]);
-
 	React.useEffect(() => {
+		const timeout = setTimeout(() => {
+			setIsBottom(false);
+		}, 2000);
+
 		if (data?.launchesUpcoming.length) {
 			setCards((cards) => [...cards, ...data.launchesUpcoming]);
 		}
-		return () => setCards([]);
+
+		return () => clearTimeout(timeout);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data?.launchesUpcoming]);
 
-	if (loading) return <div>Loading...</div>;
+	if (loading && !isBottom) return <div>Loading...</div>;
 	if (error) return <p>Error...</p>;
-	if (!data?.launchesUpcoming) return <p>there is not any data to display</p>;
+	if (!cards.length) return <p>there is not any data to display</p>;
+
 	return (
 		<section>
 			<Card.Break />
@@ -39,8 +57,9 @@ const UpcomingMissions: React.SFC = () => {
 					<CardContainer key={card.id} {...card} />
 				))}
 			</Card.Group>
-			<hr />
-			<button onClick={handleOffset}>Load more</button>
+			<br />
+			<br />
+			{isBottom && cards.length > ELEMENTS_LIMIT && 'Loading more data'}
 		</section>
 	);
 };

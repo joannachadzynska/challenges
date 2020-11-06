@@ -7,24 +7,36 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-apollo-hooks';
 
 const PastMissions: React.SFC = () => {
-	const { offset, handleOffset, ELEMENTS_LIMIT } = useInfiniteScroll();
-	const { loading, error, data } = useQuery<LaunchesPast>(GET_LAUNCHES_PAST, {
-		variables: { offset: offset, limit: ELEMENTS_LIMIT },
-	});
-
 	const [cards, setCards] = useState<Launch[]>([]);
 
+	const { offset, ELEMENTS_LIMIT, isBottom, setIsBottom } = useInfiniteScroll(
+		cards.length
+	);
+
+	const { loading, error, data } = useQuery<LaunchesPast>(GET_LAUNCHES_PAST, {
+		variables: {
+			offset: offset,
+			limit: ELEMENTS_LIMIT,
+			order: 'DESC',
+			sort: 'launch_date_utc',
+		},
+	});
+
 	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setIsBottom(false);
+		}, 1000);
+
 		if (data?.launchesPast.length) {
 			setCards((cards) => [...cards, ...data.launchesPast]);
 		}
-		return () => setCards([]);
+		return () => clearTimeout(timeout);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data?.launchesPast]);
 
-	if (loading) return <div>Loading...</div>;
+	if (loading && !isBottom) return <div>Loading...</div>;
 	if (error) return <p>Error...</p>;
-	if (!data?.launchesPast) return <p>there is not any data to display</p>;
+	if (!cards.length) return <p>there is not any data to display</p>;
 
 	return (
 		<section>
@@ -36,8 +48,11 @@ const PastMissions: React.SFC = () => {
 					<CardContainer key={card.id} {...card} />
 				))}
 			</Card.Group>
-			<hr />
-			<button onClick={handleOffset}>Load more</button>
+			<br />
+			<br />
+			{isBottom &&
+				cards.length >= offset + ELEMENTS_LIMIT &&
+				'Loading more data'}
 		</section>
 	);
 };
