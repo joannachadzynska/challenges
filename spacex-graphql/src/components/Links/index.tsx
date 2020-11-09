@@ -30,7 +30,7 @@ export const LinksIcon: React.FC<IconProps> = ({
 }) => {
 	return (
 		<IconLink
-			href={href}
+			href={href !== 'null' ? href : '#!'}
 			target='_blank'
 			rel='noopener noreferrer'
 			{...restProps}>
