@@ -3,7 +3,7 @@ import { GET_LAUNCH_DETAILS } from 'queries/launchQueries/getLaunch';
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { useParams } from 'react-router-dom';
-import { Images, Links, Summary } from './components';
+import { Images, Links, MissionData, Summary } from './components';
 
 export interface MissionDetailsContainerProps {}
 
@@ -38,6 +38,7 @@ const MissionDetailsContainer: React.SFC<MissionDetailsContainerProps> = () => {
 	return (
 		<div>
 			<Summary {...data.launch} />
+			<MissionData {...data.launch} />
 			<Images {...data.launch} />
 			<Links {...data.launch} />
 		</div>
