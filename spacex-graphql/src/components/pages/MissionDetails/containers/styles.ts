@@ -93,7 +93,7 @@ export const MissionLinksContainer = styled.ul`
             svg {
                 display: block;
                 margin: 0px auto 10px;
-                }
+                
             }
        }
     `};
