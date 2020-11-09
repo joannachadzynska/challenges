@@ -2,5 +2,8 @@ export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Jumbotron } from './Jumbotron';
 export { default as MissionDetailsContainer } from './MissionDetails';
+export { default as MissionInfo } from './MissionInfo';
 export { default as MissionsContainer } from './Missions';
 export { default as Tabs } from './Tabs';
+export { default as VehicleContainer } from './Vehicle';
+export { default as VehiclesContainer } from './Vehicles';
