@@ -13,7 +13,7 @@ type GraphQlResponse = {
 
 const MissionDetailsContainer: React.SFC<MissionDetailsContainerProps> = () => {
 	const { id } = useParams<{ id: string }>();
-
+	const [details, setDetails] = useState<Launch>();
 	const { loading, error, data } = useQuery<GraphQlResponse>(
 		GET_LAUNCH_DETAILS,
 		{
@@ -23,13 +23,12 @@ const MissionDetailsContainer: React.SFC<MissionDetailsContainerProps> = () => {
 		}
 	);
 
-	const [details, setDetails] = useState({});
-
 	useEffect(() => {
 		if (data?.launch) {
-			setDetails(data.launch);
+			setDetails({ ...details, ...data.launch });
 		}
-		return () => setDetails({});
+		return () => setDetails(details);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data]);
 
 	if (loading) return <div>loading ...</div>;
