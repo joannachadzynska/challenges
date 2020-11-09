@@ -1,4 +1,4 @@
-import { Footer, Header } from 'containers';
+import { Footer, Header, VehiclesContainer } from 'containers';
 import React from 'react';
 export interface VehiclesProps {}
 
@@ -6,7 +6,7 @@ const Vehicles: React.SFC<VehiclesProps> = () => {
 	return (
 		<>
 			<Header />
-			<div>vehicles</div>
+			<VehiclesContainer />
 			<Footer />
 		</>
 	);
