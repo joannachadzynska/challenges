@@ -1,4 +1,4 @@
-import { Card } from 'components';
+import { Links } from 'components';
 import { Wrapper } from 'components/Header/styles/header';
 import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
@@ -12,7 +12,7 @@ import { SectionTitle } from 'styles/SectionTitle';
 
 type LinksProps = Pick<LaunchViewModel, 'links'>;
 
-const Links: React.SFC<LinksProps> = ({ links }) => {
+const LinksContainer: React.SFC<LinksProps> = ({ links }) => {
 	const linksGroup = [
 		{
 			id: 'presskit',
@@ -57,24 +57,25 @@ const Links: React.SFC<LinksProps> = ({ links }) => {
 			icon: <FaWikipediaW />,
 		},
 	];
+
 	return (
 		<Wrapper>
 			<section>
 				<SectionTitle>mission links</SectionTitle>
 
-				<Card.Group>
+				<Links>
 					{linksGroup.map((link) => (
-						<li key={link.id}>
-							<a href={link.link} target='_blank' rel='noopener noreferrer'>
+						<Links.Item key={link.id}>
+							<Links.IconLink href={link.link}>
 								{link.icon}
-								<span>{link.name}</span>
-							</a>
-						</li>
+								<Links.Name>{link.name}</Links.Name>
+							</Links.IconLink>
+						</Links.Item>
 					))}
-				</Card.Group>
+				</Links>
 			</section>
 		</Wrapper>
 	);
 };
 
-export default Links;
+export default LinksContainer;
