@@ -4,7 +4,7 @@ import React from 'react';
 const HeaderMenu: React.SFC = () => {
 	const links = [
 		{ id: 'launches', path: '/missions', name: 'Missions' },
-		{ id: 'rockets', path: '/rockets', name: 'Rockets' },
+		{ id: 'rockets', path: '/vehicles', name: 'Rockets' },
 		{ id: 'about', path: '/about', name: 'About' },
 	];
 
