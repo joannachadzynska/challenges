@@ -24,7 +24,7 @@ const Gallery: React.SFC & GalleryComposition = ({
 	const [showImage, setShowImage] = useState(false);
 	return (
 		<GalleryContext.Provider value={{ showImage, setShowImage }}>
-			<Container {...restProps}>{children}</Container>;
+			<Container {...restProps}>{children}</Container>
 		</GalleryContext.Provider>
 	);
 };

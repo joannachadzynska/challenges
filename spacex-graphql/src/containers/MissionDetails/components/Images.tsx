@@ -13,9 +13,13 @@ const Images: React.SFC<ImagesProps> = ({ links }) => {
 				<SectionTitle>mission images</SectionTitle>
 
 				<Gallery>
-					{links.flickr_images.map((image) => (
-						<Gallery.Image key={image} src={image} alt='rocket' />
-					))}
+					{links.flickr_images.length <= 0 ? (
+						<p>Sorry, no images available.</p>
+					) : (
+						links.flickr_images.map((image) => (
+							<Gallery.Image key={image} src={image} alt='rocket' />
+						))
+					)}
 				</Gallery>
 			</section>
 		</Wrapper>
