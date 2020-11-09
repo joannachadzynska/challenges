@@ -36,6 +36,9 @@ export const GET_LAUNCH_DETAILS = gql`
 						landing_intent
 						landing_vehicle
 						landing_type
+						core {
+							id
+						}
 					}
 				}
 				rocket_type
