@@ -38,6 +38,11 @@ export const Item = styled.li`
 	justify-content: space-between;
 	padding: 0.75rem 0px;
 	text-transform: capitalize;
+	transition: 0.2s ease-in-out;
+
+	&:hover {
+		background-color: #004f80;
+	}
 `;
 
 export const ItemTitle = styled.h4`

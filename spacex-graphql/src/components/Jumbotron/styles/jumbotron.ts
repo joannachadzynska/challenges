@@ -37,6 +37,19 @@ export const Container = styled.div`
 	}
 `;
 
+export const Background = styled.div`
+	display: flex;
+	flex-direction: column;
+	background-image: url(/images/launchpad/launch_big.jpg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	margin-top: 2em;
+	width: 100%;
+	height: 100%;
+`;
+
 export const HeaderContainer = styled.div`
 	width: 100%;
 	margin: 0 auto;

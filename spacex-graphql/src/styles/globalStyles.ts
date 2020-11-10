@@ -49,4 +49,26 @@ export const GlobalStyle = createGlobalStyle`
         color:  ${({ theme }) => theme.colors.white};
         text-shadow: rgba(0, 0, 0, 0.3) 3px 3px 4px;
     }
+
+    img {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+    }
+
+    iframe {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        margin-bottom: 1.666rem;
+    }
 `;

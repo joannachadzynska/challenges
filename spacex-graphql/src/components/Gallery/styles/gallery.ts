@@ -16,37 +16,33 @@ export const Container = styled.ul`
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	}
 `;
-export const Image = styled.li<ImageProp>`
-	cursor: pointer;
-	${({ showFullImage }) =>
-		showFullImage
-			? `
-	img {
-		position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        height: '100%',
-        width: '100%',
-        objectFit: 'cover',
-	} 
-    `
-			: `
-    position: relative;
-	padding-top: 66%;
-	overflow: hidden;
 
-	img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		height: auto;
-		max-width: 100%;
-		object-fit: cover;
+export const Image = styled.li<ImageProp>`
+	border-radius: 5px;
+	cursor: pointer;
+
+	figure {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		padding-top: 66%;
+		overflow: hidden;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: auto;
+			max-width: 100%;
+			object-fit: cover;
+			transform: scale(1);
+			transition: 0.3s ease-in-out;
+		}
+
+		&:hover img {
+			transform: scale(1.3);
+		}
 	}
-    
-    `}
 `;
