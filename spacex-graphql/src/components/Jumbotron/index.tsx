@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+	Background,
 	Button,
 	Container,
 	Countdown,
@@ -24,11 +25,22 @@ export interface JumbotronComposition {
 	Header: React.FC;
 }
 
-const Jumbotron: React.SFC & JumbotronComposition = ({
+export interface JumbotronProps {
+	bg?: boolean;
+}
+
+const Jumbotron: React.SFC<JumbotronProps> & JumbotronComposition = ({
+	bg = false,
 	children,
 	...restProps
 }) => {
-	return <Container {...restProps}>{children}</Container>;
+	return bg ? (
+		<Background {...restProps}>
+			<Container {...restProps}>{children}</Container>;
+		</Background>
+	) : (
+		<Container {...restProps}>{children}</Container>
+	);
 };
 
 export const JumbotronHeader: React.FC = ({ children, ...restProps }) => {

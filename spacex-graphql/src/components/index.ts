@@ -7,3 +7,4 @@ export { default as Links } from './Links';
 export { default as Mission } from './Mission';
 export { default as Tab } from './Tab';
 export { default as Vehicle } from './Vehicle';
+export { default as Video } from './Video';

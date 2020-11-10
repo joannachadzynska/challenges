@@ -38,13 +38,14 @@ export const GalleryImage: React.FC<ImageProps> = ({ src, ...restProps }) => {
 	const handleShowImage = () => {
 		if (setShowImage && ref.current) {
 			setShowImage(!showImage);
-			console.log(src);
 		}
 	};
 
 	return (
 		<Image onClick={handleShowImage} showFullImage={showImage} ref={ref}>
-			<img src={src} {...restProps} alt='rocket' />
+			<figure>
+				<img src={src} {...restProps} alt='rocket' />
+			</figure>
 		</Image>
 	);
 };
