@@ -1,10 +1,15 @@
 import { Vehicle } from 'components';
+import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
 
-export interface VehicleContainerProps {}
+type VehicleContainerProps = Pick<LaunchViewModel, 'rocket'>;
 
-const VehicleContainer: React.SFC<VehicleContainerProps> = (props) => {
-	return <Vehicle>vehicle image</Vehicle>;
+const VehicleContainer: React.SFC<VehicleContainerProps> = ({ rocket }) => {
+	return (
+		<Vehicle>
+			<Vehicle.Image src={rocket.rocket.id} />
+		</Vehicle>
+	);
 };
 
 export default VehicleContainer;

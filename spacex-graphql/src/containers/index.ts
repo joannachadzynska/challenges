@@ -7,3 +7,4 @@ export { default as MissionsContainer } from './Missions';
 export { default as Tabs } from './Tabs';
 export { default as VehicleContainer } from './Vehicle';
 export { default as VehiclesContainer } from './Vehicles';
+export { default as VideoContainer } from './Video';
