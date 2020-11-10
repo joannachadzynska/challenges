@@ -1,5 +1,4 @@
 import { Links } from 'components';
-import { Wrapper } from 'components/Header/styles/header';
 import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
 import {
@@ -59,22 +58,20 @@ const LinksContainer: React.SFC<LinksProps> = ({ links }) => {
 	];
 
 	return (
-		<Wrapper>
-			<section>
-				<SectionTitle>mission links</SectionTitle>
+		<section>
+			<SectionTitle>mission links</SectionTitle>
 
-				<Links>
-					{linksGroup.map((link) => (
-						<Links.Item key={link.id}>
-							<Links.IconLink href={link.link}>
-								{link.icon}
-								<Links.Name>{link.name}</Links.Name>
-							</Links.IconLink>
-						</Links.Item>
-					))}
-				</Links>
-			</section>
-		</Wrapper>
+			<Links>
+				{linksGroup.map((link) => (
+					<Links.Item key={link.id}>
+						<Links.IconLink href={link.link}>
+							{link.icon}
+							<Links.Name>{link.name}</Links.Name>
+						</Links.IconLink>
+					</Links.Item>
+				))}
+			</Links>
+		</section>
 	);
 };
 

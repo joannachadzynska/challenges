@@ -3,15 +3,14 @@ import { GET_LAUNCH_DETAILS } from 'queries/launchQueries/getLaunch';
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { useParams } from 'react-router-dom';
-import { Images, Links, MissionData, Summary } from './components';
-
-export interface MissionDetailsContainerProps {}
+import { Wrapper } from 'styles/Wrapper';
+import { Images, Links, MissionData, Summary, Video } from './components';
 
 type GraphQlResponse = {
 	launch: Launch;
 };
 
-const MissionDetailsContainer: React.SFC<MissionDetailsContainerProps> = () => {
+const MissionDetailsContainer: React.SFC = () => {
 	const { id } = useParams<{ id: string }>();
 	const [details, setDetails] = useState<Launch>();
 	const { loading, error, data } = useQuery<GraphQlResponse>(
@@ -36,12 +35,13 @@ const MissionDetailsContainer: React.SFC<MissionDetailsContainerProps> = () => {
 	if (!data?.launch) return <p>There is no data to display</p>;
 
 	return (
-		<div>
+		<Wrapper>
+			<Video {...data.launch} />
 			<Summary {...data.launch} />
 			<MissionData {...data.launch} />
 			<Images {...data.launch} />
 			<Links {...data.launch} />
-		</div>
+		</Wrapper>
 	);
 };
 

@@ -1,5 +1,4 @@
 import { Card } from 'components';
-import { Wrapper } from 'components/Header/styles/header';
 import {
 	ContentFull,
 	Header,
@@ -15,20 +14,18 @@ const Summary: React.SFC<Launch> = (props) => {
 	const data = new LaunchViewModel(props);
 
 	return (
-		<Wrapper>
-			<section>
-				<SectionTitle>mission summary</SectionTitle>
+		<section>
+			<SectionTitle>mission summary</SectionTitle>
 
-				<Card>
-					<Header {...data} />
-					<Card.DetailsContainer>
-						<Image {...data} />
-						<ContentFull {...data} />
-						<LaunchInfo {...data} />
-					</Card.DetailsContainer>
-				</Card>
-			</section>
-		</Wrapper>
+			<Card>
+				<Header {...data} />
+				<Card.DetailsContainer>
+					<Image {...data} />
+					<ContentFull {...data} />
+					<LaunchInfo {...data} />
+				</Card.DetailsContainer>
+			</Card>
+		</section>
 	);
 };
 
