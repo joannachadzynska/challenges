@@ -25,8 +25,12 @@ const ContentFull: React.SFC<ContentFullProps> = ({
 					{setDateToString(launchDateLocal)}
 				</time>
 			</Card.Date>
-			<Card.Break />
-			<Card.FullDescription>{details}</Card.FullDescription>
+			{details && (
+				<>
+					<Card.Break />
+					<Card.FullDescription>{details}</Card.FullDescription>
+				</>
+			)}
 
 			{location.pathname.includes('missions') && (
 				<>

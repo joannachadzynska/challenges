@@ -15,7 +15,10 @@ const Images: React.SFC<ImagesProps> = ({ links }) => {
 					<p>Sorry, no images available.</p>
 				) : (
 					links.flickr_images.map((image) => (
-						<Gallery.Image key={image} src={image} alt='rocket' />
+						<div key={image}>
+							<Gallery.Image key={image} src={image} alt='rocket' />
+							<Gallery.Modal />
+						</div>
 					))
 				)}
 			</Gallery>

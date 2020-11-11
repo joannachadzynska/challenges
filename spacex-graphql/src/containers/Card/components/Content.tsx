@@ -23,7 +23,7 @@ const Content: React.SFC<ContentProps> = ({
 				</time>
 			</Card.Date>
 			<Card.Description>
-				<p>{details}</p>
+				<p>{details ? details : 'Mission has no description yet'}</p>
 			</Card.Description>
 		</Card.Content>
 	);
