@@ -15,7 +15,13 @@ const VideoContainer: React.SFC<VideoContainerProps> = ({
 				<Video.PlayButton>Watch Video</Video.PlayButton>
 			</Video.Placeholder>
 
-			<Video.Frame src={links.video_link.split('/')[3]} />
+			<Video.Frame
+				src={
+					links.video_link !== null
+						? links.video_link.split('/')[3]
+						: 'no video'
+				}
+			/>
 			<Video.CloseButton>Close Video</Video.CloseButton>
 		</Video>
 	);
