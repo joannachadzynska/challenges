@@ -43,15 +43,15 @@ const Video: React.SFC<VideoProps> & VideoComposition = ({
 	...restProps
 }) => {
 	const [showVideo, setShowVideo] = useState(false);
-	const [playButton, setPlayButton] = useState(false);
 
 	return bg ? (
-		<Background {...restProps} show={showVideo}>
-			<VideoContext.Provider
-				value={{ showVideo, setShowVideo, playButton, setPlayButton }}>
-				<Container>{children}</Container>
-			</VideoContext.Provider>
-		</Background>
+		<VideoContext.Provider value={{ showVideo, setShowVideo }}>
+			<Container>
+				<Background {...restProps} show={showVideo}>
+					{children}
+				</Background>
+			</Container>
+		</VideoContext.Provider>
 	) : (
 		<VideoContext.Provider value={{ showVideo, setShowVideo }}>
 			<Container>{children}</Container>
@@ -67,9 +67,7 @@ export const VideoPlayButton: React.FC<ButtonProps> = ({
 	children,
 	...restProps
 }) => {
-	const { showVideo, setShowVideo, playButton, setPlayButton } = useContext(
-		VideoContext
-	);
+	const { showVideo, setShowVideo } = useContext(VideoContext);
 	return (
 		<PlayButton
 			onClick={() => setShowVideo(!showVideo)}
@@ -84,9 +82,7 @@ export const VideoCloseButton: React.FC<ButtonProps> = ({
 	children,
 	...restProps
 }) => {
-	const { showVideo, setShowVideo, playButton, setPlayButton } = useContext(
-		VideoContext
-	);
+	const { showVideo, setShowVideo } = useContext(VideoContext);
 	return (
 		<CloseButton
 			onClick={() => setShowVideo(!showVideo)}
