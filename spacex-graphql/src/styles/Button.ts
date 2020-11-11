@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { mediaQueries } from '../themes/mediaTemplates';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { mediaQueries } from '../themes/mediaTemplates';
 
 interface IProps {
 	variant?: 'default' | 'yellow' | 'green';
@@ -33,7 +33,7 @@ export const Button = styled(motion.button)<IProps>`
             `;
 		}
 	}};
-	font-size: ${(props) => props.fontSize}rem;
+	font-size: clamp(0.875rem, 5vw, 1.5rem);
 	padding: 0.875em 1.5em;
 	text-transform: uppercase;
 	transition: 0.3s all linear;

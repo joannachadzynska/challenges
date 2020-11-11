@@ -18,11 +18,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-image: url(${planet});
+        /* background-image: url(${planet});
         background-size: cover;
         background-repeat: no-repeat;
         background-position: right 0;
-        background-attachment: fixed;
+        background-attachment: fixed; */
+        background-color: ${({ theme }) => theme.colors.blue.veryDark};
         color:  ${({ theme }) => theme.colors.white};
 	    font-family:  ${({ theme }) => theme.fonts.mavenPro};
         line-height: 1.5;

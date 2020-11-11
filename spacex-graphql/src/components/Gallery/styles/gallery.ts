@@ -13,7 +13,7 @@ export const Container = styled.ul`
 	width: 100%;
 
 	@media (min-width: 768px) {
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	}
 `;
 
@@ -44,5 +44,30 @@ export const Image = styled.li<ImageProp>`
 		&:hover img {
 			transform: scale(1.3);
 		}
+	}
+`;
+
+export const Overlay = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	margin: 0 20px;
+`;
+
+export const Inner = styled.div`
+	position: relative;
+	width: 100%;
+	max-width: 900px;
+	margin: auto;
+
+	img {
+		width: 100%;
+		height: auto;
 	}
 `;

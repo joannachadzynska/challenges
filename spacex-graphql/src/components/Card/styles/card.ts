@@ -19,7 +19,6 @@ export const Group = styled.ul`
 
 export const Container = styled.div`
 	background: linear-gradient(#000, #00395c);
-	border-radius: 0 0 10px 10px;
 	font-family: ${fonts.montserrat};
 	display: grid;
 	grid-template-rows: auto 1fr;
@@ -29,7 +28,7 @@ export const Container = styled.div`
 export const ImageContainer = styled.div`
 	width: 100%;
 	height: auto;
-	margin-top: 1em;
+	margin: 2em 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -40,6 +39,10 @@ export const Image = styled.img`
 	max-width: 100%;
 	display: block;
 	width: 50%;
+
+	@media (min-width: 768px) {
+		width: 75%;
+	}
 `;
 
 export const DetailsContainer = styled.div`
@@ -53,19 +56,19 @@ export const DetailsContainer = styled.div`
 	}
 
 	@media (min-width: 768px) {
-		grid-template-columns: 1fr 2fr 1fr;
+		grid-template-columns: auto 2fr 1fr;
 	}
 `;
 
 export const Header = styled.div<HeaderProps>`
-	background-color: ${({ theme }) => theme.colors.blue.veryDark};
-	border-bottom: 1px solid
-		${(props) =>
-			props.launchSuccess !== null
-				? props.launchSuccess
-					? props.theme.colors.green.dark
-					: props.theme.colors.red
-				: props.theme.colors.blue.primary};
+	background-color: ${({ theme }) => theme.colors.blue.dark};
+	border-left: 5px solid transparent;
+	border-color: ${(props) =>
+		props.launchSuccess !== null
+			? props.launchSuccess
+				? props.theme.colors.green.dark
+				: props.theme.colors.red
+			: props.theme.colors.blue.primary};
 	color: ${(props) =>
 		props.launchSuccess !== null
 			? props.launchSuccess
@@ -109,9 +112,17 @@ export const Button = styled(Link)`
 `;
 
 export const Content = styled.div<ContentProps>`
-	display: grid;
-	grid-template-rows: auto auto 1fr auto;
+	/* display: grid;
+	grid-template-rows: auto auto 1fr auto; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	padding: 0 2em 2em 2em;
+
+	@media (min-width: 768px) {
+		align-items: stretch;
+	}
 `;
 
 export const TitleLink = styled(Link)`
@@ -119,11 +130,14 @@ export const TitleLink = styled(Link)`
 	font-size: clamp(1.25rem, 5vw, 1.5rem);
 	padding-bottom: 0.25em;
 	padding-top: 0.75em;
+
+	/* text-align: center; */
 `;
 
 export const Date = styled.p`
 	font-size: 0.875rem;
 	opacity: 0.7;
+	/* text-align: center; */
 `;
 
 export const Description = styled.div`
@@ -140,9 +154,11 @@ export const Description = styled.div`
 		margin: 0 auto;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		text-align: justify;
 		-webkit-line-clamp: 4;
 		-webkit-box-orient: vertical;
+	}
+
+	@media (min-width: 768px) {
 	}
 `;
 
