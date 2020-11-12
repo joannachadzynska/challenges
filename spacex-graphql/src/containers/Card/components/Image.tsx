@@ -1,4 +1,3 @@
-import spaceX from 'assets/images/spacex.jpg';
 import { Card } from 'components';
 import React from 'react';
 import { LaunchViewModel } from './../../../models/launches/viewModels/LaunchViewModel';
@@ -14,7 +13,7 @@ const Image: React.SFC<ImageProps> = ({ links, launchSuccess }) => {
 					? links.mission_patch_small
 						? links.mission_patch_small
 						: links.flickr_images[1]
-					: spaceX
+					: null
 			}
 			alt='Mission patch small'
 		/>
