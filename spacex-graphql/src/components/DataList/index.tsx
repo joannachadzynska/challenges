@@ -6,6 +6,7 @@ import {
 	Item,
 	ItemTitle,
 	ItemValue,
+	Stages,
 	SubGroup,
 	SubHeading,
 } from './styles/dataList';
@@ -18,6 +19,7 @@ export interface DataListComposition {
 	Item: React.FC;
 	ItemName: React.FC;
 	ItemValue: React.FC;
+	Stages: React.FC;
 }
 
 const DataList: React.SFC & DataListComposition = ({
@@ -29,6 +31,10 @@ const DataList: React.SFC & DataListComposition = ({
 
 export const DataListGroup: React.FC = ({ children, ...restProps }) => {
 	return <Group {...restProps}>{children}</Group>;
+};
+
+export const DataListStages: React.FC = ({ children, ...restProps }) => {
+	return <Stages {...restProps}>{children}</Stages>;
 };
 
 export const DataListHeading: React.FC = ({ children, ...restProps }) => {
@@ -61,5 +67,6 @@ DataList.SubHeading = DataListSubHeading;
 DataList.Item = DataListItem;
 DataList.ItemName = DataListItemTitle;
 DataList.ItemValue = DataListItemValue;
+DataList.Stages = DataListStages;
 
 export default DataList;
