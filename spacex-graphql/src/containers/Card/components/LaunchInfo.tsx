@@ -27,7 +27,7 @@ const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 			<Card.LaunchItem>
 				<span>Rocket Name:</span>
 				<span>
-					<Link style={{ marginLeft: 0 }} to={`/vehicle/${id}`}>
+					<Link style={{ marginLeft: 0 }} to={`/vehicle/${rocket.rocket.id}`}>
 						{rocket.rocketName}
 					</Link>
 				</span>
