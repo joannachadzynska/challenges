@@ -1,4 +1,4 @@
-import { Footer, Header } from 'containers';
+import { Footer, Header, VehicleDetailsContainer } from 'containers';
 import React from 'react';
 import { Wrapper } from './../styles/Wrapper';
 export interface VehicleDetailsProps {}
@@ -7,7 +7,7 @@ const VehicleDetails: React.SFC<VehicleDetailsProps> = () => {
 	return (
 		<Wrapper>
 			<Header />
-			<div>vehicle details</div>
+			<VehicleDetailsContainer />
 			<Footer />
 		</Wrapper>
 	);
