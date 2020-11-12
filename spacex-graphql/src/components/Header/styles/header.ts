@@ -16,7 +16,11 @@ export const Wrapper = styled.section`
 export const Container = styled(motion.nav)`
 	display: flex;
 	flex-direction: column;
-	margin: 0 0.75em;
+
+	@media (min-width: 768px) {
+		border-bottom: 1px solid ${({ theme }) => theme.colors.white};
+		justify-content: space-between;
+	}
 `;
 
 export const Inner = styled.div`
@@ -35,12 +39,6 @@ export const screenSizes: Sizes = {
 	lg: 1024,
 	xl: 1366,
 }; */
-
-	@media (min-width: 768px) {
-		border-bottom: 5px solid ${({ theme }) => theme.colors.white};
-		justify-content: space-between;
-		margin: 0 2.812rem;
-	}
 `;
 
 export const LogoLink = styled(NavLink)`

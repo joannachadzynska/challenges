@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 export interface VideoProps {
 	show?: boolean;
 	play?: boolean;
+	bgSrc?: string;
 }
 
 export const Container = styled.div`
@@ -90,8 +91,8 @@ export const CloseButton = styled(Button)<VideoProps>`
 export const Background = styled.div<VideoProps>`
 	display: flex;
 	flex-direction: column;
-	background-image: ${({ show }) =>
-		show ? 'none' : 'url(/images/launchpad/launch_big.jpg)'};
+	background-image: ${({ show, bgSrc }) =>
+		show || !bgSrc ? 'none' : `url(${bgSrc})`};
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;

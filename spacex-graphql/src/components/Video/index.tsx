@@ -22,6 +22,7 @@ export interface VideoComposition {
 
 export interface VideoProps {
 	bg?: boolean;
+	bgSrc?: string;
 }
 
 export interface FrameProps {
@@ -39,15 +40,17 @@ export interface PlaceholderProps {
 
 const Video: React.SFC<VideoProps> & VideoComposition = ({
 	bg = false,
+	bgSrc,
 	children,
 	...restProps
 }) => {
 	const [showVideo, setShowVideo] = useState(false);
+	console.log(bgSrc);
 
 	return bg ? (
 		<VideoContext.Provider value={{ showVideo, setShowVideo }}>
 			<Container>
-				<Background {...restProps} show={showVideo}>
+				<Background {...restProps} show={showVideo} bgSrc={bgSrc}>
 					{children}
 				</Background>
 			</Container>
