@@ -56,7 +56,7 @@ export const DetailsContainer = styled.div`
 	}
 
 	@media (min-width: 768px) {
-		grid-template-columns: auto 2fr 1fr;
+		grid-template-columns: 1fr 2fr 1fr;
 	}
 `;
 
