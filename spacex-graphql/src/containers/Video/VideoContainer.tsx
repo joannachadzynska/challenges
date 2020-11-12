@@ -9,7 +9,9 @@ const VideoContainer: React.SFC<VideoContainerProps> = ({
 	missionName,
 }) => {
 	return (
-		<Video bg>
+		<Video
+			bg
+			bgSrc='https://images.unsplash.com/photo-1516849677043-ef67c9557e16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'>
 			<Video.Placeholder>
 				<Video.Title>{missionName}</Video.Title>
 				<Video.PlayButton>Watch Video</Video.PlayButton>

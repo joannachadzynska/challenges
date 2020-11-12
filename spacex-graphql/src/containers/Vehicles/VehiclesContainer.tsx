@@ -1,9 +1,9 @@
+import { Video } from 'components';
 import { LoadingIndicator } from 'components/shared';
 import { Rockets } from 'models/rockets/interfaces/Rocket';
 import { GET_ROCKETS } from 'queries/rocketQueries/getRockets';
 import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
-import { SectionTitle } from 'styles/SectionTitle';
 
 export interface VehiclesContainerProps {}
 
@@ -15,11 +15,13 @@ const VehiclesContainer: React.SFC<VehiclesContainerProps> = () => {
 
 	return (
 		<section>
-			<SectionTitle>list of rockets</SectionTitle>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas vitae
-				quidem, cumque iure quos ex numquam fugiat ipsum sed non.
-			</div>
+			<Video
+				bg
+				bgSrc='https://images.pexels.com/photos/60130/pexels-photo-60130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'>
+				<Video.Placeholder>
+					<Video.Title>ROCKETS</Video.Title>
+				</Video.Placeholder>
+			</Video>
 		</section>
 	);
 };
