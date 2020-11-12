@@ -2,9 +2,9 @@ import { DataList } from 'components';
 import React from 'react';
 import { LaunchViewModel } from './../../models/launches/viewModels/LaunchViewModel';
 
-type MissionInfoProps = Pick<LaunchViewModel, 'rocket'>;
+type MissionInfoProps = Pick<LaunchViewModel, 'rocket' | 'id'>;
 
-const MissionInfo: React.SFC<MissionInfoProps> = ({ rocket }) => {
+const MissionInfo: React.SFC<MissionInfoProps> = ({ rocket, id }) => {
 	const { firstStage, secondStage } = rocket;
 
 	return (
@@ -13,7 +13,7 @@ const MissionInfo: React.SFC<MissionInfoProps> = ({ rocket }) => {
 				<DataList.Heading>Mission Cores</DataList.Heading>
 
 				{firstStage.cores.map((core) => (
-					<DataList.SubGroup key={core.core.id}>
+					<DataList.SubGroup key={id}>
 						<DataList.SubHeading>C // 1</DataList.SubHeading>
 
 						<DataList.Item>
