@@ -4,7 +4,8 @@ import { GET_ROCKET_DETAILS } from 'queries/rocketQueries/getRocketDetails';
 import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { useParams } from 'react-router-dom';
-import { VehicleData } from './components';
+import { SectionTitle } from 'styles/SectionTitle';
+import { Stages, VehicleData } from './components';
 
 const VehicleDetails: React.SFC = () => {
 	const { id } = useParams<{ id: string }>();
@@ -31,13 +32,16 @@ const VehicleDetails: React.SFC = () => {
 					<Video.Title>{data.rocket.name}</Video.Title>
 				</Video.Placeholder>
 			</Video>
-
+			<SectionTitle>Summary</SectionTitle>
 			<Mission>
 				<Vehicle>
 					<Vehicle.Image src={id} hasHeight={false} />
 				</Vehicle>
+
 				<VehicleData {...data.rocket} />
 			</Mission>
+
+			<Stages {...data.rocket} />
 		</section>
 	);
 };
