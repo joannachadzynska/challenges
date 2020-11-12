@@ -11,6 +11,10 @@ export interface Mission {
 	payloads?: Payload[];
 }
 
+export interface MissionQuery {
+	mission: Mission;
+}
+
 export interface Missions {
 	missions: Mission[];
 }
