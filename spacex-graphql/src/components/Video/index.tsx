@@ -45,7 +45,6 @@ const Video: React.SFC<VideoProps> & VideoComposition = ({
 	...restProps
 }) => {
 	const [showVideo, setShowVideo] = useState(false);
-	console.log(bgSrc);
 
 	return bg ? (
 		<VideoContext.Provider value={{ showVideo, setShowVideo }}>

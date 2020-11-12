@@ -3,6 +3,7 @@ import { StyledLinkButton } from 'styles/Button';
 
 export interface VehicleProps {
 	height?: string;
+	hasHeight?: boolean;
 }
 
 export const Container = styled.div`
@@ -16,10 +17,12 @@ export const Container = styled.div`
 `;
 
 export const Inner = styled.div<VehicleProps>`
-	height: ${({ height }) => (height ? `${height}px` : '400px')};
+	height: ${({ height, hasHeight }) =>
+		height && hasHeight ? `${height}px` : '400px'};
 
 	@media (min-width: 768px) {
-		height: ${({ height }) => (height ? `${height}px` : '800px')};
+		height: ${({ height, hasHeight }) =>
+			height && hasHeight ? `${height}px` : '800px'};
 	}
 `;
 
