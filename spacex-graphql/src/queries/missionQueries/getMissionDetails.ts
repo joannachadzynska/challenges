@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 export const GET_MISSION_DETAILS = gql`
 	query getMissionDetails($id: ID!) {
-		mission(is: $id) {
+		mission(id: $id) {
 			description
 			id
 			manufacturers
