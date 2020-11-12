@@ -9,7 +9,7 @@ const JumbotronContainer: React.SFC<JumbotronContainerProps> = () => {
 		<Jumbotron>
 			<Header />
 			<NextMissionCountdown />
-			<Jumbotron.Button>Explore</Jumbotron.Button>
+			{/* <Jumbotron.Button>Explore</Jumbotron.Button> */}
 		</Jumbotron>
 	);
 };
