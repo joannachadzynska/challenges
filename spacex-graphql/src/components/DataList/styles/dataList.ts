@@ -8,6 +8,16 @@ export const Group = styled.ul`
 	width: 100%;
 `;
 
+export const Stages = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2em;
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+`;
+
 export const SubGroup = styled.ul`
 	width: 100%;
 	display: block;
