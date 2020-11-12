@@ -4,7 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { useParams } from 'react-router-dom';
 import { Wrapper } from 'styles/Wrapper';
-import { Images, Links, MissionData, Summary, Video } from './components';
+import {
+	Details,
+	Images,
+	Links,
+	MissionData,
+	Summary,
+	Video,
+} from './components';
 
 type GraphQlResponse = {
 	launch: Launch;
@@ -38,6 +45,7 @@ const MissionDetailsContainer: React.SFC = () => {
 		<Wrapper>
 			<Video {...data.launch} />
 			<Summary {...data.launch} />
+			<Details {...data.launch} />
 			<MissionData {...data.launch} />
 			<Images {...data.launch} />
 			<Links {...data.launch} />

@@ -1,3 +1,4 @@
+export { default as Details } from './Details';
 export { default as Images } from './Images';
 export { default as Links } from './Links';
 export { default as MissionData } from './MissionData';
