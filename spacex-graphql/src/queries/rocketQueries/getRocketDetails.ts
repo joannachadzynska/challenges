@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const GET_ROCKET_DETAILS = gql`
-	query getRockets($id: ID!) {
+	query getRocketDetails($id: ID!) {
 		rocket(id: $id) {
 			active
 			boosters
@@ -18,36 +18,46 @@ export const GET_ROCKET_DETAILS = gql`
 				thrust_sea_level {
 					lbf
 				}
-				thrust_vacuum {
-					lbf
-				}
 				type
 			}
 			first_flight
 			first_stage {
-				burn_time_sec
 				engines
+				burn_time_sec
+				fuel_amount_tons
 				reusable
+				thrust_sea_level {
+					lbf
+				}
 			}
 			height {
 				feet
 			}
-			id
 			mass {
 				lb
 			}
+			id
 			name
 			payload_weights {
 				name
 				lb
+				id
 			}
 			second_stage {
 				burn_time_sec
 				engines
+				fuel_amount_tons
+				thrust {
+					lbf
+				}
+				payloads {
+					option_1
+				}
 			}
 			stages
 			success_rate_pct
 			wikipedia
+			type
 		}
 	}
 `;
