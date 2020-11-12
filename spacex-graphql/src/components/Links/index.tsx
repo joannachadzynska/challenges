@@ -8,7 +8,7 @@ export interface LinksComposition {
 }
 
 interface IconProps {
-	href: string;
+	href?: string;
 }
 
 const Links: React.SFC & LinksComposition = ({ children, ...restProps }) => {

@@ -34,7 +34,7 @@ export interface CardComposition {
 }
 
 export interface TitleProps {
-	to: any;
+	to?: any;
 }
 
 export interface ButtonProps {
@@ -46,7 +46,7 @@ export interface ContentProps {
 }
 
 export interface ImageProps {
-	src: any;
+	src?: any;
 	alt?: string;
 }
 
@@ -93,7 +93,7 @@ export const CardHeader: React.FC<HeaderProps> = ({
 export const CardImage: React.FC<ImageProps> = ({ src, ...restProps }) => {
 	return (
 		<ImageContainer>
-			<Image src={src} {...restProps} />
+			<Image src={src ? src : '/images/logo/rocket_patch.png'} {...restProps} />
 		</ImageContainer>
 	);
 };
