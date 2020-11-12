@@ -1,9 +1,10 @@
 import {
-	Rocket,
 	Distance,
+	Mass,
+	Rocket,
 	RocketEngines,
 	RocketFirstStage,
-	Mass,
+	RocketPayloadWeight,
 	RocketSecondStage,
 } from '../interfaces/Rocket';
 
@@ -22,6 +23,7 @@ export class RocketViewModel {
 	public readonly id: number;
 	public readonly mass?: Mass;
 	public readonly name: string;
+	public readonly payloadWeights?: RocketPayloadWeight[];
 	public readonly secondStage?: RocketSecondStage;
 	public readonly stages?: number;
 	public readonly type: string;
@@ -42,6 +44,7 @@ export class RocketViewModel {
 		this.id = data.id;
 		this.mass = data.mass;
 		this.name = data.name;
+		this.payloadWeights = data.payload_weights;
 		this.secondStage = data.second_stage;
 		this.stages = data.stages;
 		this.type = data.type;

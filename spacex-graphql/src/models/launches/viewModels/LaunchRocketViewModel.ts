@@ -1,10 +1,10 @@
+import { Rocket } from '../../rockets/interfaces/Rocket';
+import { RocketViewModel } from '../../rockets/viewModels/RocketViewModel';
 import {
 	LaunchRocket,
 	LaunchRocketFirstStage,
 	LaunchRocketSecondStage,
 } from '../interfaces/LaunchRocket';
-import { RocketViewModel } from '../../rockets/viewModels/RocketViewModel';
-import { Rocket } from '../../rockets/interfaces/Rocket';
 
 export class LaunchRocketViewModel {
 	public readonly firstStage: LaunchRocketFirstStage;
@@ -28,6 +28,7 @@ export class LaunchRocketViewModel {
 			id: data.rocket?.id,
 			mass: data.rocket?.mass,
 			name: data.rocket?.name,
+			payload_weights: data.rocket?.payload_weights,
 			second_stage: data.rocket?.second_stage,
 			stages: data.rocket?.stages,
 			type: data.rocket?.type,

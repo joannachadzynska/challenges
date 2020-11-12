@@ -8,11 +8,12 @@ export interface Rocket {
 	diameter?: Distance;
 	engines: RocketEngines;
 	first_flight: Date;
-	first_stage?: RocketFirstStage;
+	first_stage: RocketFirstStage;
 	height?: Distance;
 	id: number;
-	mass?: Mass;
+	mass: Mass;
 	name: string;
+	payload_weights: RocketPayloadWeight[];
 	second_stage?: RocketSecondStage;
 	stages?: number;
 	type: string;
@@ -88,4 +89,8 @@ export interface RocketSecondStagePayloadCompositeFairing {
 
 export interface Rockets {
 	rockets: Rocket[];
+}
+
+export interface RocketDetailsQuery {
+	rocket: Rocket;
 }
