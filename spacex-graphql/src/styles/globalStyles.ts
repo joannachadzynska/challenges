@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import planet from '../assets/images/planet1280.jpg';
 
 export const fonts = {
 	mavenPro: "'Maven Pro', sans-serif",
@@ -14,15 +13,10 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html {
-       height: 100%;
+       height: 100vh;
     }
 
     body {
-        /* background-image: url(${planet});
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: right 0;
-        background-attachment: fixed; */
         background-color: ${({ theme }) => theme.colors.blue.veryDark};
         color:  ${({ theme }) => theme.colors.white};
 	    font-family:  ${({ theme }) => theme.fonts.mavenPro};
@@ -32,9 +26,6 @@ export const GlobalStyle = createGlobalStyle`
 
     #root {
         height: 100vh;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        grid-template-columns: auto;
     }
 
 	a {
