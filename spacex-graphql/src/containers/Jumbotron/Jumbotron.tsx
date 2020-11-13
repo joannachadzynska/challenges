@@ -2,9 +2,7 @@ import { Jumbotron } from 'components';
 import React from 'react';
 import { Header, NextMissionCountdown } from './components';
 
-export interface JumbotronContainerProps {}
-
-const JumbotronContainer: React.SFC<JumbotronContainerProps> = () => {
+const JumbotronContainer: React.SFC = () => {
 	return (
 		<Jumbotron>
 			<Header />
