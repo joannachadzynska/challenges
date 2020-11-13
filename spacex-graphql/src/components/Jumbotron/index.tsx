@@ -14,7 +14,7 @@ import {
 } from './styles/jumbotron';
 
 export interface JumbotronComposition {
-	Button: React.FC;
+	Button: React.FC<ButtonProps>;
 	Countdown: React.FC;
 	CountdownContainer: React.FC;
 	CountdownName: React.FC;
@@ -23,6 +23,10 @@ export interface JumbotronComposition {
 	SubTitle: React.FC;
 	Title: React.FC;
 	Header: React.FC;
+}
+
+export interface ButtonProps {
+	path?: any;
 }
 
 export interface JumbotronProps {
@@ -54,8 +58,16 @@ export const JumbotronSubTitle: React.FC = ({ children, ...restProps }) => {
 	return <SubTitle {...restProps}>{children}</SubTitle>;
 };
 
-export const JumbotronButton: React.FC = ({ children, ...restProps }) => {
-	return <Button {...restProps}>{children}</Button>;
+export const JumbotronButton: React.FC<ButtonProps> = ({
+	path,
+	children,
+	...restProps
+}) => {
+	return (
+		<Button to={path} {...restProps}>
+			{children}
+		</Button>
+	);
 };
 
 export const JumbotronImage: React.FC = ({ ...restProps }) => {

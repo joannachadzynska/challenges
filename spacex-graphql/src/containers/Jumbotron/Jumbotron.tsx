@@ -7,7 +7,7 @@ const JumbotronContainer: React.SFC = () => {
 		<Jumbotron>
 			<Header />
 			<NextMissionCountdown />
-			{/* <Jumbotron.Button>Explore</Jumbotron.Button> */}
+			<Jumbotron.Button path='/missions/next'>Explore</Jumbotron.Button>
 		</Jumbotron>
 	);
 };
