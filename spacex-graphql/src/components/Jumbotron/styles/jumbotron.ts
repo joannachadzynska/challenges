@@ -2,13 +2,6 @@ import styled from 'styled-components/macro';
 import { Button as HomeButton } from 'styles/Button';
 import { fonts } from 'styles/globalStyles';
 
-/* 
-export const screenSizes: Sizes = {
-	sm: 414,
-	md: 768,
-	lg: 1024,
-	xl: 1366,
-}; */
 export const Button = styled(HomeButton)`
 	align-self: stretch;
 	font-size: 1.5rem;
@@ -40,14 +33,11 @@ export const Container = styled.div`
 export const Background = styled.div`
 	display: flex;
 	flex-direction: column;
-	background-image: url(/images/launchpad/launch_big.jpg);
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
-	margin-top: 2em;
+	background: url(/images/bg/bg1.jpg) center center / cover no-repeat;
 	width: 100%;
 	height: 100%;
+
+	z-index: -100;
 `;
 
 export const HeaderContainer = styled.div`

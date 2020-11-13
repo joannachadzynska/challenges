@@ -7,10 +7,14 @@ type Props = {
 	open: boolean;
 };
 
-export const Wrapper = styled.section`
-	max-width: 1180px;
-	margin: 0 auto;
-	padding: 0 10px;
+export const Background = styled.div`
+	display: flex;
+	flex-direction: column;
+	background: url(/images/bg/bg1.jpg) center center / cover no-repeat;
+	width: 100%;
+	height: 100%;
+
+	z-index: -100;
 `;
 
 export const Container = styled(motion.nav)`

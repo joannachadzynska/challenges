@@ -4,6 +4,7 @@ import React, { createContext, useContext, useRef } from 'react';
 import { logoAnimation, menuAnimation } from '../../constants';
 import * as ROUTES from '../../constants/routes';
 import {
+	Background,
 	Container,
 	Inner,
 	LogoBrand,
@@ -32,12 +33,26 @@ export interface MenuItemProps {
 	to: any;
 }
 
+export interface HeaderProps {
+	bg?: boolean;
+}
+
 const MenuContext: any = createContext(null);
 
 const Path = (props: any) => <MotionPath {...props} />;
 
-const Header: React.FC & HeaderComposition = ({ children, ...restProps }) => {
-	return (
+const Header: React.FC<HeaderProps> & HeaderComposition = ({
+	bg = false,
+	children,
+	...restProps
+}) => {
+	return bg ? (
+		<Background>
+			<Container {...restProps}>
+				<Inner>{children}</Inner>
+			</Container>
+		</Background>
+	) : (
 		<Container {...restProps}>
 			<Inner>{children}</Inner>
 		</Container>

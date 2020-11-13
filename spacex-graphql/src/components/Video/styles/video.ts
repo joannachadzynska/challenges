@@ -15,7 +15,7 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
+	z-index: -1;
 	@media (min-width: 768px) {
 		height: 55vh;
 		max-height: initial;

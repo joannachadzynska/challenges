@@ -36,7 +36,7 @@ const Jumbotron: React.SFC<JumbotronProps> & JumbotronComposition = ({
 }) => {
 	return bg ? (
 		<Background {...restProps}>
-			<Container {...restProps}>{children}</Container>;
+			<Container {...restProps}>{children}</Container>
 		</Background>
 	) : (
 		<Container {...restProps}>{children}</Container>
