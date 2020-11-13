@@ -70,6 +70,7 @@ export const VideoPlayButton: React.FC<ButtonProps> = ({
 	...restProps
 }) => {
 	const { showVideo, setShowVideo } = useContext(VideoContext);
+
 	return (
 		<PlayButton
 			onClick={() => setShowVideo(!showVideo)}
@@ -101,6 +102,7 @@ export const VideoFrame: React.FC<FrameProps> = ({
 	...restProps
 }) => {
 	const { showVideo } = useContext(VideoContext);
+
 	return (
 		<FrameContainer {...restProps}>
 			<Frame

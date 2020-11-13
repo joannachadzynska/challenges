@@ -15,7 +15,7 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: -1;
+
 	@media (min-width: 768px) {
 		height: 55vh;
 		max-height: initial;
@@ -37,7 +37,6 @@ export const Placeholder = styled.div<VideoProps>`
 	opacity: ${({ show }) => (!show ? '1' : '0')};
 	transition: opacity 0.5s ease-out 0s;
 	text-align: center;
-	z-index: 777;
 
 	@media (min-width: 768px) {
 		height: 54.8vh;
@@ -65,6 +64,7 @@ export const Button = styled.button<VideoProps>`
 export const PlayButton = styled(Button)<VideoProps>`
 	background: ${({ theme }) => theme.colors.yellow.light};
 	color: rgb(0, 19, 30);
+	cursor: pointer;
 	opacity: ${({ show }) => (!show ? '1' : '0')};
 	transition: background 0.3s ease-in;
 
@@ -76,6 +76,7 @@ export const PlayButton = styled(Button)<VideoProps>`
 export const CloseButton = styled(Button)<VideoProps>`
 	background: ${({ theme }) => theme.colors.blue.dark};
 	color: #fff;
+	cursor: pointer;
 	position: absolute;
 	bottom: -60px;
 	left: 50%;
