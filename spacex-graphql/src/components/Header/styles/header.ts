@@ -13,8 +13,7 @@ export const Background = styled.div`
 	background: url(/images/bg/bg1.jpg) center center / cover no-repeat;
 	width: 100%;
 	height: 100%;
-
-	z-index: -100;
+	/* z-index: ; */
 `;
 
 export const Container = styled(motion.nav)`
@@ -35,14 +34,6 @@ export const Inner = styled.div`
 	padding-top: 1.25rem;
 	padding-bottom: 0.1em;
 	max-width: 1920px;
-
-	/* 
-export const screenSizes: Sizes = {
-	sm: 414,
-	md: 768,
-	lg: 1024,
-	xl: 1366,
-}; */
 `;
 
 export const LogoLink = styled(NavLink)`
@@ -74,7 +65,9 @@ export const LogoName = styled(motion.h2)`
 	font-size: clamp(1.5rem, 5vw, 3rem);
 `;
 
-export const Menu = styled(motion.nav)``;
+export const Menu = styled(motion.nav)`
+	z-index: 1000;
+`;
 
 export const MenuBackground = styled(motion.div)`
 	background: ${({ theme }) => theme.colors.white};
@@ -150,7 +143,7 @@ export const NavbarLink = styled(NavLink)<Props>`
 	font-size: 1.5rem;
 	display: ${(props) => (props.open ? 'block' : 'none')};
 	padding: 1rem;
-	transition-delay: 0.3s;
+	transition-delay: 0.6s;
 
 	${mediaQueries('md')`
     display: block;

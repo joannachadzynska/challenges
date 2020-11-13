@@ -1,4 +1,5 @@
 import { useCycle } from 'framer-motion';
+import { useOutsideClick } from 'hooks';
 import { useDimensions } from 'hooks/useDimensions';
 import React, { createContext, useContext, useRef } from 'react';
 import { logoAnimation, menuAnimation } from '../../constants';
@@ -94,6 +95,12 @@ export const HeaderMenu: React.FC = ({ children, ...restProps }) => {
 	const [isOpen, toggleOpen] = useCycle(false, true);
 	const containerRef = useRef(null);
 	const { height } = useDimensions(containerRef);
+
+	useOutsideClick(containerRef, () => {
+		if (!isOpen) return;
+		toggleOpen();
+	});
+
 	return (
 		<MenuContext.Provider value={{ isOpen, toggleOpen }}>
 			<Menu
