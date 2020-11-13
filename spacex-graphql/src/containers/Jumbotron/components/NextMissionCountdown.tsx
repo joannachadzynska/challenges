@@ -27,6 +27,7 @@ const NextMissionCountdown: React.SFC = () => {
 			<Jumbotron.SubTitle>
 				Next mission: <span>{nextLaunch?.launchNext.mission_name}</span>
 			</Jumbotron.SubTitle>
+			<br />
 			<Countdown {...data.launchNext} />
 		</Jumbotron.CountdownContainer>
 	);
