@@ -25,17 +25,20 @@ const ContentFull: React.SFC<ContentFullProps> = ({
 					{setDateToString(launchDateLocal)}
 				</time>
 			</Card.Date>
-			{details && (
-				<>
-					<Card.Break />
-					<Card.FullDescription>{details}</Card.FullDescription>
-				</>
-			)}
 
-			{location.pathname.includes('missions') && (
+			<>
+				<Card.Break />
+				<Card.FullDescription>
+					{details ? details : 'Mission has no description yet'}
+				</Card.FullDescription>
+			</>
+
+			{location.pathname.includes('/missions') && (
 				<>
 					<Card.Break />
-					<Card.Button to={`/mission/${id}`}>More Details</Card.Button>
+					<Card.Button isCenter={false} to={`/mission/${id}`}>
+						More Details
+					</Card.Button>
 				</>
 			)}
 		</Card.Content>

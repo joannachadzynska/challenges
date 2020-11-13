@@ -6,6 +6,10 @@ type HeaderProps = {
 	launchSuccess: boolean | undefined | null;
 };
 
+type ButtonProps = {
+	isCenter?: boolean;
+};
+
 export interface ContentProps {
 	direction?: 'cols' | 'rows';
 }
@@ -90,7 +94,7 @@ export const Header = styled.div<HeaderProps>`
 	}
 `;
 
-export const Button = styled(Link)`
+export const Button = styled(Link)<ButtonProps>`
 	background-color: transparent;
 	border-radius: 5px;
 	border: 2px solid;
@@ -98,10 +102,12 @@ export const Button = styled(Link)`
 	border-color: ${({ theme }) => theme.colors.yellow.light};
 	font-size: clamp(0.875rem, 5vw, 1.25rem);
 	font-weight: 600;
-	margin: 0 auto;
+
 	padding: 0.875em 1.5em;
 	text-transform: uppercase;
 	transition: 0.4s all cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+	${({ isCenter }) => (isCenter ? '	margin: 0 auto;' : '')}
 
 	&:hover,
 	&:focus {

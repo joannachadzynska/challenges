@@ -39,6 +39,7 @@ export interface TitleProps {
 
 export interface ButtonProps {
 	to: any;
+	isCenter?: boolean;
 }
 
 export interface ContentProps {
@@ -140,11 +141,12 @@ export const CardFullDescription: React.FC = ({ children, ...restProps }) => {
 
 export const CardButton: React.FC<ButtonProps> = ({
 	to,
+	isCenter = true,
 	children,
 	...restProps
 }) => {
 	return (
-		<Button to={to} {...restProps}>
+		<Button to={to} {...restProps} isCenter={isCenter}>
 			{children}
 		</Button>
 	);
