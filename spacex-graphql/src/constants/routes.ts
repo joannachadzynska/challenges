@@ -8,3 +8,6 @@ export const MISSIONS_UPCOMING = '/missions/upcoming';
 export const MISSION_DETAILS = '/mission/:id';
 export const VEHICLES = '/vehicles';
 export const VEHICLE_DETAILS = '/vehicle/:id';
+export const VEHICLE_ROCKET_DETAILS = '/vehicle/rocket/:id';
+export const VEHICLE_CAPSULE_DETAILS = '/vehicle/capsule/:id';
+export const VEHICLE_DRAGON_DETAILS = '/vehicle/dragon/:id';

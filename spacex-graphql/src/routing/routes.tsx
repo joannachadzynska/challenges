@@ -2,11 +2,12 @@ import React from 'react';
 import * as ROUTES from '../constants/routes';
 import {
 	About,
+	DragonDetails,
 	Home,
 	MissionDetails,
 	Missions,
 	NotFound,
-	VehicleDetails,
+	RocketDetails,
 	Vehicles,
 } from '../pages';
 import { AnimatedRoutes, RouteTransition } from './animation/RouteTransition';
@@ -29,8 +30,11 @@ const Routes: React.SFC = () => {
 			<RouteTransition path={ROUTES.VEHICLES} slideUp={30}>
 				<Vehicles />
 			</RouteTransition>
-			<RouteTransition path={ROUTES.VEHICLE_DETAILS} slideUp={30}>
-				<VehicleDetails />
+			<RouteTransition path={ROUTES.VEHICLE_ROCKET_DETAILS} slideUp={30}>
+				<RocketDetails />
+			</RouteTransition>
+			<RouteTransition path={ROUTES.VEHICLE_DRAGON_DETAILS} slideUp={30}>
+				<DragonDetails />
 			</RouteTransition>
 			<RouteTransition path='*' slideUp={30}>
 				<NotFound />
