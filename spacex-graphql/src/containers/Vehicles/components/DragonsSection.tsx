@@ -6,7 +6,7 @@ export interface DragonsSectionProps {}
 const DragonsSection: React.SFC<DragonsSectionProps> = () => {
 	return (
 		<section>
-			<SectionTitle>Dragons</SectionTitle>
+			<SectionTitle>Capsules</SectionTitle>
 			<Vehicle.Description>
 				The rockets below are the past, current and yet to be active vehicles in
 				the SpaceX lineup. The proportion of the rockets are approximate but
