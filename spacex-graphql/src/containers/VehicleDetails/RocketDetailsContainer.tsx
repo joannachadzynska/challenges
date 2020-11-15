@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { SectionTitle } from 'styles/SectionTitle';
 import { Stages, VehicleData } from './components';
 
-const VehicleDetails: React.SFC = () => {
+const RocketDetails: React.SFC = () => {
 	const { id } = useParams<{ id: string }>();
 
 	const { loading, error, data } = useQuery<RocketDetailsQuery>(
@@ -46,4 +46,4 @@ const VehicleDetails: React.SFC = () => {
 	);
 };
 
-export default VehicleDetails;
+export default RocketDetails;

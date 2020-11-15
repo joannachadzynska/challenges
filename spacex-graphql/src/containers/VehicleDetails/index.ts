@@ -1,1 +1,1 @@
-export { default } from './VehicleDetailsContainer';
+export { default } from './RocketDetailsContainer';
