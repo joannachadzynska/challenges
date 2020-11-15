@@ -2,18 +2,18 @@ import { Vehicle } from 'components';
 import { RocketViewModel } from 'models/rockets/viewModels/RocketViewModel';
 import React from 'react';
 
-type RocketProps = Pick<RocketViewModel, 'id' | 'name'>;
+type RocketProps = Pick<RocketViewModel, 'id' | 'name' | 'type'>;
 
-const Rocket: React.SFC<RocketProps> = ({ id, name }) => {
+const Rocket: React.SFC<RocketProps> = ({ id, name, type }) => {
 	return (
-		<Vehicle.Lineup key={id}>
+		<Vehicle.Lineup>
 			<Vehicle.Name>{name}</Vehicle.Name>
 
 			<Vehicle>
-				<Vehicle.Image src={id} />
+				<Vehicle.Image src={id} type={type} />
 			</Vehicle>
 
-			<Vehicle.Link to={`/vehicle/${id}`}>Rocket Stats</Vehicle.Link>
+			<Vehicle.Link to={`/vehicle/${type}/${id}`}>Rocket Stats</Vehicle.Link>
 		</Vehicle.Lineup>
 	);
 };
