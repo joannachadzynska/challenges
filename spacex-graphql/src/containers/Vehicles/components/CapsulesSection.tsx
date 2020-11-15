@@ -5,14 +5,13 @@ import { GET_CAPSULES } from 'queries/capsuleQueries/getCapsules';
 import * as React from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { SectionTitle } from 'styles/SectionTitle';
+import Capsule from './Capsule';
 
 const CapsulesSection: React.SFC = () => {
 	const { loading, error, data } = useQuery<Capsules>(GET_CAPSULES);
 	if (loading) return <LoadingIndicator />;
 	if (error) return <p>Error...</p>;
 	if (!data?.capsules) return <p>there is not any data to display</p>;
-
-	// console.log(data.capsules);
 
 	return (
 		<section>
@@ -23,6 +22,11 @@ const CapsulesSection: React.SFC = () => {
 				somewhat accurate in their relative scale. As vehicles become available,
 				they will be added here for reference.
 			</Vehicle.Description>
+			<Vehicle.Group>
+				{data.capsules.map((capsule) => (
+					<Capsule key={capsule.id} {...capsule} />
+				))}
+			</Vehicle.Group>
 		</section>
 	);
 };
