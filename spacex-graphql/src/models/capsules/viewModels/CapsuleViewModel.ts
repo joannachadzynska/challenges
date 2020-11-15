@@ -1,16 +1,16 @@
-import { Capsule, CapsuleMission } from '../interfaces/Capsule';
 import { Dragon } from '../../dragons/interfaces/Dragon';
 import { DragonViewModel } from '../../dragons/viewModels/DragonViewModel';
+import { Capsule, CapsuleMission } from '../interfaces/Capsule';
 
 export class CapsuleViewModel {
-	private readonly id: number;
-	private readonly landings: number;
-	private readonly missions?: CapsuleMission[];
-	private readonly originalLaunch: Date;
-	private readonly reuseCount?: number;
-	private readonly status?: string;
-	private readonly type: string;
-	private readonly dragon?: DragonViewModel;
+	public readonly id: number;
+	public readonly landings: number;
+	public readonly missions?: CapsuleMission[];
+	public readonly originalLaunch: Date;
+	public readonly reuseCount?: number;
+	public readonly status?: string;
+	public readonly type: string;
+	public readonly dragon?: DragonViewModel;
 
 	constructor(data: Capsule) {
 		const dragonData: Dragon = {
