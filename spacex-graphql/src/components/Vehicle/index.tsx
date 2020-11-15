@@ -23,6 +23,7 @@ export interface VehicleComposition {
 
 export interface ImageProps {
 	src: any;
+	type?: string;
 	alt?: string;
 	hasHeight?: boolean;
 }
@@ -40,6 +41,7 @@ const Vehicle: React.SFC & VehicleComposition = ({
 
 export const VehicleImage: React.FC<ImageProps> = ({
 	src,
+	type,
 	alt,
 	hasHeight = true,
 	...restProps
@@ -66,7 +68,11 @@ export const VehicleImage: React.FC<ImageProps> = ({
 		<Inner height={setHeight()} hasHeight={hasHeight}>
 			<ImageWrapper>
 				<VehicleImageWrapper>
-					<Image src={`/images/vehicles/${src}.png`} {...restProps} alt={alt} />
+					<Image
+						src={`/images/vehicles/${type}/${src}.png`}
+						{...restProps}
+						alt={alt}
+					/>
 					<picture>
 						<source></source>
 					</picture>
