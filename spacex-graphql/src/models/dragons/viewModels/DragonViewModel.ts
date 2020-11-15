@@ -1,27 +1,27 @@
+import { Distance, Mass } from '../../rockets/interfaces/Rocket';
 import {
 	Dragon,
 	DragonHeatShield,
 	DragonThrust,
 	DragonTrunk,
 } from '../interfaces/Dragon';
-import { Distance, Mass } from '../../rockets/interfaces/Rocket';
 
 export class DragonViewModel {
-	private readonly active?: boolean;
-	private readonly crewCapacity?: number;
-	private readonly description?: string;
-	private readonly diameter?: Distance;
-	private readonly dryMassKg?: number;
-	private readonly firstFlight?: string;
-	private readonly heatShield?: DragonHeatShield;
-	private readonly id?: number;
-	private readonly launchPayloadMass?: Mass;
-	private readonly name?: string;
-	private readonly returnPayloadMass?: Mass;
-	private readonly thrusters?: DragonThrust[];
-	private readonly trunk?: DragonTrunk;
-	private readonly type?: string;
-	private readonly wikipedia?: string;
+	public readonly active?: boolean;
+	public readonly crewCapacity?: number;
+	public readonly description?: string;
+	public readonly diameter?: Distance;
+	public readonly dryMassKg?: number;
+	public readonly firstFlight?: string;
+	public readonly heatShield?: DragonHeatShield;
+	public readonly id?: number;
+	public readonly launchPayloadMass?: Mass;
+	public readonly name?: string;
+	public readonly returnPayloadMass?: Mass;
+	public readonly thrusters?: DragonThrust[];
+	public readonly trunk?: DragonTrunk;
+	public readonly type?: string;
+	public readonly wikipedia?: string;
 
 	constructor(data: Dragon) {
 		this.active = data.active;

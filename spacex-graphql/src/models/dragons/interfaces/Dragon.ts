@@ -1,4 +1,4 @@
-import { Distance, Mass, Force } from '../../rockets/interfaces/Rocket';
+import { Distance, Force, Mass } from '../../rockets/interfaces/Rocket';
 
 export interface Dragon {
 	active?: boolean;
@@ -45,4 +45,8 @@ export interface DragonTrunkCargo {
 export interface Volume {
 	cubic_feet: number;
 	cubic_meters: number;
+}
+
+export interface Dragons {
+	dragons: Dragon[];
 }
