@@ -1,6 +1,6 @@
 import { Video } from 'components';
 import React from 'react';
-import { DragonsSection, RocketsSection } from './components';
+import { CapsulesSection, DragonsSection, RocketsSection } from './components';
 
 const VehiclesContainer: React.SFC = () => {
 	return (
@@ -13,6 +13,7 @@ const VehiclesContainer: React.SFC = () => {
 				</Video.Placeholder>
 			</Video>
 			<RocketsSection />
+			<CapsulesSection />
 			<DragonsSection />
 		</section>
 	);
