@@ -35,7 +35,9 @@ const Details: React.SFC<Launch> = (props) => {
 				<Card.DetailsContainer>
 					<Card.Image />
 					<Card.Content>
-						<Card.Title>Mission Name: {data.mission.name}</Card.Title>
+						<Card.Title to={`/mission/${data.mission.id}`}>
+							Mission Name: {data.mission.name}
+						</Card.Title>
 						<Card.FullDescription>
 							{data.mission.description}
 						</Card.FullDescription>
