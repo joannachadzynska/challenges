@@ -2,6 +2,7 @@ import React from 'react';
 import * as ROUTES from '../constants/routes';
 import {
 	About,
+	CapsuleDetails,
 	DragonDetails,
 	Home,
 	MissionDetails,
@@ -35,6 +36,9 @@ const Routes: React.SFC = () => {
 			</RouteTransition>
 			<RouteTransition path={ROUTES.VEHICLE_DRAGON_DETAILS} slideUp={30}>
 				<DragonDetails />
+			</RouteTransition>
+			<RouteTransition path={ROUTES.VEHICLE_CAPSULE_DETAILS} slideUp={30}>
+				<CapsuleDetails />
 			</RouteTransition>
 			<RouteTransition path='*' slideUp={30}>
 				<NotFound />

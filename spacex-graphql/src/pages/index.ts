@@ -1,4 +1,5 @@
 export { default as About } from './About';
+export { default as CapsuleDetails } from './CapsuleDetails';
 export { default as DragonDetails } from './DragonDetails';
 export { default as Home } from './Home';
 export { default as MissionDetails } from './MissionDetails';
