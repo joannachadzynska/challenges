@@ -3,7 +3,7 @@ import { gql } from 'apollo-boost';
 export const GET_CAPSULES = gql`
 	query getCapsules(
 		$offset: Int = 0
-		$limit: Int = 3
+		$limit: Int
 		$order: String
 		$sort: String
 	) {

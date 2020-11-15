@@ -11,6 +11,7 @@ export const GET_ROCKETS = gql`
 			first_flight
 			id
 			name
+			type
 		}
 	}
 `;
