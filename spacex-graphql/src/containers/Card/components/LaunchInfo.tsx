@@ -5,15 +5,16 @@ import { LaunchViewModel } from './../../../models/launches/viewModels/LaunchVie
 
 type LaunchInfoProps = Pick<
 	LaunchViewModel,
-	'launchDateLocal' | 'launchSite' | 'rocket' | 'id'
+	'launchDateLocal' | 'launchSite' | 'rocket'
 >;
 
 const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 	launchDateLocal,
 	launchSite,
 	rocket,
-	id,
 }) => {
+	const landpadId = rocket.firstStage.cores.map((core) => core.landing_vehicle);
+
 	return (
 		<Card.Launch>
 			<Card.LaunchItem>
@@ -22,7 +23,13 @@ const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 			</Card.LaunchItem>
 			<Card.LaunchItem>
 				<span>Launch Site:</span>
-				<span>{launchSite.site_name_long}</span>
+				<span>
+					<Link
+						style={{ marginLeft: 0 }}
+						to={`/vehicle/launchpad/${launchSite.site_id}`}>
+						{launchSite.site_name_long}
+					</Link>
+				</span>
 			</Card.LaunchItem>
 			<Card.LaunchItem>
 				<span>Rocket Name:</span>
@@ -31,6 +38,14 @@ const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 						style={{ marginLeft: 0 }}
 						to={`/vehicle/rocket/${rocket.rocket.id}`}>
 						{rocket.rocketName}
+					</Link>
+				</span>
+			</Card.LaunchItem>
+			<Card.LaunchItem>
+				<span>Landing Vehicle:</span>
+				<span>
+					<Link style={{ marginLeft: 0 }} to={`/vehicle/landpad/${landpadId}`}>
+						{landpadId}
 					</Link>
 				</span>
 			</Card.LaunchItem>
