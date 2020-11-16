@@ -1,9 +1,8 @@
 import { Footer, Header, RocketDetailsContainer } from 'containers';
 import React from 'react';
 import { Wrapper } from '../styles/Wrapper';
-export interface VehicleDetailsProps {}
 
-const RocketDetails: React.SFC<VehicleDetailsProps> = () => {
+const RocketDetails: React.SFC = () => {
 	return (
 		<Wrapper>
 			<Header />

@@ -2,14 +2,14 @@ import { Footer, Header } from 'containers';
 import React from 'react';
 import { Wrapper } from './../styles/Wrapper';
 
-const About: React.SFC = () => {
+const Landpads: React.SFC = () => {
 	return (
 		<Wrapper>
 			<Header />
-			<div>about</div>
+			<div>landpads listing</div>
 			<Footer />
 		</Wrapper>
 	);
 };
 
-export default About;
+export default Landpads;
