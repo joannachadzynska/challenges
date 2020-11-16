@@ -9,6 +9,7 @@ export const GET_LAUNCH_DETAILS = gql`
 			launch_date_utc
 			launch_site {
 				site_name_long
+				site_id
 			}
 			launch_success
 			launch_year
