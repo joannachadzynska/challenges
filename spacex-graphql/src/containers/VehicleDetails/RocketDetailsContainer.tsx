@@ -35,7 +35,7 @@ const RocketDetails: React.SFC = () => {
 			<SectionTitle>Summary</SectionTitle>
 			<Mission>
 				<Vehicle>
-					<Vehicle.Image src={id} hasHeight={false} />
+					<Vehicle.Image src={id} type='rocket' hasHeight={false} />
 				</Vehicle>
 
 				<VehicleData {...data.rocket} />

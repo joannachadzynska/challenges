@@ -26,7 +26,7 @@ const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 				<span>
 					<Link
 						style={{ marginLeft: 0 }}
-						to={`/vehicle/launchpad/${launchSite.site_id}`}>
+						to={`/launchpad/${launchSite.site_id}`}>
 						{launchSite.site_name_long}
 					</Link>
 				</span>
@@ -44,7 +44,7 @@ const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 			<Card.LaunchItem>
 				<span>Landing Vehicle:</span>
 				<span>
-					<Link style={{ marginLeft: 0 }} to={`/vehicle/landpad/${landpadId}`}>
+					<Link style={{ marginLeft: 0 }} to={`/landpad/${landpadId}`}>
 						{landpadId}
 					</Link>
 				</span>
