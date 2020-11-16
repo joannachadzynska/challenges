@@ -6,8 +6,10 @@ export interface Dragon {
 	description?: string;
 	diameter?: Distance;
 	dry_mass_kg?: number;
+	dry_mass_lb?: number;
 	first_flight?: string;
 	heat_shield?: DragonHeatShield;
+	height_w_trunk?: Distance;
 	id?: number;
 	launch_payload_mass?: Mass;
 	name?: string;
@@ -49,4 +51,8 @@ export interface Volume {
 
 export interface Dragons {
 	dragons: Dragon[];
+}
+
+export interface DragonDetailsQuery {
+	dragon: Dragon;
 }
