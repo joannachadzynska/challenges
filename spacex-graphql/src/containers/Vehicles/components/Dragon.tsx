@@ -13,7 +13,7 @@ const Dragon: React.SFC<DragonProps> = ({ id, name, type }) => {
 				<Vehicle.Image src={id} type={type} />
 			</Vehicle>
 
-			<Vehicle.Link to={`/vehicle/dragon/${id}`}>Dragon Details</Vehicle.Link>
+			<Vehicle.Link to={`/vehicle/dragon/${id}`}>Dragon stats</Vehicle.Link>
 		</Vehicle.Lineup>
 	);
 };

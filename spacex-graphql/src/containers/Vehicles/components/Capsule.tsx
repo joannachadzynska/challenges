@@ -1,20 +1,21 @@
-import { Vehicle } from 'components';
+import { Table } from 'components';
 import React from 'react';
 import { CapsuleViewModel } from './../../../models/capsules/viewModels/CapsuleViewModel';
 
-type CapsuleProps = Pick<CapsuleViewModel, 'id' | 'dragon' | 'type' | 'status'>;
+type CapsuleProps = Pick<
+	CapsuleViewModel,
+	'id' | 'landings' | 'type' | 'status'
+>;
 
-const Capsule: React.SFC<CapsuleProps> = ({ id, dragon, type, status }) => {
+const Capsule: React.SFC<CapsuleProps> = ({ id, type, status, landings }) => {
 	return (
-		<Vehicle.Lineup>
-			<Vehicle.Name>{`${dragon?.name} ${id}`}</Vehicle.Name>
-
-			<Vehicle.Description>Status: {status}</Vehicle.Description>
-			<Vehicle.Description>Type: {type}</Vehicle.Description>
-			<Vehicle.Description></Vehicle.Description>
-
-			<Vehicle.Link to={`/vehicle/capsule/${id}`}>capsule details</Vehicle.Link>
-		</Vehicle.Lineup>
+		<Table.Row>
+			<Table.MainItem>{id}</Table.MainItem>
+			<Table.MainItem>{type}</Table.MainItem>
+			<Table.MainItem>{status}</Table.MainItem>
+			<Table.MainItem>{landings}</Table.MainItem>
+			<Table.MainItem>link</Table.MainItem>
+		</Table.Row>
 	);
 };
 
