@@ -1,4 +1,4 @@
-import { Vehicle } from 'components';
+import { Table } from 'components';
 import { LoadingIndicator } from 'components/shared';
 import { Capsules } from 'models/capsules/interfaces/Capsule';
 import { GET_CAPSULES } from 'queries/capsuleQueries/getCapsules';
@@ -13,20 +13,29 @@ const CapsulesSection: React.SFC = () => {
 	if (error) return <p>Error...</p>;
 	if (!data?.capsules) return <p>there is not any data to display</p>;
 
+	console.log(data.capsules);
+
 	return (
 		<section>
 			<SectionTitle>Capsules</SectionTitle>
-			<Vehicle.Description>
-				The rockets below are the past, current and yet to be active vehicles in
-				the SpaceX lineup. The proportion of the rockets are approximate but
-				somewhat accurate in their relative scale. As vehicles become available,
-				they will be added here for reference.
-			</Vehicle.Description>
-			<Vehicle.Group>
-				{data.capsules.map((capsule) => (
-					<Capsule key={capsule.id} {...capsule} />
-				))}
-			</Vehicle.Group>
+
+			<Table>
+				<Table.Header>
+					<Table.Row>
+						<Table.HeaderItem>Id</Table.HeaderItem>
+						<Table.HeaderItem>Type</Table.HeaderItem>
+						<Table.HeaderItem>Status</Table.HeaderItem>
+						<Table.HeaderItem>Landings</Table.HeaderItem>
+						<Table.HeaderItem>Details</Table.HeaderItem>
+					</Table.Row>
+				</Table.Header>
+
+				<Table.Main>
+					{data.capsules.map((capsule) => (
+						<Capsule key={capsule.id} {...capsule} />
+					))}
+				</Table.Main>
+			</Table>
 		</section>
 	);
 };
