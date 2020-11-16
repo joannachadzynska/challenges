@@ -51,7 +51,7 @@ export const VehicleImage: React.FC<ImageProps> = ({
 		if (src === 'falcon1') {
 			height = '200';
 		}
-		if (src === 'falcon9') {
+		if (src === 'falcon9' || type === 'capsule') {
 			height = '400';
 		}
 		if (src === 'falconheavy') {
