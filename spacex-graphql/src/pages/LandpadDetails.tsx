@@ -1,4 +1,4 @@
-import { Footer, Header } from 'containers';
+import { Footer, Header, LandpadDetailsContainer } from 'containers';
 import React from 'react';
 import { Wrapper } from './../styles/Wrapper';
 
@@ -6,7 +6,7 @@ const LandpadDetails: React.SFC = () => {
 	return (
 		<Wrapper>
 			<Header />
-			<div>landpad details</div>
+			<LandpadDetailsContainer />
 			<Footer />
 		</Wrapper>
 	);
