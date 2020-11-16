@@ -28,19 +28,20 @@ export const Placeholder = styled.div<VideoProps>`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
-	max-height: 448px;
+	height: 100%;
+
+	max-height: initial;
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	bottom: 0px;
 	width: 100%;
 	opacity: ${({ show }) => (!show ? '1' : '0')};
 	transition: opacity 0.5s ease-out 0s;
 	text-align: center;
 
 	@media (min-width: 768px) {
-		height: 54.8vh;
-		max-height: initial;
+		/* height: 54.8vh; */
 	}
 `;
 
