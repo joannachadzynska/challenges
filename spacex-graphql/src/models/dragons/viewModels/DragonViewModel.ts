@@ -12,8 +12,10 @@ export class DragonViewModel {
 	public readonly description?: string;
 	public readonly diameter?: Distance;
 	public readonly dryMassKg?: number;
+	public readonly dryMassLb?: number;
 	public readonly firstFlight?: string;
 	public readonly heatShield?: DragonHeatShield;
+	public readonly heightWTrunk?: Distance;
 	public readonly id?: number;
 	public readonly launchPayloadMass?: Mass;
 	public readonly name?: string;
@@ -29,8 +31,10 @@ export class DragonViewModel {
 		this.description = data.description;
 		this.diameter = data.diameter;
 		this.dryMassKg = data.dry_mass_kg;
+		this.dryMassLb = data.dry_mass_lb;
 		this.firstFlight = data.first_flight;
 		this.heatShield = data.heat_shield;
+		this.heightWTrunk = data.height_w_trunk;
 		this.id = data.id;
 		this.launchPayloadMass = data.launch_payload_mass;
 		this.name = data.name;
