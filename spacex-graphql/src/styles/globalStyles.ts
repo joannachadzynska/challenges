@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: ${({ theme }) => theme.colors.blue.veryDark};
+        background-color: #001018;
         color:  ${({ theme }) => theme.colors.white};
 	    font-family:  ${({ theme }) => theme.fonts.mavenPro};
         line-height: 1.5;

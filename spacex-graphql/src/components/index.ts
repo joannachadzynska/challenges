@@ -7,5 +7,6 @@ export { default as Links } from './Links';
 export { default as Mission } from './Mission';
 export { default as Modal } from './Modal';
 export { default as Tab } from './Tab';
+export { default as Table } from './Table';
 export { default as Vehicle } from './Vehicle';
 export { default as Video } from './Video';
