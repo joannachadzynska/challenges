@@ -3,6 +3,7 @@ import {
 	Container,
 	Footer,
 	Header,
+	ItemLink,
 	Main,
 	Row,
 	RowHeader,
@@ -15,7 +16,16 @@ export interface TableComposition {
 	Footer: React.FC;
 	Row: React.FC;
 	HeaderItem: React.FC;
-	MainItem: React.FC;
+	MainItem: React.FC<RowProps>;
+	Link: React.FC<LinkProps>;
+}
+
+export interface RowProps {
+	dataLabel?: string;
+}
+
+export interface LinkProps {
+	to?: any;
 }
 
 const Table: React.SFC & TableComposition = ({ children, ...restProps }) => {
@@ -42,11 +52,32 @@ export const TableHeaderItem: React.FC = ({ children, ...restProps }) => {
 	return <RowHeader {...restProps}>{children}</RowHeader>;
 };
 
-export const TableMainItem: React.FC = ({ children, ...restProps }) => {
-	return <RowMain {...restProps}>{children}</RowMain>;
+export const TableMainItem: React.FC<RowProps> = ({
+	dataLabel,
+	children,
+	...restProps
+}) => {
+	return (
+		<RowMain data-label={dataLabel} {...restProps}>
+			{children}
+		</RowMain>
+	);
+};
+
+export const TableLink: React.FC<LinkProps> = ({
+	to,
+	children,
+	...restProps
+}) => {
+	return (
+		<ItemLink to={to} {...restProps}>
+			{children}
+		</ItemLink>
+	);
 };
 
 Table.Footer = TableFooter;
+Table.Link = TableLink;
 Table.Header = TableHeader;
 Table.HeaderItem = TableHeaderItem;
 Table.Main = TableMain;
