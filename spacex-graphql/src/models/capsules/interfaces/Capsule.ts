@@ -19,9 +19,15 @@ export interface CapsuleMission {
 export interface Capsules {
 	capsules: Capsule[];
 }
+
+export interface CapsuleDetailsQuery {
+	capsule: Capsule;
+}
+
 export interface CapsulesPast {
 	capsulesPast: Capsule[];
 }
+
 export interface CapsulesUpcoming {
 	capsulesUpcoming: Capsule[];
 }
