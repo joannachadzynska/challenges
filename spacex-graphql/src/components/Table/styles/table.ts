@@ -33,6 +33,7 @@ export const RowMain = styled.td`
 	display: flex;
 	justify-content: space-between;
 	padding: 0.5em 0;
+	user-select: none;
 
 	&:first-child {
 		padding-top: 0.5em;
@@ -80,5 +81,14 @@ export const Row = styled.tr`
 `;
 
 export const ItemLink = styled(Link)`
-	color: #fff;
+	border-bottom: 1px dashed transparent;
+	display: inline-block;
+	color: ${({ theme }) => theme.colors.yellow.light};
+	padding-bottom: 2px;
+	transition: border-color 0.3s ease-in-out;
+
+	&:focus,
+	&:hover {
+		border-color: ${({ theme }) => theme.colors.yellow.light};
+	}
 `;
