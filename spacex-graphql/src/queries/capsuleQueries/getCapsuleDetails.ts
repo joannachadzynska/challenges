@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const GET_CAPSULE_DETAILS = gql`
-	query getCapsuleDetails($offset: ID!) {
+	query getCapsuleDetails($id: ID!) {
 		capsule(id: $id) {
 			id
 			landings
