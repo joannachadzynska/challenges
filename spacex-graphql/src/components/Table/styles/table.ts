@@ -20,7 +20,7 @@ export const Header = styled.thead`
 `;
 
 export const Main = styled.tbody`
-	background-color: rgba(255, 255, 255, 0.03);
+	/* background-color: rgba(255, 255, 255, 0.03); */
 `;
 
 export const Footer = styled.tfoot``;
@@ -39,7 +39,17 @@ export const Row = styled.tr`
 		padding: 5px 10px;
 	}
 
+	transition: background-color 0.3s ease-in-out;
+
 	&:nth-child(even) {
 		background-color: rgba(255, 255, 255, 0.03);
+
+		&:hover {
+			background-color: #101e26;
+		}
+	}
+
+	&:hover {
+		background-color: rgb(0, 34, 53);
 	}
 `;
