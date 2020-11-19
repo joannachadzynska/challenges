@@ -13,8 +13,6 @@ const CapsulesSection: React.SFC = () => {
 	if (error) return <p>Error...</p>;
 	if (!data?.capsules) return <p>there is not any data to display</p>;
 
-	console.log(data.capsules);
-
 	return (
 		<section>
 			<SectionTitle>Capsules</SectionTitle>
