@@ -10,11 +10,13 @@ type CapsuleProps = Pick<
 const Capsule: React.SFC<CapsuleProps> = ({ id, type, status, landings }) => {
 	return (
 		<Table.Row>
-			<Table.MainItem>{id}</Table.MainItem>
-			<Table.MainItem>{type}</Table.MainItem>
-			<Table.MainItem>{status}</Table.MainItem>
-			<Table.MainItem>{landings}</Table.MainItem>
-			<Table.MainItem>link</Table.MainItem>
+			<Table.MainItem dataLabel='Id'>{id}</Table.MainItem>
+			<Table.MainItem dataLabel='Type'>{type}</Table.MainItem>
+			<Table.MainItem dataLabel='Status'>{status}</Table.MainItem>
+			<Table.MainItem dataLabel='Landings'>{landings}</Table.MainItem>
+			<Table.MainItem dataLabel='Details'>
+				<Table.Link to={`/vehicle/capsule/${id}`}>See more</Table.Link>
+			</Table.MainItem>
 		</Table.Row>
 	);
 };
