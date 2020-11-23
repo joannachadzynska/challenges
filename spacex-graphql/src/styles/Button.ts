@@ -9,6 +9,8 @@ interface IProps {
 	style?: 'outline' | 'filled';
 }
 
+// button
+
 export const Button = styled(motion.button)<IProps>`
 	background: transparent;
 	border-radius: 5px;
