@@ -1,14 +1,15 @@
-import React, { useEffect, useCallback, useContext } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { default as bemCssModules } from 'bem-css-modules';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSWAPIClient } from '../../hooks/useSWAPIClient';
 import { importCharactersData } from '../../actions/charactersActions';
 import { importFilmsData } from '../../actions/filmsActions';
 import { importPlanetsData } from '../../actions/planetsActions';
 import { importSpeciesData } from '../../actions/speciesActions';
 import { importStarshipsData } from '../../actions/starshipsActions';
 import { importVehiclesData } from '../../actions/vehiclesActions';
+import { useSWAPIClient } from '../../hooks/useSWAPIClient';
 import Routing from '../Routes';
-import { default as bemCssModules } from 'bem-css-modules';
 import { default as ContentStyles } from './Content.module.scss';
 
 const style = bemCssModules(ContentStyles);
