@@ -1,19 +1,19 @@
 import { Card } from 'components';
-import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
-import { Launch } from './../../models/launches/interfaces/Launch';
-import { ContentFull, Header, Image, LaunchInfo } from './components';
+import { Launch } from 'types/launchTypes';
+import { Header } from './components';
 
 const MissionCard: React.SFC<Launch> = (props) => {
-	const data = new LaunchViewModel(props);
+	console.log(props);
+
 	return (
 		<Card>
-			<Header {...data} />
+			<Header {...props} />
 
 			<Card.DetailsContainer>
-				<Image {...data} />
+				{/* <Image {...data} />
 				<ContentFull {...data} />
-				<LaunchInfo {...data} />
+				<LaunchInfo {...data} /> */}
 			</Card.DetailsContainer>
 		</Card>
 	);

@@ -1,12 +1,11 @@
+import { useAppSelector } from 'app/hooks';
 import { Jumbotron } from 'components';
 import { useCountdown } from 'hooks/useCountdown';
-import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
-import { Launch } from './../../../models/launches/interfaces/Launch';
 
-const Countdown: React.SFC<Launch> = (props) => {
-	const data = new LaunchViewModel(props);
-	const { timeLeft } = useCountdown(data.launchDateLocal);
+const Countdown: React.SFC = () => {
+	const nextMission = useAppSelector((state) => state.launches.launchNext);
+	const { timeLeft } = useCountdown(nextMission.date_unix);
 
 	return (
 		<Jumbotron.Countdown>
