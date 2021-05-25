@@ -6,7 +6,7 @@ export const getNumberWithOrdinal = (n: number) => {
 
 export const setDateToString = (date: Date) => {
 	let options = { month: 'long', day: 'numeric', year: 'numeric' };
-	const splitDate = date.toLocaleDateString('en-US', options).split(' ');
+	const splitDate = date.toLocaleDateString('en-US').split(' ');
 	const month = splitDate[0];
 	const day = parseInt(splitDate[1]);
 
@@ -24,8 +24,11 @@ export type TimeLeft = {
 	seconds: number;
 };
 
-export const calculateTimeLeft = (time: Date) => {
-	let deadline = new Date(time).getTime();
+export const calculateTimeLeft = (time: number) => {
+	console.log(time);
+
+	const milliseconds = time * 1000;
+	let deadline = new Date(milliseconds).getTime();
 	let now = new Date().getTime();
 	let difference = deadline - now;
 	let timeleft: TimeLeft = {} as TimeLeft;
