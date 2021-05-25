@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
-import { setInterval } from 'timers';
 import { calculateTimeLeft } from 'utils/date';
 
-export const useCountdown = (time: Date) => {
+export const useCountdown = (time: number) => {
 	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(time));
 
 	useEffect(() => {
@@ -15,6 +14,7 @@ export const useCountdown = (time: Date) => {
 		if (timeLeft.difference < 0) {
 			clearInterval(interval);
 		}
+		return () => clearInterval(interval);
 	}, []);
 
 	return { timeLeft };
