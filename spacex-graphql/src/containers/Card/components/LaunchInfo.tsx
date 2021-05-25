@@ -13,7 +13,9 @@ const LaunchInfo: React.SFC<LaunchInfoProps> = ({
 	launchSite,
 	rocket,
 }) => {
-	const landpadId = rocket.firstStage.cores.map((core) => core.landing_vehicle);
+	const landpadId = rocket?.firstStage?.cores.map(
+		(core) => core.landing_vehicle
+	);
 
 	return (
 		<Card.Launch>
