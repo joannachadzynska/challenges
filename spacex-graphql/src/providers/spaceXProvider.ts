@@ -27,12 +27,21 @@ export enum Launches {
 
 export class SpaceXClient {
 	private readonly request: AxiosInstance;
+
 	public constructor(baseURL: string) {
 		this.request = axios.create({ baseURL });
 	}
 
 	public async getAllLaunches(): Promise<Launch[]> {
 		return this.getAllElements(Endpoints.launches);
+	}
+
+	public async getPastLaunches(): Promise<Launch[]> {
+		return this.getAllElements(`${Endpoints.launches}${Launches.past}`);
+	}
+
+	public async getUpcomingLaunches(): Promise<Launch[]> {
+		return this.getAllElements(`${Endpoints.launches}${Launches.upcoming}`);
 	}
 
 	public async getNextLaunch(): Promise<Launch> {
@@ -45,6 +54,21 @@ export class SpaceXClient {
 		} catch (err) {
 			return err;
 		}
+	}
+	public async getLatestLaunch(): Promise<Launch> {
+		try {
+			const response = (
+				await this.request.get(`${Endpoints.launches}${Launches.latest}`)
+			).data;
+
+			return response;
+		} catch (err) {
+			return err;
+		}
+	}
+
+	public async getLaunchDetails(id: string): Promise<Launch> {
+		return this.getElementById(Endpoints.launches, id);
 	}
 
 	private async getAllElements<T>(endpoint: string): Promise<T[]> {
@@ -72,16 +96,13 @@ export class SpaceXClient {
 		}
 	}
 
-	private async getElementById<T>(
-		id: number,
-		endpoint: string
-	): Promise<T | null> {
+	private async getElementById<T>(endpoint: string, id: string): Promise<T> {
 		try {
-			const response = (await this.request.get(`${endpoint}${id}/`)).data;
+			const response = (await this.request.get(`${endpoint}${id}`)).data;
 
 			return response;
-		} catch {
-			return null;
+		} catch (err) {
+			return err;
 		}
 	}
 }
