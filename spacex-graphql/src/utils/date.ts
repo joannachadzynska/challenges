@@ -5,8 +5,14 @@ export const getNumberWithOrdinal = (n: number) => {
 };
 
 export const setDateToString = (date: Date) => {
-	let options = { month: 'long', day: 'numeric', year: 'numeric' };
-	const splitDate = date.toLocaleDateString('en-US').split(' ');
+	const splitDate = new Date(date)
+		.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		})
+		.split(' ');
+
 	const month = splitDate[0];
 	const day = parseInt(splitDate[1]);
 
@@ -14,4 +20,10 @@ export const setDateToString = (date: Date) => {
 	const year = splitDate[2];
 
 	return `${month} ${dayWithOrdinal} ${year}`;
+};
+
+export const convertUTCDateToLocalDate = (date: string) => {
+	const oldDate = new Date(date);
+	const newDate = new Date(oldDate.getTime() - oldDate.getTimezoneOffset());
+	return newDate;
 };
