@@ -1,5 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
+import { Launchpad } from 'types/launchpadTypes';
 import { Launch } from 'types/launchTypes';
+import { Rocket } from 'types/rocketTypes';
+import { Landpad } from './../models/landpads/interfaces/Landpad';
 
 export enum Endpoints {
 	capsules = '/capsules',
@@ -32,6 +35,8 @@ export class SpaceXClient {
 		this.request = axios.create({ baseURL });
 	}
 
+	// launches
+
 	public async getAllLaunches(): Promise<Launch[]> {
 		return this.getAllElements(Endpoints.launches);
 	}
@@ -42,6 +47,18 @@ export class SpaceXClient {
 
 	public async getUpcomingLaunches(): Promise<Launch[]> {
 		return this.getAllElements(`${Endpoints.launches}${Launches.upcoming}`);
+	}
+
+	public async getRockets(): Promise<Rocket[]> {
+		return this.getAllElements(Endpoints.rockets);
+	}
+
+	public async getLaunchpads(): Promise<Launchpad[]> {
+		return this.getAllElements(Endpoints.launchpads);
+	}
+
+	public async getLandpads(): Promise<Landpad[]> {
+		return this.getAllElements(Endpoints.landpads);
 	}
 
 	public async getNextLaunch(): Promise<Launch> {
@@ -55,6 +72,7 @@ export class SpaceXClient {
 			return err;
 		}
 	}
+
 	public async getLatestLaunch(): Promise<Launch> {
 		try {
 			const response = (
@@ -69,6 +87,18 @@ export class SpaceXClient {
 
 	public async getLaunchDetails(id: string): Promise<Launch> {
 		return this.getElementById(Endpoints.launches, id);
+	}
+
+	public async getLaunchpadDetails(id: string): Promise<Launchpad> {
+		return this.getElementById(Endpoints.launchpads, id);
+	}
+
+	public async getLandpadDetails(id: string): Promise<Landpad> {
+		return this.getElementById(Endpoints.landpads, id);
+	}
+
+	public async getRocketDetails(id: string): Promise<Rocket> {
+		return this.getElementById(Endpoints.rockets, id);
 	}
 
 	private async getAllElements<T>(endpoint: string): Promise<T[]> {
