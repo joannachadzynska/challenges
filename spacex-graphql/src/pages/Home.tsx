@@ -1,24 +1,8 @@
 import { Footer, Header, Jumbotron } from 'containers';
-import { getNextMission } from 'features/launches/launchesSlice';
-import React, { useEffect } from 'react';
-import { useAppDispatch } from './../app/hooks';
-import { useSpaceXClient } from './../hooks/useSpaceXClient';
+import React from 'react';
 import { Wrapper } from './../styles/Wrapper';
 
 const Home: React.SFC = () => {
-	const client = useSpaceXClient();
-	const dispatch = useAppDispatch();
-
-	const getLaunchNext = async () => {
-		const data = await client.getNextLaunch();
-		dispatch(getNextMission(data));
-	};
-
-	useEffect(() => {
-		getLaunchNext();
-		return () => {};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 	return (
 		<div
 			style={{
