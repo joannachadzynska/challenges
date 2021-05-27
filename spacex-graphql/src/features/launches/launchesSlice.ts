@@ -21,8 +21,17 @@ export const launchesSlice = createSlice({
 	name: 'launches',
 	initialState,
 	reducers: {
-		getAllLaunches: (state, action) => {
+		getLaunches: (state, action) => {
 			state.launches = action.payload;
+		},
+		getLaunchesUpcoming: (state, action) => {
+			state.launchesUpcoming = action.payload;
+		},
+		getLaunchesPast: (state, action) => {
+			state.launchesPast = action.payload;
+		},
+		getLatestMission: (state, action) => {
+			state.launchLatest = action.payload;
 		},
 		getNextMission: (state, action) => {
 			state.launchNext = action.payload;
@@ -30,6 +39,12 @@ export const launchesSlice = createSlice({
 	},
 });
 
-export const { getAllLaunches, getNextMission } = launchesSlice.actions;
+export const {
+	getLaunches,
+	getNextMission,
+	getLaunchesUpcoming,
+	getLatestMission,
+	getLaunchesPast,
+} = launchesSlice.actions;
 
 export default launchesSlice.reducer;
