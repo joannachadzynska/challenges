@@ -1,54 +1,43 @@
+import { useAppSelector } from 'app/hooks';
 import { Card } from 'components';
+import { selectLaunchpadById } from 'features/launchpads/launchpadsSlice';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LaunchViewModel } from './../../../models/launches/viewModels/LaunchViewModel';
+import { Launch } from 'types/launchTypes';
+import { selectRocketById } from './../../../features/rockets/rocketSlice';
 
-type LaunchInfoProps = Pick<
-	LaunchViewModel,
-	'launchDateLocal' | 'launchSite' | 'rocket'
->;
-
-const LaunchInfo: React.SFC<LaunchInfoProps> = ({
-	launchDateLocal,
-	launchSite,
-	rocket,
-}) => {
-	const landpadId = rocket?.firstStage?.cores.map(
-		(core) => core.landing_vehicle
-	);
+const LaunchInfo: React.SFC<Launch> = ({ rocket, launchpad, date_utc }) => {
+	const launchpadDetails = useAppSelector(selectLaunchpadById(launchpad));
+	const rocketDetails = useAppSelector(selectRocketById(rocket));
 
 	return (
 		<Card.Launch>
 			<Card.LaunchItem>
 				<span>Launch Date:</span>
-				<span>{launchDateLocal.toLocaleDateString()}</span>
+				<span>{new Date(date_utc).toLocaleDateString()}</span>
 			</Card.LaunchItem>
 			<Card.LaunchItem>
 				<span>Launch Site:</span>
 				<span>
-					<Link
-						style={{ marginLeft: 0 }}
-						to={`/launchpad/${launchSite.site_id}`}>
-						{launchSite.site_name_long}
+					<Link style={{ marginLeft: 0 }} to={`/launchpad/${launchpad}`}>
+						{launchpadDetails?.name}
 					</Link>
 				</span>
 			</Card.LaunchItem>
 			<Card.LaunchItem>
 				<span>Rocket Name:</span>
 				<span>
-					<Link
-						style={{ marginLeft: 0 }}
-						to={`/vehicle/rocket/${rocket.rocket.id}`}>
-						{rocket.rocketName}
+					<Link style={{ marginLeft: 0 }} to={`/vehicle/rocket/${rocket}`}>
+						{rocketDetails?.name}
 					</Link>
 				</span>
 			</Card.LaunchItem>
 			<Card.LaunchItem>
 				<span>Landing Vehicle:</span>
 				<span>
-					<Link style={{ marginLeft: 0 }} to={`/landpad/${landpadId}`}>
+					{/* <Link style={{ marginLeft: 0 }} to={`/landpad/${landpadId}`}>
 						{landpadId}
-					</Link>
+					</Link> */}
 				</span>
 			</Card.LaunchItem>
 		</Card.Launch>

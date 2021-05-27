@@ -1,19 +1,17 @@
 import { Card } from 'components';
 import React from 'react';
 import { Launch } from 'types/launchTypes';
-import { Header } from './components';
+import { ContentFull, Header, Image, LaunchInfo } from './components';
 
 const MissionCard: React.SFC<Launch> = (props) => {
-	console.log(props);
-
 	return (
 		<Card>
 			<Header {...props} />
 
 			<Card.DetailsContainer>
-				{/* <Image {...data} />
-				<ContentFull {...data} />
-				<LaunchInfo {...data} /> */}
+				<Image {...props} />
+				<ContentFull {...props} />
+				<LaunchInfo {...props} />
 			</Card.DetailsContainer>
 		</Card>
 	);

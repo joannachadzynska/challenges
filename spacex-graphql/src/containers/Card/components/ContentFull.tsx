@@ -1,28 +1,20 @@
 import { Card } from 'components';
-import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { Launch } from 'types/launchTypes';
 import { setDateToString } from 'utils/date';
 
-type ContentFullProps = Pick<
-	LaunchViewModel,
-	'id' | 'launchDateLocal' | 'details' | 'missionName'
->;
-
-const ContentFull: React.SFC<ContentFullProps> = ({
-	details,
-	launchDateLocal,
-	id,
-	missionName,
-}) => {
+const ContentFull: React.SFC<Launch> = ({ id, name, date_local, details }) => {
 	const location = useLocation();
 
 	return (
 		<Card.Content direction='cols'>
-			<Card.Title to={`/mission/${id}`}>{missionName}</Card.Title>
+			<Card.Title to={`/mission/${id}`}>{name}</Card.Title>
 			<Card.Date>
-				<time dateTime={launchDateLocal.toISOString()}>
-					{setDateToString(launchDateLocal)}
+				<time
+				// dateTime={new Date(date_local).toISOString()}
+				>
+					{setDateToString(new Date(date_local))}
 				</time>
 			</Card.Date>
 

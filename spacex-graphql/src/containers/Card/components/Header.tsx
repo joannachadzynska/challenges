@@ -1,16 +1,14 @@
 import { Card } from 'components';
 import React from 'react';
 import { FiCheckCircle, FiClock, FiXCircle } from 'react-icons/fi';
-import { LaunchViewModel } from './../../../models/launches/viewModels/LaunchViewModel';
+import { Launch } from 'types/launchTypes';
 
-type HeaderProps = Pick<LaunchViewModel, 'launchSuccess' | 'id'>;
-
-const Header: React.SFC<HeaderProps> = ({ launchSuccess, id }) => {
+const Header: React.SFC<Launch> = ({ success, flight_number }) => {
 	return (
-		<Card.Header launchSuccess={launchSuccess}>
-			{launchSuccess !== null ? (
+		<Card.Header launchSuccess={success}>
+			{success ? (
 				<span>
-					{launchSuccess ? (
+					{success ? (
 						<>
 							<FiCheckCircle size='1.5em' />
 							<span>Successful</span>
@@ -29,7 +27,7 @@ const Header: React.SFC<HeaderProps> = ({ launchSuccess, id }) => {
 				</span>
 			)}
 
-			<span>#{id}</span>
+			<span>#{flight_number}</span>
 		</Card.Header>
 	);
 };
