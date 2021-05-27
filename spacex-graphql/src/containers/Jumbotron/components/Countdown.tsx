@@ -5,7 +5,7 @@ import React from 'react';
 
 const Countdown: React.SFC = () => {
 	const nextMission = useAppSelector((state) => state.launches.launchNext);
-	const { timeLeft } = useCountdown(nextMission.date_unix);
+	const timeLeft = useCountdown(nextMission.date_unix);
 
 	return (
 		<Jumbotron.Countdown>
