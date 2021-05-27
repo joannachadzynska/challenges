@@ -1,10 +1,4 @@
 import { Card } from 'components';
-import {
-	ContentFull,
-	Header,
-	Image,
-	LaunchInfo,
-} from 'containers/Card/components';
 import { Launch } from 'models/launches/interfaces/Launch';
 import { LaunchViewModel } from 'models/launches/viewModels/LaunchViewModel';
 import React from 'react';
@@ -18,11 +12,11 @@ const Summary: React.SFC<Launch> = (props) => {
 			<SectionTitle>mission summary</SectionTitle>
 
 			<Card>
-				<Header {...data} />
+				{/* <Header {...data} /> */}
 				<Card.DetailsContainer>
-					<Image {...data} />
-					<ContentFull {...data} />
-					<LaunchInfo {...data} />
+					{/* <Image {...data} /> */}
+					{/* <ContentFull {...data} /> */}
+					{/* <LaunchInfo {...data} /> */}
 				</Card.DetailsContainer>
 			</Card>
 		</section>
