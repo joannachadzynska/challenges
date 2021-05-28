@@ -1,25 +1,15 @@
 import { Card } from 'components';
 import React from 'react';
+import { Launch } from 'types/launchTypes';
 import { setDateToString } from 'utils/date';
-import { LaunchViewModel } from './../../../models/launches/viewModels/LaunchViewModel';
 
-type ContentProps = Pick<
-	LaunchViewModel,
-	'id' | 'launchDateLocal' | 'details' | 'missionName'
->;
-
-const Content: React.SFC<ContentProps> = ({
-	details,
-	launchDateLocal,
-	id,
-	missionName,
-}) => {
+const Content: React.SFC<Launch> = ({ details, name, date_local, id }) => {
 	return (
 		<Card.Content direction='rows'>
-			<Card.Title to={`/mission/${id}`}>{missionName}</Card.Title>
+			<Card.Title to={`/mission/${id}`}>{name}</Card.Title>
 			<Card.Date>
-				<time dateTime={launchDateLocal.toISOString()}>
-					{setDateToString(launchDateLocal)}
+				<time dateTime={new Date(date_local).toISOString()}>
+					{setDateToString(new Date(date_local))}
 				</time>
 			</Card.Date>
 			<Card.Description>
