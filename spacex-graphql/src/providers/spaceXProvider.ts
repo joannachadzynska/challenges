@@ -41,6 +41,13 @@ export class SpaceXClient {
 		return this.getAllElements(Endpoints.launches);
 	}
 
+	public async getChunkLaunches(
+		offset: number,
+		limit: number = 10
+	): Promise<Launch[]> {
+		return this.getChunkElements(offset, limit, Endpoints.launches);
+	}
+
 	public async getPastLaunches(): Promise<Launch[]> {
 		return this.getAllElements(`${Endpoints.launches}${Launches.past}`);
 	}
@@ -112,12 +119,13 @@ export class SpaceXClient {
 	}
 
 	private async getChunkElements<T>(
-		chunkNumber: number,
+		offset: number,
+		limit: number,
 		endpoint: string
 	): Promise<T[]> {
 		try {
 			const response = (
-				await this.request.get(`${endpoint}}?page=${chunkNumber}`)
+				await this.request.get(`${endpoint}?limit=${limit}&offset=${offset}`)
 			).data;
 
 			return response;
