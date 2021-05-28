@@ -7,6 +7,7 @@ interface LaunchesState {
 	launchesUpcoming: Launch[];
 	launchLatest: Launch;
 	launchNext: Launch;
+	offset: number;
 }
 
 const initialState: LaunchesState = {
@@ -15,6 +16,7 @@ const initialState: LaunchesState = {
 	launchesUpcoming: [],
 	launchLatest: {} as Launch,
 	launchNext: {} as Launch,
+	offset: 0,
 };
 
 export const launchesSlice = createSlice({
@@ -36,6 +38,9 @@ export const launchesSlice = createSlice({
 		getNextMission: (state, action) => {
 			state.launchNext = action.payload;
 		},
+		setOffset: (state) => {
+			state.offset += 1;
+		},
 	},
 });
 
@@ -45,6 +50,7 @@ export const {
 	getLaunchesUpcoming,
 	getLatestMission,
 	getLaunchesPast,
+	setOffset,
 } = launchesSlice.actions;
 
 export default launchesSlice.reducer;
