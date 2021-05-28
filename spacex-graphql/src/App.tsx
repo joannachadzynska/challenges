@@ -1,6 +1,12 @@
 import { useAppDispatch } from 'app/hooks';
 import { getAllLandpads } from 'features/landpads/landpadsSlice';
-import { getLaunches, getNextMission } from 'features/launches/launchesSlice';
+import {
+	getLatestMission,
+	getLaunches,
+	getLaunchesPast,
+	getLaunchesUpcoming,
+	getNextMission,
+} from 'features/launches/launchesSlice';
 import { getAllLaunchpads } from 'features/launchpads/launchpadsSlice';
 import { getAllRockets } from 'features/rockets/rocketSlice';
 import { useSpaceXClient } from 'hooks/useSpaceXClient';
@@ -15,16 +21,30 @@ const App: React.SFC = () => {
 	const dispatch = useAppDispatch();
 
 	const importDataFromAPI = async (): Promise<void> => {
-		const [launches, nextLaunch, rockets, landpads, launchpads] =
-			await Promise.all([
-				client.getAllLaunches(),
-				client.getNextLaunch(),
-				client.getRockets(),
-				client.getLandpads(),
-				client.getLaunchpads(),
-			]);
+		const [
+			launches,
+			launchesPast,
+			launchesUpcoming,
+			latestLaunch,
+			nextLaunch,
+			rockets,
+			landpads,
+			launchpads,
+		] = await Promise.all([
+			client.getAllLaunches(),
+			client.getPastLaunches(),
+			client.getUpcomingLaunches(),
+			client.getLatestLaunch(),
+			client.getNextLaunch(),
+			client.getRockets(),
+			client.getLandpads(),
+			client.getLaunchpads(),
+		]);
 
 		dispatch(getLaunches(launches));
+		dispatch(getLaunchesPast(launchesPast));
+		dispatch(getLaunchesUpcoming(launchesUpcoming));
+		dispatch(getLatestMission(latestLaunch));
 		dispatch(getNextMission(nextLaunch));
 		dispatch(getAllRockets(rockets));
 		dispatch(getAllLandpads(landpads));
