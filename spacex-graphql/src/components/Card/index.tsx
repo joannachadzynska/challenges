@@ -53,6 +53,7 @@ export interface ImageProps {
 
 export interface GroupProps {
 	onScroll?: (e: React.UIEvent<HTMLElement>) => void;
+	target?: any;
 }
 
 export interface HeaderProps {
@@ -66,10 +67,11 @@ const Card: React.SFC & CardComposition = ({ children, ...restProps }) => {
 export const CardGroup: React.FC<GroupProps> = ({
 	children,
 	onScroll,
+	target,
 	...restProps
 }) => {
 	return (
-		<Group onScroll={onScroll} {...restProps}>
+		<Group ref={target} onScroll={onScroll} {...restProps}>
 			{children}
 		</Group>
 	);
