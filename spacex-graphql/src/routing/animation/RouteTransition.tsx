@@ -1,7 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import React, { FC } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { useModal } from '../../hooks/useModal';
 import { MountTransition } from './MountTransition';
 
 type Props = {
@@ -37,12 +36,9 @@ export const AnimatedRoutes: FC<RoutesProps> = ({
 	initial = false,
 }) => {
 	const location = useLocation();
-	const { toggleModal } = useModal();
+
 	return (
-		<AnimatePresence
-			exitBeforeEnter={exitBeforeEnter}
-			initial={initial}
-			onExitComplete={() => toggleModal()}>
+		<AnimatePresence exitBeforeEnter={exitBeforeEnter} initial={initial}>
 			<Switch location={location} key={location.pathname}>
 				{children}
 			</Switch>
