@@ -33,6 +33,10 @@ export interface CardComposition {
 	Title: React.FC<TitleProps>;
 }
 
+export interface CardProps {
+	target?: any;
+}
+
 export interface TitleProps {
 	to?: any;
 }
@@ -60,8 +64,16 @@ export interface HeaderProps {
 	launchSuccess: boolean | undefined | null;
 }
 
-const Card: React.SFC & CardComposition = ({ children, ...restProps }) => {
-	return <Container {...restProps}>{children}</Container>;
+const Card: React.SFC<CardProps> & CardComposition = ({
+	children,
+	target,
+	...restProps
+}) => {
+	return (
+		<Container ref={target} {...restProps}>
+			{children}
+		</Container>
+	);
 };
 
 export const CardGroup: React.FC<GroupProps> = ({
