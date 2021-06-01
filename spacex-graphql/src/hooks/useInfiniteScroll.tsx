@@ -1,54 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
-const useInfiniteScroll = (cardsLength?: any) => {
-	const [offset, setOffset] = useState(0);
-	const [isBottom, setIsBottom] = useState(false);
+const useInfiniteScroll = (target: any) => {
+	const [isIntersecting, setIsIntersecting] = useState(false);
+	const [elementsLimit, setElementsLimit] = useState(10);
+	const scrollObserver = useCallback((entries: any) => {
+		const target = entries[0];
 
-	const ELEMENTS_LIMIT = 10;
-
-	const handleScroll = () => {
-		const scrollTop =
-			(document.documentElement && document.documentElement.scrollTop) ||
-			document.body.scrollTop;
-		const scrollHeight =
-			(document.documentElement && document.documentElement.scrollHeight) ||
-			document.body.scrollHeight;
-
-		if (scrollTop + window.innerHeight + 100 >= scrollHeight) {
-			setIsBottom(true);
+		if (target.isIntersecting) {
+			setIsIntersecting(true);
+			setTimeout(() => {
+				setElementsLimit((prev) => (prev += 10));
+			}, 1000);
 		} else {
-			setIsBottom(false);
+			setIsIntersecting(false);
 		}
-	};
-
-	useEffect(() => {
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
-		if (!isBottom) return;
+		const observer = new IntersectionObserver(scrollObserver, {
+			root: null,
+			rootMargin: '0px',
+			threshold: 1.0,
+		});
 
-		const timeout = setTimeout(() => {
-			if (offset <= cardsLength) {
-				setOffset((currentValue) => (currentValue += 10));
-			} else {
-				setOffset(offset);
-			}
-		}, 2000);
+		if (target && target.current) {
+			observer.observe(target.current);
+		}
+		return () => observer.disconnect();
+	}, [target, scrollObserver]);
 
-		return () => clearTimeout(timeout);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isBottom, cardsLength]);
-
-	return {
-		setIsBottom,
-		offset,
-		ELEMENTS_LIMIT,
-		isBottom,
-		setOffset,
-	};
+	return { isIntersecting, elementsLimit };
 };
 
 export default useInfiniteScroll;
