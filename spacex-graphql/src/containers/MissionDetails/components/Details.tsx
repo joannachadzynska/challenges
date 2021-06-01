@@ -8,7 +8,7 @@ import { FaGlobe, FaTwitter, FaWikipediaW } from 'react-icons/fa';
 import { SectionTitle } from 'styles/SectionTitle';
 import { MissionQuery } from './../../../models/missions/interfaces/Mission';
 
-const Details: React.SFC<Launch> = (props) => {
+const Details: React.SFC<Launch> = (props, { target }) => {
 	const details = new LaunchViewModel(props);
 
 	const { loading, error, data } = useQuery<MissionQuery>(GET_MISSION_DETAILS, {
@@ -31,7 +31,7 @@ const Details: React.SFC<Launch> = (props) => {
 		<section>
 			<SectionTitle>mission details</SectionTitle>
 
-			<Card>
+			<Card target={target}>
 				<Card.DetailsContainer>
 					<Card.Image />
 					<Card.Content>
