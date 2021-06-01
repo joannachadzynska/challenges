@@ -9,6 +9,7 @@ const AllMissions: React.SFC = () => {
 	const { currentTarget } = useContext(CardContext);
 	const { isIntersecting, elementsLimit } = useInfiniteScroll(currentTarget);
 	const launches = useAppSelector((state) => state.launches.launches);
+	const length = launches.slice(0, elementsLimit).length;
 
 	return (
 		<section>
@@ -22,7 +23,7 @@ const AllMissions: React.SFC = () => {
 				))}
 			</Card.Group>
 
-			{isIntersecting && <div>Load more...</div>}
+			{isIntersecting && length < launches.length && <div>Load more...</div>}
 		</section>
 	);
 };
