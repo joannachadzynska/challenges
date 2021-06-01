@@ -1,41 +1,14 @@
 import { useAppSelector } from 'app/hooks';
 import { Card } from 'components';
 import { CardContainer } from 'containers/Card';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { CardContext } from '../MissionsContainer';
+import useInfiniteScroll from './../../../hooks/useInfiniteScroll';
 
 const AllMissions: React.SFC = () => {
 	const { currentTarget } = useContext(CardContext);
+	const { isIntersecting, elementsLimit } = useInfiniteScroll(currentTarget);
 	const launches = useAppSelector((state) => state.launches.launches);
-
-	const [isIntersecting, setIsIntersecting] = useState(false);
-	const [elementLimit, setElementLimit] = useState(10);
-
-	const scrollObserver = useCallback((entries: any) => {
-		const target = entries[0];
-
-		if (target.isIntersecting) {
-			setIsIntersecting(true);
-			setTimeout(() => {
-				setElementLimit((prev) => (prev += 10));
-			}, 1000);
-		} else {
-			setIsIntersecting(false);
-		}
-	}, []);
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(scrollObserver, {
-			root: null,
-			rootMargin: '0px',
-			threshold: 1.0,
-		});
-
-		if (currentTarget && currentTarget.current) {
-			observer.observe(currentTarget.current);
-		}
-		return () => observer.disconnect();
-	}, [currentTarget, scrollObserver]);
 
 	return (
 		<section>
@@ -44,7 +17,7 @@ const AllMissions: React.SFC = () => {
 			<Card.Break />
 
 			<Card.Group>
-				{launches.slice(0, elementLimit).map((launch) => (
+				{launches.slice(0, elementsLimit).map((launch) => (
 					<CardContainer target={currentTarget} key={launch.id} {...launch} />
 				))}
 			</Card.Group>
