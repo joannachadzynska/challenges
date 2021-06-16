@@ -32,7 +32,7 @@
 		"class-transformer": "^0.3.1",
 		"class-validator": "^0.12.2",
 		"dotenv": "^8.2.0",
-		"lodash": "^4.17.19",
+		"lodash": "^4.17.21",
 		"reflect-metadata": "^0.1.13"
 	}
 }
