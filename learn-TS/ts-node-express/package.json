@@ -21,6 +21,6 @@
 	"devDependencies": {
 		"@types/express": "^4.17.7",
 		"@types/node": "^14.0.24",
-		"nodemon": "^2.0.4"
+		"nodemon": "^2.0.20"
 	}
 }
